@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.30)  26 APR 2023 09:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.30)  26 APR 2023 09:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2274,29 +2274,32 @@ LaTeX Font Info:    Trying to load font information for U+wasy on input line 24
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 (./Notes/lec1.tex
-Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 7.
+Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 5.
 
-Package marginnote Info: xpos seems to be 131.11996pt on input line 7.
+Package marginnote Info: xpos seems to be 128.03738pt on input line 5.
+Package marginnote Info: Margin note 1.2 is on absolute page 1 on input line 8.
+
+Package marginnote Info: xpos seems to be 131.11996pt on input line 8.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/cmllr/m/n/9'
-(microtype)             (new value: 9.0pt) on input line 7.
+(microtype)             (new value: 9.0pt) on input line 8.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/cmllr/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 7.
+(microtype)             (new value: 5.0pt) on input line 8.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/cmllr/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 10.
+(microtype)             (new value: 10.0pt) on input line 11.
 Package microtype Info: Fixing zero \fontdimen 6 for font `U/cmllr/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 10.
-Package marginnote Info: Margin note 1.2 is on absolute page 1 on input line 26
+(microtype)             (new value: 7.0pt) on input line 11.
+Package marginnote Info: Margin note 1.3 is on absolute page 1 on input line 27
 .
-Package marginnote Info: xpos seems to be 131.11996pt on input line 26.
-Package marginnote Info: Margin note 1.3 is on absolute page 1 on input line 28
-.
-Package marginnote Info: xpos seems to be 153.03741pt on input line 28.
+Package marginnote Info: xpos seems to be 131.11996pt on input line 27.
 Package marginnote Info: Margin note 1.4 is on absolute page 1 on input line 29
 .
 Package marginnote Info: xpos seems to be 153.03741pt on input line 29.
-Package marginnote Info: Margin note 1.5 is on absolute page 2 on input line 30
+Package marginnote Info: Margin note 1.5 is on absolute page 1 on input line 30
 .
-Package marginnote Info: xpos seems to be 124.58467pt on input line 30.
+Package marginnote Info: xpos seems to be 153.03741pt on input line 30.
+Package marginnote Info: Margin note 1.6 is on absolute page 2 on input line 31
+.
+Package marginnote Info: xpos seems to be 124.58467pt on input line 31.
 
 
 Package scrlayer-scrpage Warning: \headheight to low.
@@ -2307,7 +2310,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                e.g., setting geometry's option
 (scrlayer-scrpage)                `head=15.60002pt'.
 (scrlayer-scrpage)                I'll also decrease \topmargin on input line 3
-1.
+2.
 
 
 Overfull \vbox (3.60002pt too high) has occurred while \output is active []
@@ -2322,7 +2325,7 @@ Package scrlayer-scrpage Warning: \footheight to low.
 (scrlayer-scrpage)                e.g., using
 (scrlayer-scrpage)                  \setlength{\footheight}{15.60002pt}
 (scrlayer-scrpage)                in your preamble.
-(scrlayer-scrpage)                I'll also increase \footskip on input line 31
+(scrlayer-scrpage)                I'll also increase \footskip on input line 32
 .
 
 [1
@@ -2336,21 +2339,21 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.32         \end{Aufgabe}
+l.33         \end{Aufgabe}
                           
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Font Info:    Trying to load font information for U+bbold on input line 4
-9.
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 5
+0.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/bbold/Ubbold.fd)
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
 []|\T1/cmr/m/n/10 (+20) Aufenthaltswahrscheinlichkeit
  []
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
-9.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 8
+0.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -2367,8 +2370,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting geometry's option
 (scrlayer-scrpage)                `head=36.0pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 7
-9.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 8
+0.
 
 
 Overfull \vbox (20.39998pt too high) has occurred while \output is active []
@@ -2386,11 +2389,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9534070C232AA0A3F935CB7C3E3F8D46;35.
  ) 
 Here is how much of TeX's memory you used:
- 60832 strings out of 476025
- 1434116 string characters out of 14540017
- 17057157 words of memory out of 20000000
- 80024 multiletter control sequences out of 15000+600000
- 541464 words of font info for 171 fonts, out of 8000000 for 9000
+ 60840 strings out of 476025
+ 1434218 string characters out of 14540017
+ 17057173 words of memory out of 20000000
+ 80027 multiletter control sequences out of 15000+600000
+ 542433 words of font info for 174 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  143i,20n,137p,1078b,1277s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pf
@@ -2407,24 +2410,25 @@ xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texl
 ive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
 texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/loc
 al/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/cm-super/sfbl1000.pfb></usr/local/texlive
-/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2
-023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/202
-3/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/
-texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2023/te
-xmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2023/texm
-f-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-
-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-di
-st/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2023/texmf-dist
-/fonts/type1/public/cm-super/sfst1000.pfb></usr/local/texlive/2023/texmf-dist/f
-onts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2023/texmf-dist/fon
-ts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts
-/type1/urw/zapfding/uzdr.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/pu
-blic/wasy-type1/wasy9.pfb>
-Output written on main.pdf (4 pages, 335807 bytes).
+ve/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive
+/2023/texmf-dist/fonts/type1/public/cm-super/sfbl1000.pfb></usr/local/texlive/2
+023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/202
+3/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/
+texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/te
+xmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2023/texm
+f-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2023/texmf-
+dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-di
+st/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist
+/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2023/texmf-dist/f
+onts/type1/public/cm-super/sfst1000.pfb></usr/local/texlive/2023/texmf-dist/fon
+ts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2023/texmf-dist/fonts
+/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/t
+ype1/urw/zapfding/uzdr.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/publ
+ic/wasy-type1/wasy9.pfb>
+Output written on main.pdf (4 pages, 351889 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+ 186 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  10 named destinations out of 1000 (max. 500000)
- 43541 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 45589 words of extra memory for PDF output out of 51595 (max. 10000000)
 
