@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\begin{document}
+    \subsection*{Einleitung}
+        Bei der Auffassung kleinster Teilchen gab es Probleme mit dem Teilchenmodell. 
+        \begin{Aufgabe}
+            \nr{} Stelle dieses Problem \emph{deutlich} dar. Skizziere eine Lösung desselben. 
+        \end{Aufgabe}
+        \subsubsection*{Schwarzkörperstrahlung}
+            Jede sogenannte\emph{Mode} mit der Frequenz $\nu = c_0/\lambda$ des elektromagnetischen Feldes kann beliebige Energien enthalten, enthält jedoch nach dem \emph{Äquipositionsprinzip} im Mittel die Energie $E = k_B\cdot T$, bekannt als das \emph{Rayleigh-Jeans-Gesetz}. 
+
+        \subsubsection*{Photoeffekt}
+
+
+        \subsubsection*{Compton Effekt}
+            [$\to$ IK4 Exp. II] 
+
+        \subsubsection*{Welleneigenschaften der Materie}
+            [$\to$ IK4 Exp. II]
+
+        \subsubsection*{Doppelspaltexperiment mit Elektronen}
+            [$\to$ IK4 Exp. II]
+
+        
+        \begin{Aufgabe}
+            \nr{} Lies im Skript der \emph{Experimentalphysik II} die Inhalte der Überschriften nach. 
+            \begin{itemize}[label=$\to$]
+                \item \marginnote{\scriptsize(\stift\theshw.1)}Was ist die Wellenfunktion beim Doppelspaltexperiment? Wie erklärt man, daß ein Elektron durch beide Spalten gehen kann? Was passiert mit einem einzeln eingestrahlten Elektron?
+                \item \marginnote{\scriptsize(\stift\theshw.2)}Wie lautet die \emph{de Broglie Relation}?
+                \item \marginnote{\scriptsize(\stift\theshw.3)}Kann man das Doppelspaltexperiment auch mit massiveren Teilchen oder Molekülen durchführen? Gibt es hierbei eine Grenze? Recherchiere den Beitrag zur Doppelspaltuntersuchung der \emph{Universität Konstanz}.
+            \end{itemize}
+        \end{Aufgabe}
+
+    \subsection*{Welle-Teilchen-Dualismus}
+        Wir haben beobachtet:
+        \begin{itemize}[label=$\to$]
+            \item elektromagnetische Wellen verhalten sich wie Teilchen
+            \item materielle Teilchen verhalten sich wie Wellen
+        \end{itemize}
+        Als Ziel unserer folgenden Untersuchungen setzen wir eine \emph{einheitliche Theorie}, welche sowohl die Wellen- als auch die Teilcheneigenschaften beschreibt. 
+
+    \subsection*{Wellenfunktion und Wahrscheinlichkeitsinterpretation}
+        Wir wollen den folgenden Zusammenhang herstellen:
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{p{5cm}|p{6cm}}
+                freies \emph{Teilchen} & ebene \emph{Welle} \\
+                \hline
+                Impuls $p\in\R^3$ & Wellenvektor $k\in\R^3$ \\
+                Energie $E(p) = p^2/2m$ & Kreisfrequenz $\omega(k) = \hbar k^2/2m = c_0\cdot\dabs{k}{2}$ \\
+                 & Amplidute am Ort $r(t)$ mit $\psi(t,r(t)) = C\cdot\exp(\cmath(\scpr{r(t)}{k} - \omega\cdot t))$ $\to$ \emph{Wellenfunktion}
+            \end{tabular}
+            \caption{Gegenüberstellung der Teilchen- und Welleneigenschaften.}
+        \end{table}
+        Es kommen nun die folgenden Fragen auf:
+        \begin{itemize}[label=$\to$]
+            \item Wie hängen $p$ und $k$ zusammen? 
+            \item Was ist die physikalische Bedeutung von $\psi\in C^1(\R\times\R^3,\R)$?
+        \end{itemize}
+        Es stellt sich heraus, daß wir die erste Frage bereits mit der \emph{de Broglie Relation} [$\to$ IK4 Exp II] beantworten können: $p(k) = \hbar\cdot k$, wobei $\hbar:=h/(2\pi)$ mit $h = 6.6\cdot 10^{-34}\si{\joule\second}$. Für die Energie finden wir aus der Schwarzkörperstrahlung den Zusammenhang $E(\omega) = \hbar\cdot\omega$ (Einstein/Planck) mit $\omega = 2\pi\cdot\nu$. In die Funktion $\psi$ eingesetzt folgt
+        \[\psi(t,r(t)) = C\cdot\exp(\frac{\cmath\cdot (\scpr{p,r(t)}-E(p)\cdot t)}{\hbar}).\]
+        Für die Dispersion der Welle gilt 
+        \[E(\omega) = \hbar\cdot\omega = \begin{cases}
+            \frac{\hbar^2\cdot k^2}{2\cdot m} & m>0 \\
+            \hbar\cdot c_0\cdot \dabs{k}{2} \sonst
+        \end{cases} = \begin{cases}
+            \frac{\scpr{p}{p}}{2\cdot m} & m>0 \\
+            c_0\cdot\dabs{p}{2} \sonst
+        \end{cases}\]
+        Für die physikalische Interpretation müssen wir uns der Wahrscheinlichkeitsinterpretation widmen: 
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{p{5cm}|p{5cm}}
+                Teilchen & Welle \\
+                \hline
+                Aufenthaltswahrscheinlichkeit des Teilchens (pro Volumen) am Ort $r(t)$ zur Zeit $t\in\R$ & Intensität der Welle $\abs{\psi(t,r(t))}^2$ \\
+            \end{tabular}
+        \end{table}
+        Prinzipiell ist es möglich, den \emph{Ort} zum \emph{Zeitpunkt} eines Teilchens zu kennen; anders ist es bei quantenmechanischen Wellen. Wir bemerken:
+        \begin{itemize}[label=$\to$]
+            \item $\psi$ bezeichnet man auch als \emph{Wahrscheinlichkeitsamplitude}. 
+            \item Die Aufenthaltswahrscheinlichkeit des durch $r$ beschriebenen Teilchens ist gegeben als Integral 
+            \[P(t,V) := \lint{\abs{\psi(t,x)}^2}{x}{V} =: \mu(V)\]
+            mit Wahrscheinlichkeitsmaß $P(t,\cdot)=:\mu$ auf $(\R^3,\sigma(\R^3))$. Auf einem Spurraum $(\Omega,\sigma(\Omega),\mu|_\Omega)$ erweitern wir 
+            \[P(t,V) := \begin{cases}
+                \lint{\abs{\psi(t,x)}^2}{x}{V} & V\in\sigma(\R^3) \\
+                \infty \sonst
+            \end{cases}.\]
+            \item Aus der Wahrscheinlichkeitsmaß-Eigenschaft $\mu(\R^3) = 1$ folgt
+            \[P(t,\R^3) = \lint{\abs{\psi(t,x)}^2}{x}{V} = 1.\]
+            \item In einem Volumen $W\subseteq V\subseteq\R^3$ gilt $\mu|_V(W) = \lambda(V)\cdot\abs{C}^2$ und für $W=V$ folgt $\abs{C}^2 = \frac{1}{\lambda(V)}$.
+        \end{itemize}
+        Ebene Wellen beschreiben also Teilchen mit wohldefiniertem Impuls $p = \hbar\cdot k$, aber vollständig unbestimmtem Ort.
+
+    \subsection*{Wellenpakete}
+        Als nächstes beschäftigen wir uns mit der Frage, wie wir Teilchen mit genau definiertem Aufenthaltsort beschreiben. Wir wenden uns hierbei an das Prinzip der \emph{Superposition}, konkreter der \emph{Fourier-Summation}, bei der wir eine Funktion $f\in \mcL^2(\R^3)$ zerlegen in Funktionen des Typus der ebenen Welle:
+        \[\psi(t,r(t)) = \frac{1}{(2\cdot\pi)^3}\mint{\fdef{\exp(\cmath\cdot(\scpr{x}{r(t)} - \frac{\hbar\cdot x}{2\cdot m}\cdot t))}{x\in\R^3}}{\tilde\psi}{V}\quad V\subseteq\R^3,\]
+        wobei $(\R^3,\sigma(\R^3),\tilde\psi)$ ein Maßraum ist. 
+\end{document}
