@@ -8,7 +8,7 @@
             \nr{} Stelle dieses Problem \emph{deutlich} dar. Skizziere eine Lösung desselben. 
         \end{Aufgabe}
         \subsubsection*{Schwarzkörperstrahlung}
-            Jede sogenannte\emph{Mode} mit der Frequenz $\nu = c_0/\lambda$ des elektromagnetischen Feldes kann beliebige Energien enthalten, enthält jedoch nach dem \emph{Äquipositionsprinzip} im Mittel die Energie $E = k_B\cdot T$, bekannt als das \emph{Rayleigh-Jeans-Gesetz}. 
+            Jede sogenannte \emph{Mode} mit der Frequenz $\nu = c_0/\lambda$ des elektromagnetischen Feldes kann beliebige Energien enthalten, enthält jedoch nach dem \emph{Äquipositionsprinzip} im Mittel die Energie $E = k_B\cdot T$, bekannt als das \emph{Rayleigh-Jeans-Gesetz}. 
 
         \subsubsection*{Photoeffekt}
 
@@ -53,7 +53,7 @@
             \end{tabular}
             \caption{Gegenüberstellung der Teilchen- und Welleneigenschaften.}
         \end{table}
-        Es kommen nun die folgenden Fragen auf:
+        \noindent Es kommen nun die folgenden Fragen auf:
         \begin{itemize}[label=$\to$]
             \item Wie hängen $p$ und $k$ zusammen? 
             \item Was ist die physikalische Bedeutung von $\psi\in C^1(\R\times\R^3,\R)$?
@@ -77,24 +77,33 @@
                 Aufenthaltswahrscheinlichkeit des Teilchens (pro Volumen) am Ort $r(t)$ zur Zeit $t\in\R$ & Intensität der Welle $\abs{\psi(t,r(t))}^2$ \\
             \end{tabular}
         \end{table}
-        Prinzipiell ist es möglich, den \emph{Ort} zum \emph{Zeitpunkt} eines Teilchens zu kennen; anders ist es bei quantenmechanischen Wellen. Wir bemerken:
+        \noindent Prinzipiell ist es möglich, den \emph{Ort} zum \emph{Zeitpunkt} eines Teilchens zu kennen; anders ist es bei quantenmechanischen Wellen. Wir bemerken:
         \begin{itemize}[label=$\to$]
             \item $\psi$ bezeichnet man auch als \emph{Wahrscheinlichkeitsamplitude}. 
             \item Die Aufenthaltswahrscheinlichkeit des durch $r$ beschriebenen Teilchens ist gegeben als Integral 
             \[P(t,V) := \lint{\abs{\psi(t,x)}^2}{x}{V} =: \mu(V)\]
-            mit Wahrscheinlichkeitsmaß $P(t,\cdot)=:\mu$ auf $(\R^3,\sigma(\R^3))$. Auf einem Spurraum $(\Omega,\sigma(\Omega),\mu|_\Omega)$ erweitern wir 
+            mit Wahrscheinlichkeitsmaß $P(t,\cdot)=:\mu$ auf $(\R^3,\sigma(\R^3))$. Ist der Aufenthalt in einem Volumen $V\subseteq\R^3$ bekannt, so sei 
             \[P(t,V) := \begin{cases}
                 \lint{\abs{\psi(t,x)}^2}{x}{V} & V\in\sigma(\R^3) \\
                 \infty \sonst
-            \end{cases}.\]
+            \end{cases}\]
+            eine Umdefinition des Maßes. 
             \item Aus der Wahrscheinlichkeitsmaß-Eigenschaft $\mu(\R^3) = 1$ folgt
             \[P(t,\R^3) = \lint{\abs{\psi(t,x)}^2}{x}{V} = 1.\]
-            \item In einem Volumen $W\subseteq V\subseteq\R^3$ gilt $\mu|_V(W) = \lambda(V)\cdot\abs{C}^2$ und für $W=V$ folgt $\abs{C}^2 = \frac{1}{\lambda(V)}$.
+            \item In einem Volumen $W\subseteq V\subseteq\R^3$ gilt $\mu|_V(W) = \lambda(V)\cdot\abs{C}^2$ und für $W=V$ folgt $\abs{C}^2 = 1/\lambda(V)$.
         \end{itemize}
         Ebene Wellen beschreiben also Teilchen mit wohldefiniertem Impuls $p = \hbar\cdot k$, aber vollständig unbestimmtem Ort.
+        \begin{Aufgabe}
+            \nr{} Überlege dir den Spezialfall eines Punktes $\nset{x}\subseteq\R^3$ als Testvolumen. Wie sieht die Aufenthaltswahrscheinlichkeit aus?
+        \end{Aufgabe}
 
     \subsection*{Wellenpakete}
         Als nächstes beschäftigen wir uns mit der Frage, wie wir Teilchen mit genau definiertem Aufenthaltsort beschreiben. Wir wenden uns hierbei an das Prinzip der \emph{Superposition}, konkreter der \emph{Fourier-Summation}, bei der wir eine Funktion $f\in \mcL^2(\R^3)$ zerlegen in Funktionen des Typus der ebenen Welle:
-        \[\psi(t,r(t)) = \frac{1}{(2\cdot\pi)^3}\mint{\fdef{\exp(\cmath\cdot(\scpr{x}{r(t)} - \frac{\hbar\cdot x}{2\cdot m}\cdot t))}{x\in\R^3}}{\tilde\psi}{V}\quad V\subseteq\R^3,\]
-        wobei $(\R^3,\sigma(\R^3),\tilde\psi)$ ein Maßraum ist. 
+        \[\psi(t,r(t)) = \frac{1}{(2\cdot\pi)^3}\mint{\fdef{\exp(\cmath\cdot(\scpr{x}{r(t)} - \frac{\hbar\cdot x^2}{2\cdot m}\cdot t))}{x\in\R^3}}{\tilde\psi}{V}\quad V\subseteq\R^3,\]
+        wobei $(\R^3,\sigma(\R^3),\tilde\psi)$ ein Maßraum ist. Wir haben dabei den Zusammenhang 
+        \[E = \hbar\cdot\omega(k) = \frac{\hbar\cdot k^2}{2\cdot m}.\]
+
+        \begin{Aufgabe}
+            \nr{} Warum wird bei der Fourier-Summation keine Wurzel im Vorfaktor gezogen? Recherchiere verschiedene Konventionen. [\textit{Tipp:} Bedenke $\hbar = h/(2\cdot \pi)$ und die Definition des Impulses über $k$.]
+        \end{Aufgabe}
 \end{document}
