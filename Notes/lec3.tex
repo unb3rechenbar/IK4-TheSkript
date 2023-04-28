@@ -1,0 +1,39 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \subsection{Die Schrödingergleichung für freie Teilchen}
+    Als Ziel der Untersuchungen ist eine Wellengleichung für die Wahrscheinlichkeitsamplitude $\Psi$ zu finden. Wir lassen hierbei den mathematischen Beweis fallen und versuchen, die Gleichung zu \enquote{erraten}.\\
+    Mit Gleichung ?? und $p = \hbar\cdot k$ folgt 
+    \[\psi(t,r(t)) = \lint{\frac{1}{(2\pi\hbar)^3}\cdot\tilde\psi(p)\cdot f(t,r(t))}{p}{} = (\mcF \hat\psi)(t,r(t))\]
+    mit $f:=\fdef{\exp(\cmath\cdot(\scpr{p,r(t)}-p^2\cdot t/2m)/\hbar)}{(t,r)\in\R\times\R^d} = f_1(t,r(t))\cdot f_2(t,r(t))$. Für die Ableitung gilt dann
+    \[\Dvat{s}{\psi(s,r(s))}{t} = \Dvat{s}{\mcF\hat\psi(s,r(s))}{t} = \frac{1}{(2\pi\hbar)^3}\lint{\nbra{\frac{-\cmath}{2m\hbar}}\cdot p^2\cdot f(t,r(t))}{p}{}.\]
+    \begin{Aufgabe}
+        \nr{} Wie lautet die Ableitungen $df_1(t,r)(0,h)$ und $df_2(t,r)(0,h)$? Notiere den Ausdruck in verschiedenen Ableitungsdarstellungen. Ersetze $p^2\cdot f_1(t,r(t))$ durch den entsprechenden Ableitungsausdruck. 
+    \end{Aufgabe}
+    \noindent Mit der Aufgabe folgt dann 
+    \[\Dvat{s}{\psi(s,r(s))}{t} = \frac{\cmath\cdot\hbar}{2\cdot m} d(\mcF\tilde\psi)(t,r(t))(\mch)(\mch)\]
+    mit der Definition 
+    \[\mbbD_{(\mch,\mch)}(\mcF\hat\psi)(t,r(t)) = \lint{\frac{1}{(2\pi\hbar)^3}\cdot\hat\psi(p)\cdot f(t,r(t))}{p}{}.\]
+    \begin{whiteframedr}
+        Wir erhalten also die \emph{zeitabhängige Schrödingergleichung für freie Teilchen} der Form
+        \[\Dvat{s}{\psi(s,r(s))}{t} = \frac{\cmath\cdot\hbar}{2\cdot m} \mbbD_{(\mch,\mch)}(\mcF\hat\psi)(t,r(t)) = \frac{\cmath\cdot\hbar}{2\cdot m} \mbbD_{(\mch,\mch)}\psi(t,r(t)).\]
+    \end{whiteframedr}
+
+    \begin{Aufgabe}
+        \nr{} Berechne die Ableitung $df(t,r(t))(0,h)$. Berechne weiter $d\psi(t,r(t))(1,0)$ und verifiziere dadurch den oberen Funktionsausdruck.
+
+        \nr{} Klassifiziere die Schrödingergleichung. Welche Ordnung hat sie? Schreibe sie in eine Form, bei welcher die rechte Seite reell ist. 
+
+        \nr{} Benenne drei Beispiele $(s,S)\in\textit{Anfangswert}(\psi)$. 
+
+        \nr{} Wie steht die erhaltene Schrödingergleichung mit der Diffusionsgleichung $\Dvat{s}{\phi(s,x(s))}{t} = D\cdot \mbbD_{(h,h)}\psi(t,s(t))$ im Zusammenhang? Stelle Ähnlichkeiten und Unterschiede heraus. 
+
+        \nr{} Betrachte die Dispersionsreihe 
+        \[E(p) = \sum_{n(x) = 0}^\infty\sum_{n(y) = 0}^\infty\sum_{n(z) = 0}^\infty c(n(x),n(y),n(z))\cdot p(1)^{n(x)}\cdot p(2)^{n(y)}\cdot p(3)^{n(z)}.\]
+        Was passiert im Falle $\mcp := -\cmath h\cdot\div$? Wie kann man die Reihe umdefinieren für Operatoren? In welchem Raum liegt $E(\mcp)$?
+    \end{Aufgabe}
+
+
+
+
+\end{document}
