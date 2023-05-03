@@ -1,0 +1,71 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 4}}\\03.05.2023, 08:15}
+    Um eine Lösung dieser partiellen Differentialgleichung zu erhalten, müssen wir mit dem Seperationsansatz beginnen. 
+
+    \subsubsection*{Zeitunabhängige Schrödingergleichung}
+        Wir spalten unser $\phi$ in die Funktionen $\phi$ und $\chi$ auf nach der Form $\psi(t,r(t)) = \phi(r(t))\cdot\chi(t)$. Wir nehmen hierbei an, daß dies problemlos möglich ist; typische Tücken des Seperationsansatz. Wir fordern sogar weiter, daß $\lint{\abs{\psi(t,r(t))}}{t}{} = 1$, sodaß die implizite Bedingung $\chi(t)\neq 0$ für alle $t\in\R$ folgt. Setzen wir diesen Ansatz in die Schrödingergleichung ein, so erhalten wir
+        \[\phi(r(t))\cdot\cmath\hbar\cdot\Dvat{s}{\chi(s)}{t} = \chi\nbra{-\frac{\hbar^2}{2m}}\cdot\Diff{\phi}{\mch,\mch}{t}{}.\]
+        \begin{Aufgabe}
+            \nr{} Rechne nach, daß $\lint{\abs{\psi(t,r(t))}}{t}{} = 1$ zu $\chi(t)\neq 0$ für alle $t\in\R$ führt.
+        \end{Aufgabe}
+        Nun ist der weitere Ansatz das Dividieren durch $\phi(r(t))$ und $\chi(t)$, um gemäß der Seperationschablone zeit- und ortsabhängige Funktionen voneinander zu trennen. Für $\chi(t)$ wissen wir durch unsere Annahme, daß sie ungleich Null sein wird; Für $\phi(r(t))$ müssen wir eine Fallunterscheidung machen. Schematisch erhalten wir zunächst
+        \[\cmath\hbar\cdot\Dvat{s}{\chi(s)}{t}\cdot\frac{1}{\chi(t)} = -\frac{\hbar^2}{2\cdot m}\cdot\Diff{\chi}{\mch,\mch}{t}{}\cdot\frac{1}{\phi(r(t))}=\textit{const.} =: E.\]
+        Mit dem Analyseblick erkennen wir $(\dv{t}\chi(t))/\chi(t) = \dv{t}\ln(t)$, sodaß 
+        \[\Dvat{s}{\chi(s)}{t} = -\frac{\cmath\cdot E}{\hbar} \Leftrightarrow \chi(t) = C_1\cdot\exp(-\frac{\cmath\cdot E\cdot t}{\hbar}),\]
+        Wobei die Konstante $C_1$ Resultat der Integration $\int f dt$ ist. Für die rechte Seite gilt zunächst
+        \[-\frac{\hbar^2}{2m}\cdot\Diff{\phi}{\mch,\mch}{r(t)}{} = E\cdot\phi(r(t)),\]
+        schematisch nahe der \emph{Laplace-Gleichung}. Wir haben es hierbei konkret mit einem \emph{verallgemeinerten Eigenwertproblem} zutun, welche wir spezieller in [$\to$ math. Grund. der Quant.] behandeln werden. In diesem Kontext reicht uns der Name \emph{zeitunabhängige Schrödingergleichung}. Der ausstehenden Fallunterscheidung kommen wir nun nach: Für $\phi(r(t)) = 0$ erhalten wir $\Diff{\phi}{\mch,\mch}{r(t)}{} = 0$, wodurch die Schrödingergleichung ebenfalls gilt; Wir hatten also bei unserem zunächst frei angenommenen Seperationsansatz Glück. 
+
+        \begin{Aufgabe}
+            \nr{} Begründe, warum die Annahme der Konstante $E$ im Seperationsansatz gerechtfertigt ist.
+
+            \nr{} Zeige, daß aus $\phi(r(t)) = 0$ folgt, daß $\Diff{\phi}{\mch,\mch}{r(t)}{} = 0$.
+        \end{Aufgabe}
+        Als \emph{Lösungen} der zeitunabhängigen Schrödingergleichung erhalten wir $\phi(r(t)) = C_2\cdot\exp(\cmath\cdot\scpr{k}{r(t)})$, welche der Form einer implizit zeitunabhängigen \emph{ebenen Welle} entspricht. Zusammengesetzt gilt für $\psi$ demnach
+        \[\psi(t,r(t)) = C\cdot\exp(\cmath\cdot\nbra{\scpr{k}{r(t)} - \frac{\hbar\cdot k^2}{2m}\cdot t}),\]
+        wobei wir $E = \hbar^2\cdot k^2/(2m)$ setzen. 
+
+    \subsection{Allgemeine Form der Schrödingergleichung}
+        Bisherig nahmen wir an, daß unsere betrachteten Teilchen \emph{kräftefrei} sind. Erweitern wir unseren Blick auf \emph{konservativ kräftebefallene} Teilchen, existiert ein Kraftpotential $V$ sodaß $F(t,r(t)) = -dV(t,r(t))(h)$ gilt. Im klassischen Betrachtungsfall haben wir bereits die \emph{Hamiltonfunktion} kennengelernt:
+        \[H(t,(r(t),p(t))) = \frac{p(t)}{2m} + V(t,r(t)).\]
+        Wir wollen nun die Schrödingergleichung erraten: angenommen, wir haben ein sehr schmales Wellenpaket relativ zur Änderung von $V$, sodaß wir eine gute Approximation von $V$ am Ort $(t,r(t))$ durch $V(t_0,r(t_0))$ erhalten. Für die Funktion $p\mapsto H(t,(r,p))$ mit der Dispersionsreihe $\mcE$ erhalten wir
+        \[\cmath\hbar\cdot\Dvat{s}{\psi(s,r(s))}{t} = \mcE_H(\psi(t,r(t))) (= H(t,(r(t),-\cmath\hbar\nabla))),\]
+        wobei der geklammerte Term eine \textit{Schreibweise} zur Erinnerung an die klassische Hamiltonfunktion ist. Damit folgt die \emph{allgemeinste} Version der zeitunabhängigen Schrödingergleichung für einzelne Teilchen als fundamentalen quantenmechanischen Zusammenhang:
+        \[\cmath\cdot\hbar\cdot\Dvat{s}{\psi(s,r(s))}{t} = \nbra{-\frac{\hbar^2}{2m}\mathbb{D}_{(\mch,\mch)} + V(t,r(t))}(\psi(t,r(t))).\]
+        Es handelt sich hier wieder um ein AWP: Die Gleichung löst sich also eindeutig für einen Anfangswert $(s,S)\in\text{AW}(\psi)$. 
+
+        \begin{Aufgabe}
+            \nr{} Wie muss man $t_0\in\R$ wählen, sodaß die Approximation von $V$ ausreichend gut ist? Was bedeutet \enquote{schmal relativ zur Änderung von $V$}?
+
+            \nr{} Wie sieht die suggerierte Auswertung des Ausdrucks $(\cdot +\cdot)(\psi(\cdot))$ aus? Was bedeutet die Schreibweise?
+
+            \nr{} Kläre den Zusammenhang der Schrödingergleichung mit der Newtongleichung $F=ma$. Recherchiere dazu im Nolting und beachte die folgende Optikanalogie:
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{c|c}
+                    \small{Mechanik} & \small{Optik} \\
+                    \hline
+                    \small{Schrödingergleichung} & 
+                    \small{Wellenoptik} \\
+                    \small{$\updownarrow$} & 
+                    \small{$\updownarrow$} \\
+                    \small{klassische Mechanik} & 
+                    \small{geometrische Optik}
+                \end{tabular}
+            \end{table}
+
+            \nr{} Schlage alternative Formulierungen der Schrödingergleichung nach. Beachte als Beispiel die \href{https://de.wikipedia.org/wiki/Pfadintegral}{\emph{Feynmanschen Pfadintegrale}} ausgehend von Langrangian. 
+        \end{Aufgabe}
+        In dem Ausdruck kann man schon den \emph{Hamilton-Operator} identifizieren: $\hat H := -(\hbar^2)/(2m)\cdot\mbbD_{(\mch,\mch)}+V(t,r(t))$, welchen wir näher in [$\to$ math. Grund. der Quant.] betrachten. Sogar in diesem verschachtelt sehen wir $\hat p :=-\hbar\cdot\mbbD_\mch$, auch näher in [$\to$ math. Grund. der Quant.] (\textit{dringend empfohlen}). 
+
+        \begin{Aufgabe}
+            \nr{} Meditiere eine halbe Stunde über den letzten Sätzen. Lege dir das Skript der Funktionalanalysis und der mathematischen Grundlagen der Quantenmechanik bei. 
+        \end{Aufgabe}
+        Eine wichtige Neuheit der Quantenmechanik lässt sich hier bereit feststellen: Die \emph{Observablen} werden durch \emph{Operatoren} dargestellt. Diese sind \emph{linear} und (meist) \emph{selbstadjungiert} auf einem geeigneten Hilbertraum. Wir sprechen hierbei von dem \emph{Korrespondenzprinzip}. Wir werden später noch sehen, daß unsere Operatoren die Eigenschaft \emph{hermitesch}, im Sinne von \emph{symmetrisch}, \emph{dicht definert} und \emph{abgeschlossen}, erfüllen. 
+
+        \subsubsection*{Explizit zeitunabhängiger Fall}
+            Einzig im explizit zeitunabhängigen Fall $\dv{t}\hat H = 0$ funktioniert der oben beschriebene Seperationsansatz $\psi = \phi\cdot\chi$. In diesem Fall erhalten wir wieder ein verallgemeinertes Eigenwertproblem. 
+
+\end{document}
