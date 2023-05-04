@@ -1,0 +1,86 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 5}}\\May the forth\\be with you!}[-1cm]
+    \begin{Aufgabe}
+        \nr{} Was bedeutet der Ausdruck $\dv{t}\hat H$? Entpacke ihn, indem du die Operatordefinitionen verwendest. 
+    \end{Aufgabe}
+    \subsubsection*{Lösungen}
+        Liegen uns Lösungen $\fdef{\psi_n}{n\in I}$ der Schrödingergleichung vor, so können wir diese als \emph{Orthonormalbasis} für den Hilbertraum verwenden. Es gilt demnach
+        \[\lint{\phi_n(x)\cdot\overline{\phi_m}(x)}{x}{} = \begin{cases}
+            1 & n=m\\
+            0 & n\neq m
+        \end{cases}\quad [\text{siehe Skalarprodukt }\mbbL^2(\R^3)].\]
+        Damit ist auch eine Linearkombination $\Phi = \sum_{i\in I}c_i\cdot\phi_i$ mit $c\in\Abb{I}{C^1(\R,\C)}$ von Lösungen $\phi_i$ eine Lösung der Schrödingergleichung. \\
+        \begin{Aufgabe}
+            \nr{} Zeige diesen Satz. 
+        \end{Aufgabe}
+        \noindent Setzt man eine solche Lösung in die Schrödingergleichung ein, so erhält man
+        \[\cmath\hbar\cdot\sum_{i\in I}E_i(t)\cdot\phi_i(r(t)) = \sum_{i\in I}c_i(t)\cdot\hat H\phi_i(r(t)) = \sum_{i\in I}c_i(t)\cdot E_i\phi_i(r(t)),\]
+        und mit $\phi$ Orthonormalbasis 
+        \[\cmath\hbar\cdot c_i'(t) = E_i c_i(t) \Longleftrightarrow c_i(t) = c_i(0)\cdot\exp(-\cmath E_i t/\hbar),\]
+        wobei die $c_i(0)$ aus den Anfangsbedingungen folgen:
+        \[c_i(0) = \lint{\overline{\phi_i}(x)\cdot\psi(0,x)}{x}{}.\]
+        Damit können wir im letzten Schritt durch Zusammenfassung eine allgemeine Lösung der zeitabhängigen AWPs konstruieren:
+        \[\Phi(t,r(t)) = \sum_{i\in I}c_i(0)\cdot\exp(-\cmath E t/\hbar)\cdot\phi_i(r(t)).\]
+
+    \subsubsection{Stationäre Zustände}
+        Im letzten Abschnitt haben wir eine Lösung der zeitunabhängigen Schrödingergleichung konstruiert. Ist $\Phi$ nun eine solche konstruierte Lösung, dann ist für ein spezielles $c\in\Abb{I}{C^1(\R,\C)}$ mit $c_n(t)\neq 0$ für ein singuläres $n\in I$ für $\Phi$ der Ausdruck
+        \[\Phi(t,r(t)) = c_n(t)\cdot \phi_n(r(t))\cdot \exp(-\cmath Et/\hbar) = c_n(t)\cdot\Phi(0,r(t))\cdot\exp(-\cmath Et/\hbar),\]
+        wobei in dem Absolutbetrag $\abs{\psi(t,r(t))} = \abs{\psi(0,r(t))}$ gilt. Man spricht hier von einem \emph{stationären Zustand}.
+
+    \subsection{Normierung und Erwartungswert}
+        Wir wollen nun den Wahrscheinlichkeitsaspekt von $\abs{\psi(t,r(t))}^2$ näher betrachten. Wir definieren zunächst das \emph{Maß mit Dichte} $\mu_\psi:=\fdef{\lint{\abs{\psi(t,x)}}{x}{A}}{A\in\Borel{\R^3}}$. Nun fordern wir von $\Gamma:=\fdef{\abs{\psi(t,r(t))}^2}{(t,r(t))\in\Def{\psi}}$ als Gewichtungsfunktion die Eigenschaft $\mu_\psi(\R^3) = 1.$ 
+        \begin{Aufgabe}
+            \nr{} Zeige für $\psi = c_1\cdot\psi_1 + c_2\cdot\psi_2$ mit geeigneten Gewichtungsfunktionen $c_1,c_2$ die Eigenschaft $\mu_\psi(\R^3)\neq 1$. Ist dies ein Widerspruch zwischen dem Superpositionsprinzip und der Normierung?
+        \end{Aufgabe}
+        Normierbare $\psi$ müssen nach der Aufgabe also die Eigenschaften (i) $\psi\in\mcL^2(\R^3)$ und (ii) $\mu_\psi(\R^3)\neq 0\Leftrightarrow \psi\neq 0$ erfüllen. Dann ergibt sich eine Normierung durch
+        \[P_\psi(t,r(t)):=\frac{\abs{\psi(t,r(t))}^2}{\mu_\psi(\R^3)},\]
+        wobei $P$ eine \emph{Wahrscheinlichkeitsverteilung} ist. 
+        \begin{Aufgabe}
+            \nr{} Zeige, daß alle $\psi$, welche die Normierungsbedingungen erfüllen, zusammen mit dem Nullvektor $0_{\mcL^2(\R^3)}$ einen Vektorraum bilden. Welcher Raum ist es dann?
+
+            \nr{} Zeige, daß die $\psi$ zwar einen physikalischen Zustand beschreiben, jedoch nicht eindeutig wählbar sind. 
+        \end{Aufgabe}
+
+        \subsubsection*{Zeitabhängigkeit der Normierung}
+            Betrachten wir die Zeitableitung unseres auf $\psi$ konstruierten Maßes $P_\psi$ auf einer Menge $A\subseteq\R^3$, müssen wir zunächst sicherstellen, daß $\mu_\psi(\R^3)$ zeitunabhängig ist:
+            \[\dv{t}\mu_\psi(\R^3) = \dv{t}\lint{\abs{\psi(t,x)}^2}{x}{\R^3} = \lint{\dv{t}\overline{\psi(t,x)}}{x}{\R^3} + \lint{\dv{t}\overline{\psi(t,x)}}{x}{\R^3}.\]
+            Schreibt man die Definitionen sauber aus, dann bleibt nach Kürzung lediglich 
+            \begin{align*}
+                \dv{t}\mu_\psi(\R^3) &= \frac{-\cmath\hbar}{2m}\cdot\lint{\overline{\psi(t,x)}\cdot D_{h}^2\psi(t,x) - \psi(t,x)\cdot D_h^2\overline{\psi}(t,x)}{x}{\R^3} \\
+                &= -\lint{D_h\nbra{\frac{-\cmath\hbar}{2m}\cdot\nsqbra{\overline{\psi}\cdot D_h\psi - \psi\cdot D_h\overline{\psi}}}(t,x)}{x}{\R^3}.
+            \end{align*}
+            \begin{Aufgabe}
+                \nr{} Rechne alle Schritte gründlich nach, um den letzten Ausdruck zu erhalten. \anm{In der Vorlesung war der Vorgang zu schnell.}
+
+                \nr{} Wende nun den Satz von Gauß auf den letzten Ausdruck an. Wie muss man korrekt Umgehen mit der Hilfsidee \enquote{Rand von $\R^3$}? Erhalte im letzten Schritt $\dv{t}\mu_\psi(\R^3) = 0$. 
+
+                \nr{} Berechne nun die Ableitung $\dv{t}\mu_\psi(A)$. 
+            \end{Aufgabe}
+            \noindent Definiere nun den \emph{Wahrscheinlichkeitsstrom}
+            \[j(t,r(t)) := \frac{-\cmath\hbar}{2m}\cdot\nsqbra{\overline{\psi}\cdot D_h\psi - \psi\cdot D_h\overline{\psi}}.\]
+            Dann kann man die \emph{Kontinuitätsgleichung} wiederfinden:
+            \[\dv{t}\Gamma(t,r(t)) + D_hj(t,r(t)) = 0.\]
+
+        \subsubsection*{Erwartungswerte}
+            Als Mittelung über die Wahrscheinlichkeitsverteilung $P_\psi$ definieren wir den \emph{Erwartungswert} als 
+            \[E_{P,r}(t):=\fdef{\lint{r\cdot P_\psi(t,r)}{x}{A}}{A\in\Borel{\R^3}},\]
+            und für allgemeinere Funktionen des Ortes $f\in\Abb{\R^3}{\R^3}$ 
+            \[E_{P,r,f}(t):=\fdef{\lint{f(r)\cdot P_\psi(t,r)}{x}{A}}{A\in\Borel{\R^3}}.\]
+
+    \subsection{Wellenfunktion im Impulsraum}
+        Wir hatten bereits gesehen, daß wir ein Wellenpaket mit $\psi(0,r(t)) = \mcF\psi(0,(p\circ r)(t))$ konstruieren können. Für ein allgemeineres $t\in\R$ haben wir 
+        \[\psi(t,r(t)) = \lint{\frac{1}{(2\pi\mch)^3}\cdot \mcF\psi(t,p)\cdot\exp(-\frac{\cmath p\cdot r(t)}{\hbar})}{p}{}\]
+        und
+        \[\mcF\psi(t,(p\circ r)(t)) = \lint{\psi(t,x)\cdot\exp(\frac{\cmath\scpr{(p\circ r)(t)}{x}}{\hbar})}{x}{}.\]
+        Die Auswirkungen auf die Wahrscheinlichkeitsverteilung sind 
+        \[P_{\mcF\psi}(t,(p\circ r)(t)) = \frac{1}{(2\pi\hbar)^3}\cdot P_\psi(t,(p\circ r)(t)).\]
+
+        \begin{Aufgabe}
+            \nr{} Weise die letzte Gleichung nach. Verwende hierzu die Definition von $P$ und nutze Linearität. 
+
+            \nr{} Berechne nun die Erwartungswerte $E_{P,p}(t)$ und $E_{P,p,f}(t)$. 
+        \end{Aufgabe}
+
+\end{document}
