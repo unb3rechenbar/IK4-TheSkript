@@ -35,7 +35,8 @@
 
         \subsubsection*{Operatoren der Quantenphysik}
             In der Quantenmechanik beschreiben wir Observable nun durch Identifikation mit Operatoren:
-            \begin{table}
+            \begin{table}[H]
+                \centering
                 \begin{tabular}{c|c}
                     Messgröße & Operator \\
                     \hline
@@ -47,10 +48,10 @@
             Wie in der Physik üblich handelt es sich hier allerdings nur um \emph{Sprechweisen}, welche an die mathematischen Hintergründe im physikalisch ausreichenden Sinne \emph{erinnern}. \\
 
             Die sogenannten \emph{Eigenzustände} sind Lösungen des verallgemeinerten Eigenwertproblemes $T(\psi) = \lambda\cdot\psi$ zu dem verallgemeinerten Eigenwert $\lambda\in\C$ und einem Operator $T\in L_S(\mcH)$ über dem komplexen Hilbertraum $\mcH$. Ist $\psi$ ein solcher Eigenzustand von $T$, so ist der Erwartungswert 
-            \begin{align*}
+            \begin{multline*}
                 E_{T(\psi),}(t) = \lint{\overline{\psi(t,r)}\cdot (T\circ\psi)(t,r)}{r}{\R^3} \\
                 = \lint{\overline{\psi(t,r)}\cdot \lambda\cdot\psi(t,r)}{r}{\R^3} = \lambda\cdot E_{P(\psi),r}(t)(\R^3) = \lambda.
-            \end{align*}
+            \end{multline*}
             
             \begin{Aufgabe}
                 \nr{} Zeige die Aussage $E_{T(\psi),x}(t)(\R^3) = \lambda^2$. 
