@@ -30,13 +30,13 @@
         wobei in dem Absolutbetrag $\abs{\psi(t,r(t))} = \abs{\psi(0,r(t))}$ gilt. Man spricht hier von einem \emph{stationären Zustand}.
 
     \subsection{Normierung und Erwartungswert}
-        Wir wollen nun den Wahrscheinlichkeitsaspekt von $\abs{\psi(t,r(t))}^2$ näher betrachten. Wir definieren zunächst das \emph{Maß mit Dichte} $\mu_\psi:=\fdef{\lint{\abs{\psi(t,x)}}{x}{A}}{A\in\Borel{\R^3}}$. Nun fordern wir von $\Gamma:=\fdef{\abs{\psi(t,r(t))}^2}{(t,r(t))\in\Def{\psi}}$ als Gewichtungsfunktion die Eigenschaft $\mu_\psi(\R^3) = 1.$ 
+        Wir wollen nun den Wahrscheinlichkeitsaspekt von $\abs{\psi(t,r(t))}^2$ näher betrachten. Wir definieren zunächst das \emph{Maß mit Dichte} $\mu_\psi:=\fdef{\lint{\abs{\psi(t,x)}}{x}{A}}{A\in\Borel{\R^3}}$. Nun ist die Forderung von $\Gamma:=\fdef{\abs{\psi(t,r(t))}^2}{(t,r(t))\in\Def{\psi}}$ als Gewichtungsfunktion die Eigenschaft $P_{\mu_\psi}(\R^3) = 1$ unseres gewünschten \emph{Wahrscheinlichkeitsmaßes} $P_{\mu_\psi}$ 
         \begin{Aufgabe}
             \nr{} Zeige für $\psi = c_1\cdot\psi_1 + c_2\cdot\psi_2$ mit geeigneten Gewichtungsfunktionen $c_1,c_2$ die Eigenschaft $\mu_\psi(\R^3)\neq 1$. Ist dies ein Widerspruch zwischen dem Superpositionsprinzip und der Normierung?
         \end{Aufgabe}
         Normierbare $\psi$ müssen nach der Aufgabe also die Eigenschaften (i) $\psi\in\mcL^2(\R^3)$ und (ii) $\mu_\psi(\R^3)\neq 0\Leftrightarrow \psi\neq 0$ erfüllen. Dann ergibt sich eine Normierung durch
         \[P_\psi(t,r(t)):=\frac{\abs{\psi(t,r(t))}^2}{\mu_\psi(\R^3)},\]
-        wobei $P$ eine \emph{Wahrscheinlichkeitsverteilung} ist. 
+        wobei $P_{\psi}$ unser gewünschtes \emph{Wahrscheinlichkeitsmaße} ist. 
         \begin{Aufgabe}
             \nr{} Zeige, daß alle $\psi$, welche die Normierungsbedingungen erfüllen, zusammen mit dem Nullvektor $0_{\mcL^2(\R^3)}$ einen Vektorraum bilden. Welcher Raum ist es dann?
 
