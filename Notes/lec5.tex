@@ -7,13 +7,13 @@
     \end{Aufgabe}
     \subsubsection*{Lösungen}
         Liegen uns Lösungen $\fdef{\psi_n}{n\in I}$ der Schrödingergleichung vor, so können wir diese als \emph{Orthonormalbasis} für den Hilbertraum verwenden. Es gilt demnach
-        \[\lint{\phi_n(x)\cdot\overline{\phi_m}(x)}{x}{} = \begin{cases}
+        \[\lint{\phi_n(x)\cdot\overline{\phi_m(x)}}{x}{} = \begin{cases}
             1 & n=m\\
             0 & n\neq m
         \end{cases}\quad [\text{siehe Skalarprodukt }\mbbL^2(\R^3)].\]
         Damit ist auch eine Linearkombination $\Phi = \sum_{i\in I}c_i\cdot\phi_i$ mit $c\in\Abb{I}{C^1(\R,\C)}$ von Lösungen $\phi_i$ eine Lösung der Schrödingergleichung. \\
         \begin{Aufgabe}
-            \nr{} Zeige diesen Satz. 
+            \nr{} Diese Aussage beruht auf dem folgenden Satz: \textit{Ist $T$ ein selbstadjungierter Operator mit $\sigma_c(T)=\emptyset$, dann ist $\sigma_P(T)$ höchstens abzählbar und es existiert eine ONB von $\mcH$ aus Eigenfunktionen von $T$.} Zeige diesen Satz aus der Operatortheorie. 
         \end{Aufgabe}
         \noindent Setzt man eine solche Lösung in die Schrödingergleichung ein, so erhält man
         \[\cmath\hbar\cdot\sum_{i\in I}E_i(t)\cdot\phi_i(r(t)) = \sum_{i\in I}c_i(t)\cdot\hat H\phi_i(r(t)) = \sum_{i\in I}c_i(t)\cdot E_i\phi_i(r(t)),\]
@@ -24,7 +24,7 @@
         Damit können wir im letzten Schritt durch Zusammenfassung eine allgemeine Lösung der zeitabhängigen AWPs konstruieren:
         \[\Phi(t,r(t)) = \sum_{i\in I}c_i(0)\cdot\exp(-\cmath E t/\hbar)\cdot\phi_i(r(t)).\]
 
-    \subsubsection{Stationäre Zustände}
+    \subsubsection*{Stationäre Zustände}
         Im letzten Abschnitt haben wir eine Lösung der zeitunabhängigen Schrödingergleichung konstruiert. Ist $\Phi$ nun eine solche konstruierte Lösung, dann ist für ein spezielles $c\in\Abb{I}{C^1(\R,\C)}$ mit $c_n(t)\neq 0$ für ein singuläres $n\in I$ für $\Phi$ der Ausdruck
         \[\Phi(t,r(t)) = c_n(t)\cdot \phi_n(r(t))\cdot \exp(-\cmath Et/\hbar) = c_n(t)\cdot\Phi(0,r(t))\cdot\exp(-\cmath Et/\hbar),\]
         wobei in dem Absolutbetrag $\abs{\psi(t,r(t))} = \abs{\psi(0,r(t))}$ gilt. Man spricht hier von einem \emph{stationären Zustand}.
