@@ -1,0 +1,69 @@
+\documentclass{subfiles}
+
+\begin{document}
+    Wir können folgern $\var(T) = 0$ genau dann, wenn $\lambda$ ein verallgemeinerter Eigenwert von $T$ bezüglich $T\psi = \lambda\cdot\psi$. Wir nennen den Operator $T$ in diesem Zusammenhang \emph{scharf im Zustand $\psi$}. Die Hinrichtung dieser Behauptung ist mit der obigen Aufgabe gelöst, für die Rückrichtung betrachen wir $\psi$ als Linearkombination von Eigenzuständen $(\phi_i)_{i\in I}$ des Operators $T$, dann gibt es $c\in\C^{\card(I)}$ mit $\psi = \sum_{i\in I}c_i\cdot\phi_i$. Das Integral $\int\psi$ ist demzufolge
+    \[\int\psi = \scpr{\psi_i}{\psi_j}_{\mcL^2(\R^3)} = \delta_{n}(m),\]
+    also die gewählte Folge $(\phi_i)_{i\in I}$ stellt eine ONB. Wir können den Erwartungswert von $T$ ausschreiben zu 
+    \[\langle T\rangle_\psi := \lint{\overline{\psi(\tau)\cdot\tau\cdot\psi(\tau)}}{\tau}{\R^3} = \sum_{(i,j)\in I^2}c_ic_j\cdot\lint{\overline{\phi_i(\tau)}\cdot\tau\cdot\phi_j(\tau)}{\tau}{\R^3}.\]
+    \begin{Aufgabe}
+        \nr{} Fülle die Beweislücke, indem du $\sum_{(i,j)\in I^2}c_ic_j\cdot\lint{\overline{\phi_i(\tau)}\cdot\tau\cdot\phi_j(\tau)}{\tau}{\R^3} = \sum_{n\in I}\lambda_n\cdot\abs{c_n}^2$ für $\lambda\in\C^{\card(I)}$ Eigenwerte zu $T$ und $\abs{c_n}^2\in[0,1]$ zeigst. 
+    \end{Aufgabe}
+    Mit dem Ergebnis der Aufgabe folgt dann weiter
+    \[\var(T) = \sum_{n\in I}\lambda_n^2\cdot\abs{c_n}^2 - \sum_{(m,n)\in I^2}\lambda_n\cdot\lambda_m\cdot\abs{c_n}^2\cdot\abs{c_m}^2.\]
+    Nach Voraussetzung haben wir die Gleichheit $\var(T) = 0$. Nun wollen wir noch folgern, daß $\phi_n$ für ein $n\in I$ gleich unserem ursprünglichen $\psi$ sein muss, sodaß $\psi$ als Eigenzustand von $T$ identifizierbar ist. 
+    \begin{Aufgabe}
+        \nr{} Zeige dieses nötige Hilfsergebnis. Zeige hierzu konkret, daß für ein $n\in I$ der Faktor $\abs{c_n}^2$ ungleich Null bleibt, jedoch für alle übrigen $m\in I\setminus\nset{n}$ verschwindet. Folgere mit dieser Aussage den Abschluss der Rückrichtung des Beweises.
+    \end{Aufgabe}
+
+    \subsubsection*{Anwendungsbeispiele}
+        Für den Hamiltonoperator $H$ sind alle Eigenwerte $E\in\C$ feste Energien, sodaß $H(\psi)=E\cdot\psi$ für Eigenzustände $\psi$ gilt. \\
+
+        Der Impulsoperator ist ein weiteres anschauliches Paradebeispiel für Eigenzustände. Ist $P(\psi) = -\cmath\hbar D_h\psi(x)$ für eine Funktion $\psi$ und ein $h\in\R^3$ gegeben, so ist $P(\psi) = p\cdot\psi$ für $p\in\R^3$ genau dann, wenn $\psi$ eine ebene Welle ist, also $\psi(x) = \cmath\hbar^{-3/2}\cdot\exp(\cmath\cdot\scpr{p}{x})$ gilt. 
+        \begin{Aufgabe}
+            \nr{} Betrachte einmal selbst das Beispiel des Ortsoperators $R\in L_S(\mbbL^2(\R))$ mit $R(f):=(x\cdot f(x))_{x\in\mcH}$. 
+        \end{Aufgabe}
+
+    \subsection{Der Kommutator}
+        Die klassische Physik zeichnet sich gegenüber der Quantenmechanik dadurch aus, daß die Messung von zwei Observablen $A,B$ unabhängig voneinander ist und dadurch insbesondere \emph{scharf} messbar sind. In der Quantenmechanik ist dies nicht der Fall, da die Messung von $A$ den Zustand des Systems verändert und dadurch die Messung von $B$ beeinflußt. Wir wollen nun die Unschärfe von zwei Observablen $A,B$ durch den \emph{Kommutator} $[A,B]$ definieren. Dieser wird sich als Antwort auf die bisher ungeklärten Fragen
+        \begin{enumerate}[label=(\roman*)]
+            \item Wann können zwei Observablen $A,B$ gleichzeitig scharf gemessen werden?
+            \item Falls $A,B$ nicht gleichzeitig scharf messbar sind, wie groß ist die Unschärfe?
+        \end{enumerate}
+        erweisen. Für die zweite Frage haben wir sogar schon das Anwendungsbeispiel der Unschärferelation von Heisenberg kennengelernt. Den Kommutator definieren wir hierbei derart, daß bei Kommutativität von $A\circ B$ in $\circ$ der Wert $0_{L_S(\mcH)}$ für alle im Definitionsbereich liegenden Zustände $\psi$ zugewiesen wird. Dies führt uns zu 
+        \[[A,B]:= \fdef{A\circ B-B\circ A}{f\in D},\]
+        wobei $D:=\nset{f\in\Def{B}:B(x)\in\Def{A}}\cap\nset{f\in\Def{A}:A(f)\in\Def{B}}$ gilt. Mit unserer Terminologie sagen wir nun 
+        \begin{center}
+            \textit{$A$ und $B$ gleichzeitig scharf genau dann, wenn $[A,B]=0$ gilt.}
+        \end{center}
+        \begin{proof}
+            Nach Definition sind $A,B$ in $\psi$ an Stelle $n\in I$ aus einer Eigenbasis $\in(\phi_n)_{n\in I}$ genau dann scharf, wenn $\lambda_A,\lambda_B\in\C$ existieren, sodaß $A(\psi)=\lambda_A\cdot\psi$ und $B(\psi) = \lambda_B\cdot\psi$ gilt. Dann folgt die Gleichungskette
+            \[(B\circ A)(\psi) = \lambda_A\cdot B(\psi) = \lambda_A\cdot\lambda_B\cdot\psi = \lambda_B\cdot A(\psi) = (A\circ B)(\psi),\]
+            woraus die Hinrichtung folgt. \\
+
+            Wenn andersherum $[A,B] = 0$, dann wissen wir $A\circ B - B\circ A = 0$ und
+            \[(A\circ B)(\psi) = (B\circ A)(\psi) \stackrel{(i)}{=} \lambda_A\cdot B(\psi).\]
+            Daraus können wir ablesen $B(\psi)\in\text{EV}(A)$ zu $\lambda_A$ als Eigenwert von $A(\psi) = \lambda_A\cdot\psi$. Damit stimmen die normierten Eigenvektoren von $A$ und $B$ überein, was die Rückrichtung beweist. 
+        \end{proof}
+
+        \subsubsection*{Anwendungsbeispiele}
+            In den Ortsoperator $R(f):=\fdef{x\cdot f(x)}{x\in\mcH}$ und $P_h(f):=\fdef{-\cmath\cbar\cdot D_hf(x)}{x\in\mcH}$ können wir zunächst in rechter Verkettung $(P\circ R)$ auswerten zu 
+            \[(P\circ R)(f)(x) = \fdef{-\cmath\cbar D_hf(x)}{x\in\mcH}(x\cdot f(x)) = -\cmath\cbar \dv{t}t\cdot f(t)|_{t = x},\]
+            woraus durch Anwendung der Produktregel der Ausdruck $-\cmath\hbar\cdot x\cdot_\mcH (f(x)+f'(x))$ folgt. Insgesamt folgt dann
+            \[[P,R] = \cmath\hbar\cdot \id_\mcH.\]
+
+            \begin{Aufgabe}
+                \nr{} Wir bewiesen einmal, daß $[A,B]\neq-\cmath\hbar\cdot\id_\mcH$ für $A,B\in L_S(\mcH)$, wobei $A,B$ \emph{beschränkt} und \emph{selbstadjungiert} sind. Warum gilt hier doch Gleichheit?
+
+                \nr{} Rechne komponentenweise den Abstand $[R_i,P_j]$ nach. Folgere $[R_i,P_j] = \cmath\hbar\cdot\delta_i(j)\cdot\id_\H$. 
+            \end{Aufgabe}
+            Anschaulich können wir mit diesen Ergebnissen folgern, daß die \textit{Messung in unterschiedliche Richgungen scharf möglich ist}. \\
+
+            Betrachten wir den Hamiltonoperator $H$ im Kommutator mit dem Ortsoperator $R$, dann gilt stets $[H,R]\neq 0$ genau dann, wenn es keine stationären Zustände mit scharfem Ort gibt (bedenke das \emph{Zerfließen} eines Wellenpaketes). Ist die potentielle Energie $V=0$, dann gilt andersherum für den Impulsoperator $P$ und den Hamiltonoperator $[H,P] = 0$. Dies ist beispielsweise bei freien Teilchen und ebenen Wellen der Fall. 
+
+        \subsubsection*{Hermitsche Operatoren}
+            Einr besondererr Operatoreigenschaft für in der Quantenmechanik auftretende Operatoren $T\in L_S(\mcH)$ ist \emph{hermitsch}, wobei die folgenden Eigenschaften erfüllt sind:
+            \begin{enumerate}[label=(\roman*)]
+                \item Die Skalarproduktauswertung $\scpr{\psi_1}{T(\psi_2)}_{\mcH} = \scpr{T(\psi_1)}{\psi_2}_{\mcH}$.
+            \end{enumerate}
+
+\end{document}
