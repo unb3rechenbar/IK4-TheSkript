@@ -1,7 +1,7 @@
 \documentclass{subfiles}
 
 \begin{document}
-    \marginnote{\textbf{\textit{VL 8}}\\10.05.2023, 08:15}
+    \marginnote{\textbf{\textit{VL 8}}\\10.05.2023, 08:15}[-1cm]
         Beispiele für symmetrisch Operatoren sind der Orts- und Impulsoperator.
         \begin{Aufgabe}
             \nr{} Zeige die Symmetrie des Orts- und Impulsoperators. Für welche Funktionen $f\in\Abb{\R^3}{\R}$ gilt ebenfalls Symmetrie?
@@ -29,17 +29,17 @@
         \end{multline*}
         und analog für $\Delta B$. Wir definieren nun $\psi_{A,B}:=\tilde\psi_{A,B}/\sqrt{\int\abs{\tilde\psi_{A,B}^2}}$ mit $\tilde\psi_{A,B}:= \tilde\psi_A$ oder $\tilde\psi_B$. Wir sortieren $\psi_A,\psi_B$ nun einer komplexen Zahl $z\in\C$ zu. Hierfür nutzen wir die Form $z_\pm:=\psi_A\pm\cmath\cdot\psi_B$. Für die Quadratintegralauswertung folgt damit im komplexen Betrag
         \[0\leq\int\abs{z_\pm}_\C^2 = \int\abs{\psi_A}_\R^2+\int\abs{\psi_B}_\R^2\pm\cmath\cdot\nbra{\int\psi_A^*\cdot\psi_B\mp\int\psi_B^*\cdot\psi_A},\]
-        wobei wir die komplexe Betragsdefinion $\abs{z} = z^*\cdot z$ ausgenutzt haben. Mit $\int\abs{\psi_A}^2 = 1 = \int_\abs{\psi_B}^2$ folgt zusammengefasst
+        wobei wir die komplexe Betragsdefinion $\abs{z} = z^*\cdot z$ ausgenutzt haben. Mit $\int\abs{\psi_A}^2 = 1 = \int\abs{\psi_B}^2$ folgt zusammengefasst
         \[1\geq \mp\cmath\cdot\int (\psi_A^*\cdot\psi_B - \psi_B^*\cdot\psi_A).\]
         Multiplizieren unter Ausnutzung der Definitionen $\tilde\psi_A$ und $\tilde\psi_B$ mitsamt der Symmetrie von $A,B$ folgt weiter
-        \[\Delta A\cdot\Delta B\geq\mp\cmath\cdot\int(\tilde\psi_A^*\cdot\tilde\psi_B-\tilde\psi_A\cdot\tilde\psi_B^*) = \scpr{\psi}{(\Delta A\cdot\Delta B-\Delta B\cdot\Delta A)(\psi)}_\mcH.\]
-        Wir erkennen hier sofort den Kommutator $\Delta A\cdot\Delta B-\Delta B\cdot\Delta A = [A,B]$. Hier lässt sich nun eine Fallunterscheidung durchführen; wir fahren mit $A,B$ nicht scharf fort. Mit Erwartungswerten umgeschrieben folgt
-        \[\Delta A\cdot\Delta B\geq \mp\frac{\cmath}{2}\cdot\langle[A,B]\rangle_\psi.\]
-        Die rechte Seite bleibt dabei immer reell, trotz des anmultiplizierten $\cmath$s. In Betragsschreibweise folgt damit $\Delta A\cdot\Delta B\geq 1/2\cdot|\langle[A,B]\rangle_\psi|$. Daraus ergibt sich eine Optimierungsaufgabe der Funktion $f:=(|\langle[A,B]\rangle_\psi|)_{\psi\in\mcH}$. 
+        \[\Delta A\circ\Delta B\geq\mp\cmath\cdot\int(\tilde\psi_A^*\cdot\tilde\psi_B-\tilde\psi_A\cdot\tilde\psi_B^*) = \scpr{\psi}{(\Delta A\circ\Delta B-\Delta B\circ\Delta A)(\psi)}_\mcH.\]
+        Wir erkennen hier sofort den Kommutator $\Delta A\circ\Delta B-\Delta B\circ\Delta A = [A,B]$. Hier lässt sich nun eine Fallunterscheidung durchführen; wir fahren mit $A,B$ nicht scharf fort. Mit Erwartungswerten umgeschrieben folgt
+        \[\Delta A\circ\Delta B\geq \mp\frac{\cmath}{2}\cdot\langle[A,B]\rangle_\psi.\]
+        Die rechte Seite bleibt dabei immer reell, trotz des anmultiplizierten $\cmath$s. In Betragsschreibweise folgt damit $\Delta A\
+        \circ\Delta B\geq 1/2\cdot|\langle[A,B]\rangle_\psi|$. Daraus ergibt sich eine Optimierungsaufgabe der Funktion $f:=(|\langle[A,B]\rangle_\psi|)_{\psi\in\mcH}$. 
 
         \begin{Aufgabe}
-            \nr{} Multipliziere den Ausdruck $\Delta A\cdot\Delta B-\Delta B\cdot\Delta A$ aus und folgere die Erwartungswertdarstellung.
-            
+            % \nr{} Multipliziere den Ausdruck $\Delta A\cdot\Delta B-\Delta B\cdot\Delta A$ aus und folgere die Erwartungswertdarstellung.
             \nr{} Betrachte die Heisenbergsche Unschärferelation in dieser Form für den Ort- und Impulsoperator $X,P$. Folgere unsere oben zuerst kennengelernte Form der Heisenbergschen Unschärferelation.
 
             \nr{} Mit $E:\Borel{\sigma(T)}\to L_S(\mcH)$ ist ein \emph{Spektralmaß} gemeint. Überlege dir ein Beispiel für ein solches. Ist $E:=((F_f^*\circ\lambda)(A))_{A\in\Borel{\R}}$ mit $F:=\big((x^*\cdot f(x))_{f\in L_S(\R)}\big)_{x\in\R}$ für $f\in L_S(\R)$ ein Spektralmaß?
