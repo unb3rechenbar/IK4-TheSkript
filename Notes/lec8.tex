@@ -1,0 +1,49 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 8}}\\10.05.2023, 08:15}
+        Beispiele für symmetrisch Operatoren sind der Orts- und Impulsoperator.
+        \begin{Aufgabe}
+            \nr{} Zeige die Symmetrie des Orts- und Impulsoperators. Für welche Funktionen $f\in\Abb{\R^3}{\R}$ gilt ebenfalls Symmetrie?
+            
+            \nr{} Zeige die Aussage \textit{Ein linearer stetiger Operator ist genau dann selbstadjungiert, wenn er symmetrisch ist.} Nutze hierzu die Symmetrieeigenschaft $T\subseteq T^{\textit{ad}}$. 
+        \end{Aufgabe}
+    \subsubsection*{Eigenschaften symmetrischer Quantenoperatoren}
+        Als \emph{Quantenoperator} bezeichnen wir meist stetige, lineare, dicht definierte Operatoren. Ist $T$ ein solcher und zusätzlich symmetrisch, so können wir einige nützliche Eigenschaften feststellen. Betrachtet man zuerst einmal die Erwartungswerte von $T$, so finden wir 
+        \[\langle T\rangle_\psi^* = \scpr{\psi}{T(\psi)}_\mcH^* = \scpr{T(\psi)}{\psi}_\mcH = \langle T\rangle_\psi.\]
+        Damit sind die Erwartungswerte von $T$ reell. Selbiges gilt für die Eigenwerte von $T$, wodurch das \emph{Punktspektrum} $\sigma_P(T)\subseteq\R$ ist. Dies begründet die physikalisch notwendige \emph{Messbarkeit} von $T$. \\
+
+        Der zweiten Frage, deren Antwort wir noch schuldig sind, wollen wir im folgenden Kapitel begegnen. 
+
+    \subsection{Heisenbergsche Unschärferelation (II)}
+        Die Heisenbergsche Unschärferelation haben wir bereits kennengelernt. Ihren Zusammenhang zur \emph{Operatorunschärfe} wollen wir nun jedoch genauer beleuchten: seien hierzu $\psi\in\mcL^2(\mcH)$ quadratintegrierbar mit der speziellen Eigenschaft $\int\abs{\psi}^2 = 1$. Seien $A,B\in L_S(\mcH)$ weiter zwei symmetrische Observablen und $\mcH$ ein Hilbertraum. Mit dem Kommutator können wir die Fragestellung nun neu ausdrücken:
+        \begin{center}
+            \textit{Wenn $[A,B]\neq 0$, wie \enquote{klein} können $\var_\psi(A),\var_\psi(B)$ werden?}
+        \end{center}
+        Rufe die Definition $\langle T\rangle_\psi := \scpr{\psi}{T(\psi)}_\psi = \int\id_\mcH\;E_\psi$. Definiere auch $\Delta T:= T-\id_{\mcH}(\langle T\rangle_\psi)$. Dann definiere 
+        \[\tilde\psi_A:=\Delta A(\psi),\quad \tilde\psi_B:=\Delta B(\psi).\]
+        Damit ist dann die Quadratintegralauswertung
+        \begin{multline*}
+            \int\abs{\tilde\psi_A}^2 := \int\tilde\psi_A^*\cdot\tilde\psi_A := \int (\Delta A(\psi))^*\cdot \Delta A(\psi) \\
+            \stackrel{\textit{sym.}}{=} \int \psi^*\cdot (\Delta A)^2(\psi) = \scpr{\psi}{(\Delta A)^2(\psi)}_\mcH =: \langle\Delta A^2\rangle = \Delta A^2
+        \end{multline*}
+        und analog für $\Delta B$. Wir definieren nun $\psi_{A,B}:=\tilde\psi_{A,B}/\sqrt{\int\abs{\tilde\psi_{A,B}^2}}$ mit $\tilde\psi_{A,B}:= \tilde\psi_A$ oder $\tilde\psi_B$. Wir sortieren $\psi_A,\psi_B$ nun einer komplexen Zahl $z\in\C$ zu. Hierfür nutzen wir die Form $z_\pm:=\psi_A\pm\cmath\cdot\psi_B$. Für die Quadratintegralauswertung folgt damit im komplexen Betrag
+        \[0\leq\int\abs{z_\pm}_\C^2 = \int\abs{\psi_A}_\R^2+\int\abs{\psi_B}_\R^2\pm\cmath\cdot\nbra{\int\psi_A^*\cdot\psi_B\mp\int\psi_B^*\cdot\psi_A},\]
+        wobei wir die komplexe Betragsdefinion $\abs{z} = z^*\cdot z$ ausgenutzt haben. Mit $\int\abs{\psi_A}^2 = 1 = \int_\abs{\psi_B}^2$ folgt zusammengefasst
+        \[1\geq \mp\cmath\cdot\int (\psi_A^*\cdot\psi_B - \psi_B^*\cdot\psi_A).\]
+        Multiplizieren unter Ausnutzung der Definitionen $\tilde\psi_A$ und $\tilde\psi_B$ mitsamt der Symmetrie von $A,B$ folgt weiter
+        \[\Delta A\cdot\Delta B\geq\mp\cmath\cdot\int(\tilde\psi_A^*\cdot\tilde\psi_B-\tilde\psi_A\cdot\tilde\psi_B^*) = \scpr{\psi}{(\Delta A\cdot\Delta B-\Delta B\cdot\Delta A)(\psi)}_\mcH.\]
+        Wir erkennen hier sofort den Kommutator $\Delta A\cdot\Delta B-\Delta B\cdot\Delta A = [A,B]$. Hier lässt sich nun eine Fallunterscheidung durchführen; wir fahren mit $A,B$ nicht scharf fort. Mit Erwartungswerten umgeschrieben folgt
+        \[\Delta A\cdot\Delta B\geq \mp\frac{\cmath}{2}\cdot\langle[A,B]\rangle_\psi.\]
+        Die rechte Seite bleibt dabei immer reell, trotz des anmultiplizierten $\cmath$s. In Betragsschreibweise folgt damit $\Delta A\cdot\Delta B\geq 1/2\cdot|\langle[A,B]\rangle_\psi|$. Daraus ergibt sich eine Optimierungsaufgabe der Funktion $f:=(|\langle[A,B]\rangle_\psi|)_{\psi\in\mcH}$. 
+
+        \begin{Aufgabe}
+            \nr{} Multipliziere den Ausdruck $\Delta A\cdot\Delta B-\Delta B\cdot\Delta A$ aus und folgere die Erwartungswertdarstellung.
+            
+            \nr{} Betrachte die Heisenbergsche Unschärferelation in dieser Form für den Ort- und Impulsoperator $X,P$. Folgere unsere oben zuerst kennengelernte Form der Heisenbergschen Unschärferelation.
+
+            \nr{} Mit $E:\Borel{\sigma(T)}\to L_S(\mcH)$ ist ein \emph{Spektralmaß} gemeint. Überlege dir ein Beispiel für ein solches. Ist $E:=((F_f^*\circ\lambda)(A))_{A\in\Borel{\R}}$ mit $F:=\big((x^*\cdot f(x))_{f\in L_S(\R)}\big)_{x\in\R}$ für $f\in L_S(\R)$ ein Spektralmaß?
+        \end{Aufgabe}
+        
+
+\end{document}

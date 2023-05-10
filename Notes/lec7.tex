@@ -4,7 +4,7 @@
     Wir können folgern $\var_\psi(T) = 0$ genau dann, wenn $\lambda$ ein verallgemeinerter Eigenwert von $T$ bezüglich $T\psi = \lambda\cdot\psi$. Wir nennen den Operator $T$ in diesem Zusammenhang \emph{scharf im Zustand $\psi$}. Die Hinrichtung dieser Behauptung ist mit der obigen Aufgabe gelöst, für die Rückrichtung betrachen wir $\psi$ als Linearkombination von Eigenzuständen $(\phi_i)_{i\in I}$ des Operators $T$, dann gibt es $c\in\C^{\card(I)}$ mit $\psi = \sum_{i\in I}c_i\cdot\phi_i$. Das Integral $\int\psi$ ist demzufolge
     \[\int\psi = \scpr{\psi_i}{\psi_j}_{\mcL^2(\R^3)} = \delta_{n}(m),\]
     also die gewählte Folge $(\phi_i)_{i\in I}$ stellt eine ONB. Wir können den Erwartungswert von $T$ ausschreiben zu 
-    \[\langle T\rangle_\psi := \lint{\overline{\psi(\tau)\cdot\tau\cdot\psi(\tau)}}{\tau}{\R^3} = \sum_{(i,j)\in I^2}c_ic_j\cdot\lint{\overline{\phi_i(\tau)}\cdot\tau\cdot\phi_j(\tau)}{\tau}{\R^3}.\]
+    \[\langle T\rangle_\psi := \lint{\overline{\psi(\tau)\cdot\tau\cdot\psi(\tau)}}{\tau}{\R^3} = \sum_{(i,j)\in I^2}c_i\cdot c_j\cdot\lint{\overline{\phi_i(\tau)}\cdot\tau\cdot\phi_j(\tau)}{\tau}{\R^3}.\]
     \begin{Aufgabe}
         \nr{} Fülle die Beweislücke, indem du $\sum_{(i,j)\in I^2}c_ic_j\cdot\lint{\overline{\phi_i(\tau)}\cdot\tau\cdot\phi_j(\tau)}{\tau}{\R^3} = \sum_{n\in I}\lambda_n\cdot\abs{c_n}^2$ für $\lambda\in\C^{\card(I)}$ Eigenwerte zu $T$ und $\abs{c_n}^2\in[0,1]$ zeigst. 
     \end{Aufgabe}
@@ -12,7 +12,7 @@
     \[\var_\psi(T) = \sum_{n\in I}\lambda_n^2\cdot\abs{c_n}^2 - \sum_{(m,n)\in I^2}\lambda_n\cdot\lambda_m\cdot\abs{c_n}^2\cdot\abs{c_m}^2.\]
     Nach Voraussetzung haben wir die Gleichheit $\var_\psi(T) = 0$. Nun wollen wir noch folgern, daß $\phi_n$ für ein $n\in I$ gleich unserem ursprünglichen $\psi$ sein muss, sodaß $\psi$ als Eigenzustand von $T$ identifizierbar ist. 
     \begin{Aufgabe}
-        \nr{} Zeige dieses nötige Hilfsergebnis. Zeige hierzu konkret, daß für ein $n\in I$ der Faktor $\abs{c_n}^2$ ungleich Null bleibt, jedoch für alle übrigen $m\in I\setminus\nset{n}$ verschwindet. Folgere mit dieser Aussage den Abschluss der Rückrichtung des Beweises.
+        \nr{} Zeige dieses nötige Hilfsergebnis. Zeige hierzu konkret, daß für ein $n\in I$ der Faktor $\abs{c_n}^2$ ungleich Null bleibt, jedoch für alle übrigen $m\in I\setminus\nset{n}$ verschwindet. Nutze hierzu $\var_\psi(T) = \scpr{\psi}{(T-\id_\mcH(\langle T\rangle_\psi)^2(\psi)}_\mcH = 0$ und die Übertragbarkeit der Eigenwerte von $T$ auf $\var_\psi(T)$. Erhalte damit die oder Aussage $\abs{c_i}^2 = 0$ oder $\mu_i = 0$ genau dann, wenn $\langle T\rangle_\psi = \lambda_i$. Führe noch eine Fallunterscheidung für $n,m\in I$ bezüglich der Eigenwerte $\lambda_n,\lambda_m$ durch. Folgere mit dieser Aussage den Abschluss der Rückrichtung des Beweises.
     \end{Aufgabe}
 
     \subsubsection*{Anwendungsbeispiele}
@@ -61,9 +61,7 @@
             Betrachten wir den Hamiltonoperator $H$ im Kommutator mit dem Ortsoperator $R$, dann gilt stets $[H,R]\neq 0$ genau dann, wenn es keine stationären Zustände mit scharfem Ort gibt (bedenke das \emph{Zerfließen} eines Wellenpaketes). Ist die potentielle Energie $V=0$, dann gilt andersherum für den Impulsoperator $P$ und den Hamiltonoperator $[H,P] = 0$. Dies ist beispielsweise bei freien Teilchen und ebenen Wellen der Fall. 
 
         \subsubsection*{Hermitsche Operatoren}
-            Eine besondere Operatoreigenschaft für in der Quantenmechanik auftretende Operatoren $T\in L_S(\mcH)$ ist \emph{hermitsch}, wobei die folgenden Eigenschaften erfüllt sind:
-            \begin{enumerate}[label=(\roman*)]
-                \item Die Skalarproduktauswertung $\scpr{\psi_1}{T(\psi_2)}_{\mcH} = \scpr{T(\psi_1)}{\psi_2}_{\mcH}$.
-            \end{enumerate}
+            Eine besondere Operatoreigenschaft für in der Quantenmechanik auftretende \emph{lineare, dicht definierte} Operatoren $T\in L_S(\mcH)$ ist \emph{hermitsch} (auch \emph{symmetrisch}), wenn:
+            \[\scpr{\psi_1}{T(\psi_2)}_{\mcH} = \scpr{T(\psi_1)}{\psi_2}_{\mcH}\]
 
 \end{document}
