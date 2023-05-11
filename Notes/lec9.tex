@@ -1,0 +1,103 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 9}}\\11.05.2023, 10:00}
+
+    Die Idee der Betrachtung eines \emph{eindimensionalen Problems} ist zur Übung der Lösung bereits kennengelernter Schrödingergleichungen. Diese Problemstellung eignet sich hierbei besonders aufgrund des relativ geringen Rechenaufwandes und liefert gleichzeitig die Grundlagen allgemeiner quantenmechanischer Probleme. Daß die Problemstellung also nicht vollkommen aus der Luft gegriffen ist, kann man auch an sogenannten \emph{Karbon Nanoröhren} oder \emph{Halbleiter Nanodrähten} erknennen; Hier gelten die Lösungen real in guter Näherung. weiter motiviert die eindimensionale Problemstellung komplexere, separierbare Probleme. Setzt man also die eindimensionale Wellenfunktion $\psi(t,x)\in\mcL^2(\R\times\R^3)$ in die zeitabhängige Schrödingergleichung ein, so erhält man
+    \[\cmath\hbar\cdot \dv{t}\psi(t,x) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + V(t,x)\cdot\psi(t,x).\]
+    Für den zeitunabhängigen Fall ergibt sich mit Abkürzung des Hamilton Operators $H$ die Gleichung
+    \[H(\psi(t,x)) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + V(t,x)\cdot\psi(t,x) \quad (=: E_V(\psi(t,x))).\]
+
+    \begin{Aufgabe}
+        \nr{} Kläre die Definition von $E$. 
+    \end{Aufgabe}
+    Das Lösungsvorgehen stellt sich nun wie folgt dar: Löse die zeitunabhängige Schrödingergleichung $F:=(E_V(\psi(t,x)))_{V\in\mcL(\R\times\R^3)}$ mit $H(\psi(t,x)) = F(V)$. Dabei ist der einfachste Fall zunächst $V\in\textit{konstant}$, sodaß man mit \emph{freien Teilchen} zutun hat und \emph{ebene Wellenfunktionen} verwenden kann. Der nächste Fall wäre $V\in\textit{stückweisekonstant}$. Hier haben wir optisch mit Funktionen der Form 
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}
+                \addplot[domain=0:2]{2};
+                \addplot[domain=2:4]{0};
+                \addplot[domain=4:6]{1};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Beispiel für stückweise konstante Funktion $V\in\Abb{[0,6]}{\R}$.}
+    \end{figure}
+    \begin{Aufgabe}
+        \nr{} Definiere die Mengen $\textit{konstant}$ und $\textit{stückweisekonstant}$ für $\mcL^2(\R\times\R^3)$. 
+    \end{Aufgabe}
+    \subsubsection*{Randbedingungen an Unstetigkeitsstellen}
+        Für ein $V=0$ ergibt sich als Lösung von $H(\psi(t,x)) = F(V)$ eine Exponentialfunktion der Form $\psi(t,x) = C_0\cdot\exp(\cmath\cdot\scpr{x}{k})$ für $C_0\in\R$, $k\in\R^3$ als Fittingkonstanten. Mit $E = \hbar^2\dot k^2/(2m)$ folgt noch $k = \pm 1/\hbar\cdot\sqrt{2\cdot m\cdot E}$. Für allgemeinere $V\in\textit{konstant}$ haben wir für $H(\psi(t,x)) = F(V)$ zunächst 
+        \[-\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) = (E-V)\cdot\psi(t,x)\implies \psi(t,x) = C_0\cdot\exp(\cmath\cdot\scpr{k}{x})\]
+        mit $k = (\pm 1/hbar\cdot\sqrt{2m\cdot (E-V(t,x))})_{(t,x)\in\R\times\R^3}$. Hier müssen wir nun eine Fallunterscheidung für (i) $E(t,x)\geq V(t,x)$ und (ii) $E(t,x)<V(t,x)$ durchführen:
+        \begin{enumerate}[label=(\roman*)]
+            \item Es ist dann $k(t,x)$ eine Zahl in $\R$, sodaß für die Normierung über eine kompakte Menge $M_{L,2}:=\nset{x\in\R^3:\dabs{x}{2} \leq L/2}$ im Quadratintegral 
+            \[1 \stackrel{!}{=} \abs{C_0}\cdot\lint{\abs{\exp(\cmath\cdot\scpr{k}{x})}}{x}{M_{L,s}} = \abs{C_0}^2\cdot L,\]
+            also $C_0 = 1/L$. Für $L\to\infty$ folgt also $C_0\to 0$, der Erwartungswert bleibt jedoch erhalten. 
+            \item Dann ist $k(t,x)$ \emph{im eindimensionalen} eine skalierte komplexe Zahl $\pm\mch\cdot\cmath$ für ein $\mch\in\R_{>0}$. Wir erhalten ein gedämpftes $\psi$ mit $\psi(t,x) = C_0\cdot\exp(\mp\mch\cdot x)$, sodaß die Normierung $C_0\approx\sqrt{\mch/(\sinh(\mch\cdot L))}$ folgt. Für $L\to 0$ folgt also $C_0\to 0$, der Erwartungswert ist allerdings nicht mehr überall erhalten: $\langle x\rangle\approx \mp L/2$. Es ist $\psi$ also nur auf endlichen Intervallen normierbar.
+        \end{enumerate}
+        \begin{Aufgabe}
+            \nr{} Rechne nach, daß im Fall (i) der Erwartungswert erhalten bleibt. 
+        \end{Aufgabe}
+        % \begin{figure}[H]
+        %     \centering
+        %     \begin{tikzpicture}
+        %         \begin{axis}
+        %             \addplot[domain=0:pi]{sin(1/2 * x - 1/2 * pi)};
+        %             \addplot[domain=pi:2*pi]{sin(2*x)};
+        %         \end{axis}
+        %     \end{tikzpicture}
+        % \end{figure}
+        An einer Potentialstufe ist $\psi$ also stetig differenzierbar. Dies wollen wir nun nachrechnen.
+        
+    \subsubsection*{Annahmen}
+        Angenommen wir haben ein $V\in\mcL^2(\R\times\R)$ mit einer endlichen Unstetigkeit in $x_0$. Nach Form der zeitunabhängigen Schrödingergleichung erhalten wir
+        \[\nbra{\dv{x}}^2\psi(t,x) = -\frac{2m}{\hbar}\cdot\nbra{E-V}(t,x)\cdot\psi(t,x).\]
+
+        \begin{Aufgabe}
+            \nr{} In der Vorlesung wurde eine Fallunterscheidung über die (Un-)Stetigkeit von $\psi$ bei $x_0$ durchgeführt, indem die (zweite) \enquote{Ableitung} berechnet wurde. Es wurde gefolgert \enquote{$\psi$ ist stetig}. Recherchiere nach einer Begründung für diese Aussage. Beachte die \emph{schwache Ableitung}. 
+        \end{Aufgabe}
+
+    \subsubsection*{Zusammenfassen}
+        Falls $\abs{V(x)}<0$ für alle Argumente $x$, dann folgt die Stetigkeit der Lösung $u = \psi$ auf dem ganzen Lösungsintervall. Ist $V$ eine Verklebung von $\delta$ Integralen, so folgt die Stetigkeit von $\dv{x}\psi(t,x)$ jedoch nicht. 
+
+    \subsubsection{Potentialbarrieren}
+        Beachte hierzu als Beispiel das Potential 
+        \[V:=\fdef{\begin{cases}
+            0 & x<0 \\
+            V_0 & x\geq 0
+        \end{cases}}{(t,x)\in\R^2},\quad V_0\in\R.\]
+        Dann gibt es die Fälle (i) $E(t,x) > V_0$ und (ii) $E(t,x) < V_0$. In klassischer Betrachtung fällt zunächst auf, daß der Bereich $x\geq 0$ \emph{nicht} erreichbar sein. 
+        \begin{Aufgabe}
+            \nr{} Vermute zunächst, ob diese Behauptung auch für die Quantenmechanik gilt.
+        \end{Aufgabe}
+        Für den Impuls ergibt sich in (i) $p = \hbar\cdot k = \sqrt{2m\cdot E}$ und in (ii) $p = \hbar\cdot k = \sqrt{2m\cdot (E-V_0)}$. Wieder führt uns unsere Betrachtung in eine Fallunterscheidung (i) $E\geq V$, (ii) $0 \leq E(t,x) < V(t,x)$:
+        \begin{enumerate}[label=(\roman*)]
+            \item Für $\overline k(t,x):=1/\hbar\cdot\sqrt{2m\cdot (E(t,x)-V_0)}\in\R$ ergibt sich die Lösung $u(t,x) = C_0\cdot \exp(\pm\cmath\cdot\overline k(t,x)\cdot x)$. 
+            \item Für $\kappa(t,x):=1/(\cmath\cdot\hbar)\cdot\sqrt{2m\cdot \abs{E(t,x) - V_0}}\in\R$, ist $\overline k(t,x):=\cmath\cdot\kappa$ mit $u(t,x) = \exp(\cmath\cdot\overline k(t,x)\cdot x)$ eine Lösung. Es handelt sich nun um eine exponentiell gedämpfte Wellenfunktion im klassisch verbotenen Gebiet.  
+        \end{enumerate}
+        Für $E(t,x) < 0$ ergibt sich dabei keine normierbare Lösung. Damit erhalten wir die Verklebung
+        \[\psi(t,x):=\fdef{C_0\cdot\begin{cases}
+            \exp(\cmath\cdot k(t,x)\cdot x) + \rho\cdot \exp(-\cmath\cdot k(t,x)\cdot x) & x < 0 \\
+            \tau\cdot\exp(\cmath\cdot\overline k(t,x)\cdot x) & x\geq 0
+        \end{cases}}{(t,x)\in\R^2}\]
+        mit \emph{Transmissionskoeffizient} $\kappa\in\R$ und \emph{Reflexionskoeffizient} $\rho\in\R$. Beachten wir nun die kritische Stelle $x=0$, dann ergeben sich durch die Stetigkeitsbedingung an $\psi,\psi'$ die Bedingungen
+        \[1+r = t\qquad \cmath\cdot (k-\overline k\cdot\rho) = \cmath\cdot\overline k\cdot\tau.\]
+        Durch Auflösen ergibt sich 
+        \[\rho = \frac{k - \overline k}{k + \overline k}\in\C\qquad \tau = \frac{2\cdot k}{k+\overline k}\in\C.\]
+        Die Funktionsverklebung $\psi$ stellt mit diesen Koeffizienten also eine Lösung der Schrödingergleichung. 
+
+        \begin{Aufgabe}
+            \nr{} Überlege dir, an welcher Stelle die Eindimensionalität von $x$ gebraucht wurde. Lässt sich die Lösung auf $x\in\R^d$ erweitern?
+
+            \nr{} Schreibe in einer Tabelle auf, wie $k,\overline k$ in welchem Fall definiert ist. 
+
+            \nr{} Setze das Ergebnis $\psi$ in den Wahrscheinlichkeitsstrom $j:=\cmath\hbar/(2m)\cdot(\psi^*\cdot\psi'-\psi\cdot(\psi')^*)$ ein. Wofür steht der Ausdruck $\hbar\cdot k/m$?
+        \end{Aufgabe}
+        Mit der Aufgabe erhalten wir den Wahrscheinlichkeitsstrom
+        \[j(t,x) = \abs{C_0}^2\cdot \frac{p(t,x)}{m}\cdot\begin{cases}
+            1-\abs{\rho}_\C^2 & x \leq 0 \\
+            \abs{\tau\cdot \sqrt{\overline k/k}}_\C^2 & x > 0
+        \end{cases}.\]
+        
+\end{document}
