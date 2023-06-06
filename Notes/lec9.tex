@@ -3,34 +3,62 @@
 \begin{document}
     \marginnote{\textbf{\textit{VL 9}}\\11.05.2023, 10:00}
 
-    Die Idee der Betrachtung eines \emph{eindimensionalen Problems} ist zur Übung der Lösung bereits kennengelernter Schrödingergleichungen. Diese Problemstellung eignet sich hierbei besonders aufgrund des relativ geringen Rechenaufwandes und liefert gleichzeitig die Grundlagen allgemeiner quantenmechanischer Probleme. Daß die Problemstellung also nicht vollkommen aus der Luft gegriffen ist, kann man auch an sogenannten \emph{Karbon Nanoröhren} oder \emph{Halbleiter Nanodrähten} erknennen; Hier gelten die Lösungen real in guter Näherung. weiter motiviert die eindimensionale Problemstellung komplexere, separierbare Probleme. Setzt man also die eindimensionale Wellenfunktion $\psi(t,x)\in\mcL^2(\R\times\R^3)$ in die zeitabhängige Schrödingergleichung ein, so erhält man
-    \[\cmath\hbar\cdot \dv{t}\psi(t,x) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + V(t,x)\cdot\psi(t,x).\]
-    Für den zeitunabhängigen Fall ergibt sich mit Abkürzung des Hamilton Operators $H$ die Gleichung
-    \[H(\psi(t,x)) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + V(t,x)\cdot\psi(t,x) \quad (=: E_V(\psi(t,x))).\]
+    Die Idee der Betrachtung eines \emph{eindimensionalen Problems} ist zur Übung der Lösung bereits kennengelernter Schrödingergleichungen. Diese Problemstellung eignet sich hierbei besonders aufgrund des relativ geringen Rechenaufwandes und liefert gleichzeitig die Grundlagen allgemeiner quantenmechanischer Probleme. Daß die Problemstellung also nicht vollkommen aus der Luft gegriffen ist, kann man auch an sogenannten \emph{Karbon Nanoröhren} oder \emph{Halbleiter Nanodrähten} erkennen; Hier gelten die Lösungen real in guter Näherung. weiter motiviert die eindimensionale Problemstellung komplexere, separierbare Probleme. Setzt man also die eindimensionale Wellenfunktion $\psi(t,x)\in\mcL^2(\R\times\R^3)$ in die zeitabhängige Schrödingergleichung ein, so erhält man
+    \[\cmath\hbar\cdot \dv{t}\psi(t,x) = (H\circ\psi)(t,x) := -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + (V\cdot\psi)(t,x),\]
+    mit eine DGL mit rechter Seite $F:=\bbra{-\cmath/\hbar\cdot H(x)}_{x\in\mcL^2(\R\times\R^3)}$. Für den zeitunabhängigen Fall ergibt sich mit Abkürzung des Hamilton Operators $H$ die Gleichung
+    \[H(\psi(t,x)) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + (V\cdot\psi)(t,x) \quad = \lambda\cdot\psi(t,x).\]
 
     \begin{Aufgabe}
-        \nr{} Kläre die Definition von $E$. 
+        \nr{} Welche Form des Problems suggeriert hier $\lambda$?  
     \end{Aufgabe}
-    Das Lösungsvorgehen stellt sich nun wie folgt dar: Löse die zeitunabhängige Schrödingergleichung $F:=(E_V(\psi(t,x)))_{V\in\mcL(\R\times\R^3)}$ mit $H(\psi(t,x)) = F(V)$. Dabei ist der einfachste Fall zunächst $V\in\textit{konstant}$, sodaß man mit \emph{freien Teilchen} zutun hat und \emph{ebene Wellenfunktionen} verwenden kann. Der nächste Fall wäre $V\in\textit{stückweisekonstant}$. Hier haben wir optisch mit Funktionen der Form 
+    Das Lösungsvorgehen stellt sich nun wie folgt dar: Löse die zeitunabhängige Schrödingergleichung $H(\psi) = \lambda\cdot\psi$. Dabei ist der einfachste Fall zunächst $V\in\textit{konstant}_{\R\times\R^3\to\R}$, sodaß man mit \emph{freien Teilchen} zutun hat und \emph{ebene Wellenfunktionen} verwenden kann. Der nächste Fall wäre $V\in\textit{stückweisekonstant}_{\R\times\R^3\to\R}$. Hier werden wir es optisch mit Funktionen der folgenden Form zutun bekommen:
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}
-            \begin{axis}
-                \addplot[domain=0:2]{2};
-                \addplot[domain=2:4]{0};
-                \addplot[domain=4:6]{1};
-            \end{axis}
+            \draw[->] (0,0) -- (6,0) node[anchor=north west] {$x$};
+            \draw[->] (0,0) -- (0,2) node[anchor=south east] {$V$};
+            \draw[red] (0,1.7) -- (2,1.7);
+            \draw[red] (2,0.3) -- (4,0.3);
+            \draw[red] (4,1) -- (6,1); 
         \end{tikzpicture}
         \caption{Beispiel für stückweise konstante Funktion $V\in\Abb{[0,6]}{\R}$.}
     \end{figure}
     \begin{Aufgabe}
-        \nr{} Definiere die Mengen $\textit{konstant}$ und $\textit{stückweisekonstant}$ für $\mcL^2(\R\times\R^3)$. 
+        \nr{} Definiere die Mengen $\textit{konstant}_{V\to W}$ und $\textit{stückweisekonstant}_{V\to W}$ zunächst für beliebige endlichdimensionale Vektorräume $V,W$ und speziell für unsere Lösungskandidaten aus $\mcL^2(\R\times\R^3)$. 
     \end{Aufgabe}
     \subsubsection*{Randbedingungen an Unstetigkeitsstellen}
-        Für ein $V=0$ ergibt sich als Lösung von $H(\psi(t,x)) = F(V)$ eine Exponentialfunktion der Form $\psi(t,x) = C_0\cdot\exp(\cmath\cdot\scpr{x}{k})$ für $C_0\in\R$, $k\in\R^3$ als Fittingkonstanten. Mit $E = \hbar^2\dot k^2/(2m)$ folgt noch $k = \pm 1/\hbar\cdot\sqrt{2\cdot m\cdot E}$. Für allgemeinere $V\in\textit{konstant}$ haben wir für $H(\psi(t,x)) = F(V)$ zunächst 
-        \[-\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) = (E-V)\cdot\psi(t,x)\implies \psi(t,x) = C_0\cdot\exp(\cmath\cdot\scpr{k}{x})\]
-        mit $k = (\pm 1/hbar\cdot\sqrt{2m\cdot (E-V(t,x))})_{(t,x)\in\R\times\R^3}$. Hier müssen wir nun eine Fallunterscheidung für (i) $E(t,x)\geq V(t,x)$ und (ii) $E(t,x)<V(t,x)$ durchführen:
+        Ist $V = 0_{\R\times\R^3\to\R}$, so fällt der zweite Summand des Hamilton Operators weg und es ergibt sich die Form
+        \[-\frac{\hbar^2}{2m}\cdot\bbbra{\dv{x}}^2\psi_t(x) = \lambda\cdot\psi_t(x),\]
+        für eine zeitlich konstante Funktion $t\mapsto \psi_t\in C^2(\R)$. Hier fallen mehrere Lösungskandidaten ein, wir werden jedoch die Form $\psi_t(x) = C_0\cdot{\exp}(\cmath\cdot k\cdot x)$ für $C_0,k\in\R$ wählen.
+        \begin{Aufgabe}
+            \nr{} Finde weitere Kandidaten als Lösung der gegebenen Differentialgleichung zweiter Ordnung. Rechne dabei explizit mit dem Lösungsbegriff nach, daß sie Lösungen sind. 
+        \end{Aufgabe}
+        Wir können an dieser Stelle die Konstanten der Gleichung zusammenfassen: Durch rüberdividieren des Terms $-\hbar^2/2m$ und Wurzelzug ergibt sich die Form
+        \[\bbbra{\dv{x}}^2\psi_t(x) = k_\lambda^2\cdot \psi_t(x),\qquad k_\lambda:=\bbbra{\frac{\cmath}{\hbar}\cdot\sqrt{2m\lambda}}_{\lambda\in\R},\]
+        wobei wir in $\lambda\mapsto k_\lambda\in\C$ die Vorfaktoren zusammengefasst haben. 
+
+        \begin{Aufgabe}
+            \nr{} Rechne die Definition von $k$ einmal nach, indem du die zeitunabhängige Schrödingergleichung in skizzierter Weise umstellst. 
+
+            \nr{} Betrachte einmal die Lösung $u:=(\sin(k\cdot x))_{x\in\R}$. Verifiziere, daß sie die DGL löst. Wir wollen fordern, daß in einem Potentialtopf zwischen $0\in\R$ und $a\in\R$ die Randbedingungen $u(0) = u(a) = 0$ gelten. Innerhalb des Intervalls soll wie bisher angenommen $V = 0_{\R\times\R\to\R}$ gelten. Für den ersten Fall $x=0$ wissen wir durch die Beschaffenheit des Sinus sofort $u(0) = 0$. Dies wollen wir nun für $x=a$ fordern: unter welcher Bedingung an $\lambda\mapsto k_\lambda$ gilt $u(a) = 0$? 
+
+            \nr{} Nutze das Ergebnis der Aufgabe und stelle nun die Bedingungsgleichung $k_\lambda = L$ nach $\lambda_L$ um, sprich bilde die \emph{Inverse} von $k_\lambda$. Wann ist dies möglich? Wir nennen den Wert $\lambda_L$ den \emph{zu $L$ gehörige Energieeigenwert der Lösung $u$}. Was fällt dir an dieser Stelle physikalisch auf? 
+        \end{Aufgabe}
+        Für allgemeinere $V\in\textit{konstant}_{\R^2\to\R}$ müssen wir einen Schritt zurücktreten und die um $V$ erweiterte Form der Schrödingergleichung notieren: 
+        \[H(\psi)(t,x) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + (V\circ \psi)(t,x)\]
+        haben wir für die neue $k_{\lambda,V}$ Funktion die Form 
+        \[k_{\lambda,V}:=\bbbra{\frac{\cmath}{\hbar}\cdot\sqrt{2m\cdot(\lambda - V(t,x))}}_{(t,x)\in\Def(V)},\]
+        wobei wir uns an das Umstellungsschema von oben halten. Da $V$ nach Voraussetzung konstant in seinen Argumenten ist, können wir uns den Wert in einem Testpunkt $\tau\in\Def(V)$ mit $V_0:=V(\tau)$ wählen und sichern. Damit ist $k_{\lambda,V}$ ebenfalls eine auf $\Def(V)$ konstante Funktion deren Wert wir ebenfalls in $k_{\lambda,V_0}:=k_{\lambda,V}(\tau)$ sichern. Damit erhalten wir die Form
+        \[\bbbra{\dv{x}}^2\psi_t(x) = k_{\lambda,V_0}\cdot\psi_t(x),\]
+        welche mit dem neuen $k_{\lambda,V_0}$ durch unsere Exponentiallösung ebenfalls gelöst wird. 
+        \begin{Aufgabe}
+            \nr{} Rechne nach, daß die Exponentiallösung $\psi_t(x) = C_0\cdot{\exp}(\cmath\cdot k_{\lambda,V_0}\cdot x)$ die Differentialgleichung löst. Finde eine Bedingungsgleichung für $C_0$. 
+        \end{Aufgabe}
+        
+    \subsubsection*{Normierbarkeit}
+        Da unser Wurzelbegriff auf dem reellen Zahlenstrahl nicht für alle Potential-Energie Paare greift, müssen wir hier jedoch eine Fallunterscheidung einführen. Ist $V_0\geq \lambda$, so wird die Differenz $\lambda - V_0$ im negativen reellen Zahlenbereich liegen. Hier nutzen wir Fall (i). Ist $V_0 < \lambda$, so wird das Ergebnis durch den üblichen Wurzelbegriff ohne weitere Betrachtungen abgedeckt; Wir entscheiden uns für Fall (ii). 
         \begin{enumerate}[label=(\roman*)]
+            \item In diesem Fall bildet $k_{\lambda,V_0}$ mit erweitertem komplexen Wurzelbegriff auf eine komplexe Zahl $z\in\C$ aus \emph{reinem} Imaginärteil ab, sodaß sich in der Exponentialfunktion mit dem bereits vorhandenen $\cmath$ eine insgessamt reelle Zahl ergibt: Wir erhalten also eine \emph{reelle} Exponentialkurve der Form $\psi_t(x) = C_0\cdot\exp(\Imag(z)\cdot x)$.
             \item Es ist dann $k(t,x)$ eine Zahl in $\R$, sodaß für die Normierung über eine kompakte Menge $M_{L,2}:=\nset{x\in\R^3:\dabs{x}{2} \leq L/2}$ im Quadratintegral 
             \[1 \stackrel{!}{=} \abs{C_0}\cdot\lint{\abs{\exp(\cmath\cdot\scpr{k}{x})}}{x}{M_{L,s}} = \abs{C_0}^2\cdot L,\]
             also $C_0 = 1/L$. Für $L\to\infty$ folgt also $C_0\to 0$, der Erwartungswert bleibt jedoch erhalten. 
@@ -61,7 +89,7 @@
     \subsubsection*{Zusammenfassen}
         Falls $\abs{V(x)}<0$ für alle Argumente $x$, dann folgt die Stetigkeit der Lösung $u = \psi$ auf dem ganzen Lösungsintervall. Ist $V$ eine Verklebung von $\delta$ Integralen, so folgt die Stetigkeit von $\dv{x}\psi(t,x)$ jedoch nicht. 
 
-    \subsubsection{Potentialbarrieren}
+    \subsection{Potentialbarrieren}
         Beachte hierzu als Beispiel das Potential 
         \[V:=\fdef{\begin{cases}
             0 & x<0 \\
@@ -82,9 +110,9 @@
             \tau\cdot\exp(\cmath\cdot\overline k(t,x)\cdot x) & x\geq 0
         \end{cases}}{(t,x)\in\R^2}\]
         mit \emph{Transmissionskoeffizient} $\kappa\in\R$ und \emph{Reflexionskoeffizient} $\rho\in\R$. Beachten wir nun die kritische Stelle $x=0$, dann ergeben sich durch die Stetigkeitsbedingung an $\psi,\psi'$ die Bedingungen
-        \[1+r = t\qquad \cmath\cdot (k-\overline k\cdot\rho) = \cmath\cdot\overline k\cdot\tau.\]
+        \[1+\rho = \tau\qquad \cmath\cdot (k-\overline k\cdot\rho) = \cmath\cdot\overline k\cdot\tau.\]
         Durch Auflösen ergibt sich 
-        \[\rho = \frac{k - \overline k}{k + \overline k}\in\C\qquad \tau = \frac{2\cdot k}{k+\overline k}\in\C.\]
+        \[\rh_{k,\overline k} = \frac{k - \overline k}{k + \overline k}\in\C\qquad \tau_{k,\overline k} = \frac{2\cdot k}{k+\overline k}\in\C.\]
         Die Funktionsverklebung $\psi$ stellt mit diesen Koeffizienten also eine Lösung der Schrödingergleichung. 
 
         \begin{Aufgabe}

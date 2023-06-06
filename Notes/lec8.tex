@@ -2,21 +2,21 @@
 
 \begin{document}
     \marginnote{\textbf{\textit{VL 8}}\\10.05.2023, 08:15}[-1cm]
-        Beispiele für symmetrisch Operatoren sind der Orts- und Impulsoperator.
+        Beispiele für selbstadjungierte Operatoren sind der Orts- und Impulsoperator.
         \begin{Aufgabe}
             \nr{} Zeige die Symmetrie des Orts- und Impulsoperators. Für welche Funktionen $f\in\Abb{\R^3}{\R}$ gilt ebenfalls Symmetrie?
             
             \nr{} Zeige die Aussage \textit{Ein linearer stetiger Operator ist genau dann selbstadjungiert, wenn er symmetrisch ist.} Nutze hierzu die Symmetrieeigenschaft $T\subseteq T^{\textit{ad}}$. 
         \end{Aufgabe}
-    \subsubsection*{Eigenschaften symmetrischer Quantenoperatoren}
-        Als \emph{Quantenoperator} bezeichnen wir meist stetige, lineare, dicht definierte Operatoren. Ist $T$ ein solcher und zusätzlich symmetrisch, so können wir einige nützliche Eigenschaften feststellen. Betrachtet man zuerst einmal die Erwartungswerte von $T$, so finden wir 
+    \subsubsection*{Eigenschaften selbstadjungierter Quantenoperatoren}
+        Als \emph{Quantenoperator} bezeichnen wir meist stetige, lineare, dicht definierte Operatoren. Ist $T$ ein solcher und zusätzlich selbstadjungiert, so können wir einige nützliche Eigenschaften feststellen. Betrachtet man zuerst einmal die Erwartungswerte von $T$, so finden wir 
         \[\langle T\rangle_\psi^* = \scpr{\psi}{T(\psi)}_\mcH^* = \scpr{T(\psi)}{\psi}_\mcH = \langle T\rangle_\psi.\]
         Damit sind die Erwartungswerte von $T$ reell. Selbiges gilt für die Eigenwerte von $T$, wodurch das \emph{Punktspektrum} $\sigma_P(T)\subseteq\R$ ist. Dies begründet die physikalisch notwendige \emph{Messbarkeit} von $T$. \\
 
         Der zweiten Frage, deren Antwort wir noch schuldig sind, wollen wir im folgenden Kapitel begegnen. 
 
-    \subsection{Heisenbergsche Unschärferelation (II)}
-        Die Heisenbergsche Unschärferelation haben wir bereits kennengelernt. Ihren Zusammenhang zur \emph{Operatorunschärfe} wollen wir nun jedoch genauer beleuchten: seien hierzu $\psi\in\mcL^2(\mcH)$ quadratintegrierbar mit der speziellen Eigenschaft $\int\abs{\psi}^2 = 1$. Seien $A,B\in L_S(\mcH)$ weiter zwei symmetrische Observablen und $\mcH$ ein Hilbertraum. Mit dem Kommutator können wir die Fragestellung nun neu ausdrücken:
+    \subsection{Die Heisenbergsche Unschärferelation (II)}
+        Die Heisenbergsche Unschärferelation haben wir bereits kennengelernt. Ihren Zusammenhang zur \emph{Operatorunschärfe} wollen wir nun jedoch genauer beleuchten: seien hierzu $\psi\in\mcL^2(\mcH)$ quadratintegrierbar mit der speziellen Eigenschaft $\int\abs{\psi}^2 = 1$. Seien $A,B\in L_S(\mcH)$ weiter zwei selbstadjungierte Observablen und $\mcH$ ein Hilbertraum. Mit dem Kommutator können wir die Fragestellung nun neu ausdrücken:
         \begin{center}
             \textit{Wenn $[A,B]\neq 0$, wie \enquote{klein} können $\var_\psi(A),\var_\psi(B)$ werden?}
         \end{center}

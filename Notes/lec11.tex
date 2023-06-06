@@ -1,0 +1,72 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 11}}\\15.05.2023, 11:45}
+    Als nächstes Beispiel wollen wir uns ein Potential von der Form einer Indikatorfunktion auf $[a,b]\subseteq\R$. Dann sei $V:=(\mbbEins_{[a,b]}(x)\cdot V_0)_{x\in\R}$. Für unsere Zusammengeklebte Lösung ergibt sich nun ein weiterer Fall: $x\in\R_{>b}$. Dieser war bisher nicht existent, führt jedoch zu dem berühmten Ereignis des \emph{Quanten-Tunneling}. Unsere Verklebung von $u_{f,a}$ ist demnach 
+    \[
+        u_{f,a} = \begin{cases}
+            f_+(t,x) - \rho\cdot f_-(t,x) & x\in\R_{<a}\\
+            C\cdot f_{\kappa,-}(t,x) + D\cdot f_{\kappa,+}(t,x) & x\in[a,b]\\
+            \tau\cdot f_+(t,x - a) & x\in\R_{>b}
+        \end{cases}.
+    \]
+    Beachte, daß $f$ eine Funktionserinnerung an die bekannte $\exp$ Lösung ist, wobei $k(t,x) =p/\hbar\cdot(\sqrt{2m\cdot (E-V(t,x))})$ und $\kappa(t,x) = 1/\hbar\cdot\sqrt{2m\cdot (V(t,x) - E)}$. 
+    \begin{Aufgabe}
+        \nr{} Setze die konkreten Funktionen für $f$ ein. Halte dich dabei an die am Anfang des Kapitels gefundene Lösung. Warum steht im dritten Funktionsteil $x-a$?
+    \end{Aufgabe}
+    Wir beachten nun speziell die Stetigkeitsbedingungen am Rand von $[a,b]$. Diese sind
+    \begin{table}
+        \centering
+        \begin{tabular}{c|c|c}
+            Ort & $u_{f,a}$ & $\dv{x}u_{f,a}(t,x)$ \\
+            \hline
+            $x = a$ & $1+\rho = C + D$ & $\cmath\cdot k(t,x)\cdot (1-\rho) = \kappa(t,x)\cdot (D - C)$ \\
+            $x = b$ & $C\cdot f_{\kappa,-}(t,x) + D\cdot f_{\kappa,+}(t,x)$ & $\kappa(t,x)\cdot(D\cdot f_{\kappa,+}(t,x) - C\cdot f_{\kappa,-}(t,x)) = \cmath\cdot k(t,x)\cdot \tau$ \\
+        \end{tabular}
+    \end{table}
+    Diese vier Bedingungen führen uns nun auf ein lineares Gleichungssystem mit den Unbekannten $C,D,\rho,\tau$.
+    \begin{Aufgabe}
+        \nr{} Löse das Gleichungssystem. Verifiziere $\tau(t,x) = 1/(\cosh(\kappa(t,x)\cdot a) + \cmath\epsilon(t,x)\cdot\sinh(\kappa(t,x)\cdot a)/2)$, wobei $\epsilon(t,x):=(\kappa(t,x)^2-k(t,x)^2)/(\kappa(t,x)\cdot k(t,x))$.
+    \end{Aufgabe}
+    Mit der Aufgabe lässt sich nun das Wahrscheinlichkeitsquadrat $\abs{\tau(t,x)}^2$ bestimmen:
+    \[\abs{\tau(t,x)}^2 = \frac{1}{1+(\epsilon(t,x)/4+1)\cdot\sinh(\kappa(t,x)\cdot a)^2},\]
+    wobei $\cosh(x)^2 = 1+\sinh(x)^2$ verwendet wurde. 
+    \begin{Aufgabe}
+        \nr{} Setze einmal die Funktionsdefinitionen in den Ausdruck ein. Quadriere zunächst $\epsilon$, wobei du die $\kappa$ und $k$ Ausdrücke einsetzt und eine zusammengesetzte Funktion mit $E$ und $V$ erhältst. 
+    \end{Aufgabe}
+    Für große Argumente $\chi$ nähert sich die Exponentialfunktionsauswertung $\exp(-\chi)$ der Null, sodaß nach Definition des sinh gerade
+    \[\sin(\chi) := \frac{1}{2}\cdot(\exp(\chi)-\exp(-\chi)) \approx \frac{\exp(\chi)}{2},\]
+    sodaß für die Abschätzung $1+\mck\cdot\sinh(\chi)^2\approx 1+\mck\cdot(1/2\cdot\exp(\chi))^2\approx \mck\cdot(1/2\cdot\exp(\chi))^2$ der Ausdruck $\abs{\tau(t,x)}^2$ durch Inversbildung ausgeschrieben werden kann als
+    \[\abs{\tau(t,x)}^2\approx \frac{b\cdot E\cdot(V(t,x) - E)}{V(t,x)^2}\cdot\exp(-2\cdot\kappa(t,x)\cdot a) \approx \exp(-2\cdot\sqrt{\frac{2m\cdot a\cdot(V(t,x) - E)}{\hbar}}).\]
+
+    \subsubsection*{Anwendungsbeispiele}
+        In der Festkörperphysik trifft man auf dieses Phänomen an vielen Stellen, wie beispielsweise dem \emph{Tunnelstrom} oder im Bereich der Supraleiter unter dem Namen \href{https://de.wikipedia.org/wiki/Josephson-Effekt}{\emph{Josephson Effekt}}. Ein weiteres Beispiel ist die \emph{kalte Emission}, oder auch bekannt als \href{https://de.wikipedia.org/wiki/Feldemission}{\emph{Feldemission}}.
+
+    \subsection{Potentialtopf und gebundene Zustände}   
+        Unser nächstes Thema beschäftigt sich mit dem Potentialtopf, bei welchem im Unterschied zu den bisherigen Betrachtungen das Potential gegen $x\to\pm\infty$ nicht gegen $0$ geht. Hier sind auch nicht mehr alle Energiewerte $E\in\R_{\geq 0}$ Eigenwerte des Hamiltonoperators $H$, was uns auf die \emph{Diskretisierung} durch Punktspektren führen wird. Dieses diskrete Spektrum werden wir antreffen an Potentialorten $V(t,x)<V_\infty$, wobei $V_\infty$ die Fälle $x\to\pm\infty$ bei konstanter Zeit $t$ beschreibt. Unser Modell basiert auf einem Potential der Form
+        \[V_{V_0}:=\fdef{\mbbEins_{\R\setminus[a,b]})(x)\cdot V_0}{(t,x)\in\R^2},\]
+        wobei $V_0\in\R_{>0}$ eine Konstante ist. Eine Grenzfallbetrachtung ist zusätzlich für $\lim_{V_0\to\infty} V_{V_0}$ interessant: Für einen Abfall der Form $\exp(-\kappa(t,x)\cdot x)$ folgt für den symmatrischen Fall $a = -b$ im Betrag
+        \[\lim_{V_0\to\infty}\exp(-\sqrt{2m\cdot(V_{V_0}(t,x))}\cdot \abs{x}/\hbar) = 0\]
+        für $x\in\R\setminus{[-b,b]}$. Zu Lösen ist nun die Schrödingergleichung im Bereich $[-b,b]$. Erinnern wir uns an unsere zusammengeklebte Lösung $u_{f,-b}(t,x)$, so muss an den Rändern die Bedingung
+        \[u_{f,a}(t,\pm b) = C\cdot f_{\kappa,\pm}(t,x) + D\cdot f_{\kappa,\mp}(t,x) = 0,\]
+        wobei wir hier auf die Matrixschreibweise wechseln können: 
+        \[\begin{pmatrix}
+            f_{\kappa,+}(t,b) & f_{\kappa,-}(t,b) \\
+            f_{\kappa,+}(t,-b) & f_{\kappa,-}(t,-b) 
+        \end{pmatrix}\circledast \begin{pmatrix}
+            C \\ D
+        \end{pmatrix} = 0_{\R^2}.\]
+        \begin{Aufgabe}
+            \nr{} Löse das Gleichungssystem für $k$ und $E$ und $f$ im Exponentialansatz. Finde die Diskretisierung durch die Periodizität von $\exp(\cmath\cdot\phi)$. 
+
+            \nr{} Betrachte die Fälle $n\in\textit{gerade}$ und $n\in\textit{ungerade}$. Erhalte $u_{\exp,a}(t,x) = \sqrt{2/a}\cdot\cos(\pi\cdot n\cdot x/2)$ und $u_{\exp,a}(t,x) = \sqrt{2/a}\cdot\sin(\pi\cdot n\cdot x/2)$. Trage die Lösungen in verschiedenen $n$ graphisch auf. 
+        \end{Aufgabe}
+        Interessant ist dabei, daß das Energieminimum nicht bei $0$ liegt:
+        \[E_1 = \frac{\pi^2\cdot\hbar^2}{2ma} > 0.\]
+        Dies ist begründet durch die \emph{Unschärferelation}, denn durch niedrigere Unschärfe des Ortsoperators folgt eine größere Unschärfe des Impulsoperators, was zu einer größeren kinetischen Energie führt. Eine weitere Beobachtung ist der Knotenzusammenhang $\mcK_{u,n} = n-1$. Die Grenzwertbetrachtung $V_0\to\infty$ führt ebenfalls zu einem Knick in der Funktion $u_{\exp,a}(t,x)$ an den Rändern von $[-b,b]$. 
+
+        \subsubsection*{Potentialtopf mit endlich hohen Wänden}
+            Betrachte als nächstes Beispiel das Potential 
+            \[V_{V_0}:=\mbbEins_{[a,b]}(x)\cdot - V_0,\quad V_0\in\R_{>0}.\]
+
+\end{document}

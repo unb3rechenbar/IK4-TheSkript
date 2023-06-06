@@ -30,17 +30,17 @@
         wobei in dem Absolutbetrag $\abs{\psi(t,r(t))} = \abs{\psi(0,r(t))}$ gilt. Man spricht hier von einem \emph{stationären Zustand}.
 
     \subsection{Normierung und Erwartungswert}
-        Wir wollen nun den Wahrscheinlichkeitsaspekt von $\abs{\psi(t,r(t))}^2$ näher betrachten. Wir definieren zunächst das \emph{Maß mit Dichte} $\mu_\psi:=\fdef{\lint{\abs{\psi(t,x)}}{x}{A}}{A\in\Borel{\R^3}}$. Nun ist die Forderung von $\Gamma:=\fdef{\abs{\psi(t,r(t))}^2}{(t,r(t))\in\Def{\psi}}$ als Gewichtungsfunktion die Eigenschaft $P_{\mu_\psi}(\R^3) = 1$ unseres gewünschten \emph{Wahrscheinlichkeitsmaßes} $P_{\mu_\psi}$ 
+        Wir wollen nun den Wahrscheinlichkeitsaspekt von $\abs{\psi(t,r(t))}^2$ näher betrachten. Wir definieren zunächst das \emph{Maß mit Dichte} $\mu_\psi:=\fdef{\lint{\abs{\psi(t,x)}^2}{x}{A}}{A\in\Borel{\R^3}}$. Nun ist die Forderung von $\Gamma:=\bbra{\abs{\psi(t,r(t))}^2}_{(t,r(t))\in\Def{\psi}}$ als Gewichtungsfunktion die Eigenschaft $P_{\mu_\psi}(\R^3) = 1$ unseres gewünschten \emph{Wahrscheinlichkeitsmaßes} $P_{\mu_\psi}$ 
         \begin{Aufgabe}
             \nr{} Zeige für $\psi = c_1\cdot\psi_1 + c_2\cdot\psi_2$ mit geeigneten Gewichtungsfunktionen $c_1,c_2$ die Eigenschaft $\mu_\psi(\R^3)\neq 1$. Ist dies ein Widerspruch zwischen dem Superpositionsprinzip und der Normierung?
         \end{Aufgabe}
-        Normierbare $\psi$ müssen nach der Aufgabe also die Eigenschaften (i) $\psi\in\mcL^2(\R^3)$ und (ii) $\mu_\psi(\R^3)\neq 0\Leftrightarrow \psi\neq 0$ erfüllen. Dann ergibt sich eine Normierung durch
+        Nach der Aufgabe folgern wir also, daß es nur bestimmte $\psi$ Funktionen gibt, welche unseren Wunsch erfüllen. Solche genannten \emph{normierbaren} $\psi$ charakterisieren wir also zunächst durch die Existenz des Integralwertes: Solche Funktionen finden wir in der Menge $\mcL^2(\R^3)$. Weiter wollen wir den $\mu_\psi$ Wert in $\R^\times$ vorfinden, damit eine Normierung durch Multiplikation möglich wird. Aus diesen beiden Ideen folgen die Eigenschaften (i) $\psi\in\mcL^2(\R^3)$ und (ii) $\mu_\psi(\R^3)\neq 0\Leftrightarrow \psi\neq 0$. Dann ergibt sich eine Normierung durch
         \[P_\psi(t,r(t)):=\frac{\abs{\psi(t,r(t))}^2}{\mu_\psi(\R^3)},\]
         wobei $P_{\psi}$ unser gewünschtes \emph{Wahrscheinlichkeitsmaße} ist. 
         \begin{Aufgabe}
             \nr{} Zeige, daß alle $\psi$, welche die Normierungsbedingungen erfüllen, zusammen mit dem Nullvektor $0_{\mcL^2(\R^3)}$ einen Vektorraum bilden. Welcher Raum ist es dann?
 
-            \nr{} Zeige, daß die $\psi$ zwar einen physikalischen Zustand beschreiben, jedoch nicht eindeutig wählbar sind. 
+            \nr{} Zeige, daß die $\psi$ zwar einen physikalischen Zustand beschreiben, jedoch selbst als Funktionen nicht eindeutig wählbar sind. Wohin verschiebt sich die Eindeutigkeit?
         \end{Aufgabe}
 
         \subsubsection*{Zeitabhängigkeit der Normierung}
@@ -69,7 +69,7 @@
             und für allgemeinere Funktionen des Ortes $f\in\Abb{\R^3}{\R^3}$ 
             \[E_{P,r,f}(t):=\fdef{\lint{f(r)\cdot P_\psi(t,r)}{x}{A}}{A\in\Borel{\R^3}}.\]
 
-    \subsection{Wellenfunktion im Impulsraum}
+    \subsection*{Wellenfunktion im Impulsraum}
         Wir hatten bereits gesehen, daß wir ein Wellenpaket mit $\psi(0,r(t)) = \mcF\psi(0,(p\circ r)(t))$ konstruieren können. Für ein allgemeineres $t\in\R$ haben wir 
         \[\psi(t,r(t)) = \lint{\frac{1}{(2\pi\hbar)^3}\cdot \mcF\psi(t,p)\cdot\exp(-\frac{\cmath p\cdot r(t)}{\hbar})}{p}{}\]
         und
