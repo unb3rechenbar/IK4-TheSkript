@@ -2,4 +2,16 @@
 
 \begin{document}
     Jetzt sind zwei Wochen Ferien. 
+
+    \subsection*{Bloch Theorem}
+        Das Bloch Theorem entspringt der Physik kondensierter Materie und besagt, daß bei angenommenem \emph{periodischen Potential} $V\in\textit{periodisch}_{\R\to\R}$ die Lösungen der Schrödingergleichung die Form einer \emph{ebenen Welle} haben, welche in eine weitere periodische Funktion $p\in\textit{periodisch}_{\R\to\R}$ eingehüllt ist. Ist $a$ die Periode von $V$, dann müssen wir an die Lösung der Schrödingergleichung die Forderung
+        \[\dabs{\psi(x)}{}^2 = \dabs{\psi(x + a)}{}^2\]
+        stellen. Damit haben wir allerdings bereits manifestiert, daß $\psi(x + a)$ nur eine \emph{gedrehte} Version von $\psi(x)$ sein kann, da Streckung durch die Norm beschränkt wird. Wir finden also eine Zahl $\zeta_a\in(-\pi,\pi)$, sodaß die Bedingung
+        \[\psi(x) = \exp(\cmath\cdot\zeta_a)\cdot\psi(x)\]
+        erfüllt ist. 
+        \begin{mdef}{Bloch Funktion}
+            Sei $\psi\in\mcL^2(\R^d)$ eine Lösung der Schrödingergleichung mit periodischem Potential $V$. Dann heißt $\psi$ \emph{Bloch Funktion}, falls es eine weitere periodische Funktion $u$ gibt, so daß $\psi = \bbra{\exp(\cmath\cdot\scpr{k}{x}_\mcH)\cdot u(x)}_{x\in\Def{\psi}}$ gilt.
+        \end{mdef}
+        
+        
 \end{document}
