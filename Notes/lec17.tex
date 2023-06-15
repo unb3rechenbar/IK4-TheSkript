@@ -1,0 +1,57 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textit{\textbf{VL 17}}\\15.06.2023, 10:00}
+    \subsection{Uneigentliche Dirac Vektoren}
+        In vielen Fällen ist der betrachtete Hilbertraum $\mcH$ von einer \emph{nicht abzählbaren Dimension}. 
+        Ein Hilbertraumelement $\ket{\psi}$ lässt sich in der \emph{Diracnotation} darstellen als Summation über eine linear unabhängiges orthogonales Vektortupel $\bbra{\ket{\alpha_i}}_{i\in\N}$, welches einen Kontinuumsübergang
+        \[
+            \ket{\psi} = \sum_{i\in\N} \braket{\alpha_i}{\psi}\cdot\ket{\alpha_i}\leadsto \int_\R \braket{\alpha_t}{\psi}\cdot\ket{\alpha_t}\;dt
+        \]
+        besitzt. In der Vollständigkeit ist die Verwendung einer Linearform aus dem Dualraum $\mcH^*$ der Form $\bra{\phi}$ dann gerade
+        \[
+            \braket{\phi}{\psi} = \int_\R \braket{\alpha_t}{\psi}\cdot\braket{\phi}{\alpha_t}\;dt.
+        \]
+        \begin{Aufgabe}
+            \nr{} Finde mathematische Analogien zu der präsentierten Diracnotation.
+
+            \nr{} Wodurch ist die Existenz des $\bra{\phi}$ gesichert? Ist die Zuordnung eindeutig? Recherchiere hierzu den \emph{Satz von Riesz-Fréchet}.
+        \end{Aufgabe}
+
+        \subsubsection*{Algebraische Dualräume}
+            Als Dualraum eines Vektorraums $V$ mit Grundkörper $K$ verstehen wir die Menge aller \emph{Homomorphismen} $\phi:V\to K$, bezeichnet als $V^*:=\Hom{V}{K}{}$. Das \emph{Skalarprodukt} auf $V$ ist dabei definiert als
+            \[
+                v\mapsto \bbra{w\mapsto \scpr{v}{w}_V} =: \Phi_v\in V^*.
+            \]
+            Aus der vorigen Aufgabe und dieser Definition können wir nun bemerken, daß es eine Bijektion zwischen $V$ und $V^*$ gibt [$\to$ 13.1.7]. Diese Abbildung $\Phi_v$ notieren wir als $\bra{v}$ und schreiben als Auswertung $\Phi_v(w) =: \bra{v}(w) =: \braket{v}{w} = \scpr{v}{w}_V$.
+            \begin{Aufgabe}
+                \nr{} Definiere für $c\in K$ und $v,w\in V$ die Addition und Skalarmultiplikation in $V^*$.
+            \end{Aufgabe} 
+
+        \subsubsection*{Adjungierter Operator}
+            Den zu $T\in L_S(\mcH)$ mit $\Def(T)\subseteq\mcH$ \emph{adjungierten Operator} $T^*$ definieren wir über die Beziehung 
+            \[\braket{T(\psi)}{\phi} = \braket{\psi}{\varphi},\]
+            wobei $\psi,\phi\in\Def(T)$. Dann ist $T^*$ gerade die \emph{eindeutige} Abbildung $T^*:\Def(T)\to\mcH,\;\psi\mapsto \varphi$. Es gilt dann nach Definition $\braket{T(\psi)}{\phi} = \braket{\psi}{T^*(\phi)}$.
+            \begin{Aufgabe}
+                \nr{} Zeige die Eindeutigkeit von $T^*$ zu $T$. Beachte hierzu [$\to$ 15.1.1]. 
+
+                \nr{} Rechne die Eigenschaften (i) $(f^*)^* = f$, (ii) $(f + g)^* = f^* + g^*$, (iii) $(\lambda f)^* = \overline{\lambda}f^*$ für $f,g\in V^*$ und $\lambda\in K$ nach.
+            \end{Aufgabe}
+            Nach den Eigenschaften der adjungierten Abbildung gilt dann im oft betrachteten Spezialfall $\mcH = \mcL^2(\R^d)$ gerade
+            \[
+                \int_{\R^d} \psi_1(x)^*\cdot T(\psi_2)(x)\;dx = \int_{\R^d} T^*(\psi_1)(x)\cdot\psi_2(x)\;dx.
+            \]
+
+        \subsubsection*{Selbstadjungierter Operator}
+            Im Falle $T = T^* \in L_S(\mcH)$ spricht man von einem \emph{selbstadjungierten Operator}. Es gilt dann $\braket{T(\psi)}{\phi} = \braket{\psi}{T(\phi)}$ für alle $\psi,\phi\in\Def(T)$. 
+
+        \subsubsection*{Beschränkter Operator}
+            Lässt sich die Norm $\dabs{T(x)}{\mcH}$ unter eine lineare Skalierung $C\cdot\dabs{x}{}$ mit \emph{festem} $C\in\R$ quetschen, so nennen wir $T$ \emph{beschränkt}. Dies ist in endlichdimensionalen Räumen immer der Fall, jedoch nicht im unendlichdimensionalen Fall. Wir unterscheiden in letzterem Fall zwischen \emph{selbstadjungierten} und \emph{symmetrischen} Operatoren. Hierzu brauchen wir noch eine Definition:
+            \begin{align*}
+                T\in\textit{dichtdefiniert}_\mcH:\Longleftrightarrow \overline{\Def(T)} = \mcH.
+            \end{align*}
+            Damit ist $T$ genau dann \emph{symmetrisch}, wenn $\Def(T)\subseteq\Def(T^*)$ und $T = T^*|_{\Def(T)}$. Im Fall der Gleichheit definieren wir $T$ als \emph{selbstadjungiert}.
+            \begin{Aufgabe}
+                \nr{} Zeige den endlichdimensionalen Fall. Finde ein Gegenbeispiel im unendlichdimensionalen Fall. 
+            \end{Aufgabe}
+\end{document}
