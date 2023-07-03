@@ -1,0 +1,36 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 18}}\\16.06.2023, 11:45}
+    Der Umgang mit einem Hilbertraumelement und einer linearen Abbildung aus $\mcH^*$ von der Form $\lambda\in\mcH$, $l\in\mcH^*$ ist durch punktweise Multiplikation in der Auswertung in $x\in\mcH$ gegeben:
+    \[(\lambda\cdot f)(x) := \lambda\cdot f(x).\]
+    Dies wollen wir einmal festhalten.
+    \subsubsection*{Dyadisches Produkt}
+        \begin{mdef}{Dyadisches Produkt}
+            Für Vektoren $x,y\in\mcH$ ist das \textit{dyadische Produkt} mit der zugeordneten Linearform $\Phi_y\in\mcH^*$ definiert als
+            \[(\lambda\cdot \Phi_y):=\fdef{\lambda\cdot \Phi_y(x)}{x\in\mcH}.\]
+            Wir schreiben in Diracscher Notation auch
+            \[(\ket{\alpha}\bra{\beta})(\ket{\psi}) := \ket{\alpha}\cdot\braket{\beta}{\psi}.\]
+        \end{mdef} 
+        Setzt man in die Operatorauswertung $A(x)$ für $x\in\mcH$, $A\in L_S(\mcH)$ die Basisdarstellung bezüglich $\underline v$ als Basisvektortupel von $\mcH$ ein, so gilt
+        \[A(x) = A\Bbra{\sum_{i\in I}\scpr{\underline v_i}{x}\cdot\underline v_i} = \sum_{i\in I}\scpr{\underline v_i}{x}\cdot A(\underline v_i).\]
+        \begin{Aufgabe}
+            \nr{} Unter welchen Voraussetzungen existiert eine solche Basis?
+
+            \nr{} An der Tafel haben wir die Dirac Notation für obige Basisdarstellung verwendet. Kläre die Bedeutung von 
+            \[A(x) := \sum_{i\in I} r_i\cdot\ket{\alpha_i} = \sum_{(i,j)\in I^2}q_i\cdot\braket{\alpha_i}{A(\alpha_i)}\ket{\alpha_j} = \sum_{(i,j)\in I^2}\ket{\alpha_j}\cdot\braket{\alpha_j}{A(\alpha_i)}\cdot\braket{\alpha_i}{\psi},\]
+            wobei $\alpha$ eine Basis von $\mcH$ sei. $r_j$ sei weiter definiert als $r_j:=\sum_{i\in I}\braket{\alpha_j}{A(\alpha_i)}q_i$ = \braket{\alpha_j}{A(x)}. 
+        \end{Aufgabe}
+
+    \subsubsection*{Unitärer Operator}
+        Optisch leisten unitäre Operatoren die \emph{Winkel- und Längentreue} von Vektoren, also insbesondere die \emph{Erhaltung des Skalarproduktes}. Mathematisch können wir sie durch folgende Definition greifbar machen. 
+        \begin{mdef}{Unitärer Operator}
+            Ein Operator $U\in L_S(\mcH)$ heißt \textit{unitär}, wenn $U^* = U^{-1}$ oder äquivalent $U\circ U^* = \id_\mcH$ gilt.
+        \end{mdef}
+
+        
+
+
+
+        
+\end{document}
