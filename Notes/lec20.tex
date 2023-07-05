@@ -1,0 +1,67 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textit{\textbf{VL 20}}\\05.07.2023, 08:15}
+
+    Mögliche Ergebnisse eines Messprozesses eines Operators $T$ sind seine Eigenwerte $\lambda\in\sigma_P(T)$. Da $T$ im physikalischen Sinne s.a. ist $\lambda\in\R$, denn nur reelle Ergebnisse sind physikalisch sinnvoll. Die Wahrscheinlichkeit dafür, daß $\lambda$ im Zustand $\psi$ gemessen wird, ist 
+    \[
+        P(\lambda) = \abs{\braket{\lambda}{\psi}}^2,
+    \]
+    wobei $\ket{\lambda}$ der Eigenvektor zu $\lambda$ ist. Dieser Zusammenhang ist auch als \emph{Born'sche Regel} bekannt. Wurde die Messung durchgeführt, so kollabiert die Wellenfunktion zu $\ket{\lambda}$, d.h. der Zustand ist nach der Messung $\ket{\lambda}$. 
+    \begin{Aufgabe}
+        \nr{} Betrachte als Beispiel $T = X$ als Ortsoperator in einer Dimension mit $P(x) = \abs{\braket{x}{\psi}}^2 = \abs{\psi(x)}^2$ für $\psi\in L^2(\R)$ und $x\in\R$. Wie sieht dann eine Gaußsche Wellenfunktion nach der Messung aus? 
+    \end{Aufgabe}
+
+    \subsubsection*{Konsequenzen}
+        Durch eine Messung kann ein Zustand \enquote{präpariert} werden in dem Sinne, daß bei einer erneuten Messung mit demselben Operator genau der erste gemessene Wert $\lambda$ messbar sein wird. 
+        \begin{Aufgabe}
+            \nr{} Betrachte das Operatortupel $T:n\mapsto T_n$ mit $T_n\in L_S(\R)$ für $n\in\{1,2,3\}$. Notiere die Form der Eigenwerte $\lambda\in\sigma_P(T)$ und zugehörigen Eigenvektoren $\psi_\lambda$ für $T$. Zeige weiter für beliebiges $\psi\in\Def(T)$ die Eigenschaft $\braket{r}{\psi} = \psi(r)$. Zeige für den Impuls den Zusammenhang $\braket{P}{\psi} = (\mcF\psi)(p)$ in der Fouriertransformierten. 
+        \end{Aufgabe}
+        Einen Zustand $\psi$ können wir dann in einer gegebenen ONB $\underline e:\R\to\R^3$ ausdrücken durch 
+        \[
+            \psi = \int_{\R} \ket{\underline e_x}\braket{\underline e_x}{\psi}\;dx = \int_\R\psi(\underline e_x)(\ket{\underline e_x})\;dx.
+        \] 
+        \begin{Aufgabe}
+            \nr{} Wir wollen uns noch einmal dem Spektralsatz widmen. Wir wissen $T = \int_{\sigma(T)}\lambda\;E(d\lambda)$ für $T\in L_S(\mcH)$ s.a. Nun wollen wir in Dirac Notation über denselben Zusammenhang sprechnen. 
+            \begin{enumerate}[label=(\roman*)]
+                \item Notiere das Integral als Summe. Wo findet sich der \emph{Projektor} $P_\lambda := \ket{\lambda}\bra{\lambda}$ wieder?
+                \item Implementiere die \emph{Entartung}, indem du zu einem Eigenwert $g_n$ verschiedene Eigenvektoren zulässt. Erweitere den Ausdruck aus (i) durch $P_{\lambda,g_\lambda} := \sum_{i\in[g_\lambda]}\ket{\lambda_i}\bra{\lambda_i}$ für $g_\lambda$ als \emph{Entartungsgrad}. Wir bezeichnen dabei $P_\lambda$ als \emph{Projektor auf den Eigenraum} $E_\lambda$. 
+            \end{enumerate}
+        \end{Aufgabe}
+        Mit der Aufgabe können wir nun den Bewertungsprozess neu definieren. 
+        \[
+            P(\lambda) = \abs{\braket{\lambda}{\psi}}^2 = \braket{\lambda}{\psi}\cdot\braket{\lambda}{\psi}^* = \braket{\lambda}{\psi}\cdot\braket{\psi}{\lambda} = \langle\psi|P_\lambda|\psi\rangle.
+        \]
+        Beachten wir die Entartung, so folgt wieder mit der Aufgabe
+        \[
+            \sum_{\lambda}P(\lambda\in\sigma_P(T)) = \sum_{\lambda\in\sigma_P(T)}\langle\psi|P_\lambda|\psi\rangle = \langle\psi|\left(\sum_{\lambda\in\sigma_P(T)}P_\lambda\right)|\psi\rangle = \langle\psi|\psi\rangle = 1.
+        \]
+        Damit erhalten wir als Zustand nach der Messung den Zusammenhang
+        \[
+            \ket{\Psi} = \frac{P_\lambda(\psi)}{\dabs{P_\lambda(\psi)}{}} = \frac{P_\lambda(\psi)}{\sqrt{\langle\psi|P_\lambda^*P_\lambda|\psi\rangle}} \stackrel{(*)}{=} \frac{P_\lambda(\psi)}{\sqrt{\langle\psi|P_n|\psi\rangle}},
+        \]
+        wobei wir bei (*) die Eigenschaft der \emph{orthogonalen Projektion} verwendet haben. Im Falle der Entartung gilt $P_\lambda(\psi) = \ket{\lambda}\braket{\lambda}{\psi} = (\sqrt{P(\lambda)}\cdot\exp(\cmath\varphi))(\psi)$. 
+
+        \begin{Aufgabe}
+            \nr{} Wir identifiziern nun $P_\lambda$ mit $E(\{\lambda\})$, wobei $E$ das zu $T$ gehörige \emph{Spektralmaß} sei. Folgere durch die Eigenschaften des Spektralmaßes (i) $E(\{\lambda\})$ ist wieder Observable, (ii) $P_\lambda^2 = P_\lambda$ und (iii) $\sigma_P(P_\lambda) = (\sigma_P\circ E)(\{\lambda\}) = \{0,1\}$. Was misst also $E$ bzw $P$ zusammenfassend?
+        \end{Aufgabe}
+
+    \subsection{Postulate der Quantenmechanik}
+        Wir können nun zusammenfassend die Postulate der Quantenmechanik mit den kennengelernten Mitteln formulieren.
+        \begin{enumerate}[label=(\roman*)]
+            \item Die Zustände eines Systems werden durch Vektoren $\psi\in\mcH$ mit $\mcH$ als Hilbertraum beschrieben.
+            \item Die Messung einer physikalischen Größe entspricht der Anwendung eines s.a. linearen Operators $T\in L_S(\mcH)$.
+            \item Die Zeitentwicklung ist beschrieben durch die zeitabhängige Schrödingergleichung $\cmath\cdot\hbar\cdot \dv{t}\psi(t) = H(\psi(t))$ für $\psi:\R_{\geq 0}\to\mcH$. 
+        \end{enumerate}
+
+    \subsection{Erweiterung: Gemischte Zustände}
+        Für einen Zustand $\psi\in\mcH$ gibt es einen \emph{Dichteoperator} $\rho\in L_S(\mcH)$ als \emph{statistischen Operator}. Misst man nun mit $T$ den Eigenzustand $\ket{\lambda}$ mit Eigenwert $\lambda$ und Wahrscheinlichkeit $P_\lambda$, so würde man für einen zweiten Operator $A$ den Erwartungswert (im diskreten Fall)
+        \begin{align*}
+            \langle A\rangle_\ket{\lambda} &= \int_{\sigma(A)}\lambda\;E(d\lambda) = \sum_{\lambda\in\sigma(A)} P_\lambda\cdot\langle\lambda|A|\lambda\rangle  \\
+            &=\sum_{\lambda\in\sigma(A)}\sum_{(i,j)\in I^2} P_\lambda\cdot\braket{\lambda}{\varphi_i}\langle\varphi_i|A|\varphi_j\rangle\braket{\varphi_j}{\lambda} \\
+            &= \sum_{(i,j)\in I^2}\ubra{\langle\varphi_i|A|\varphi_j\rangle}{\text{Messung von }A,\;=:A_{i,j}}\cdot \ubra{\sum_{\lambda\in\sigma(A)} P_\lambda\cdot\braket{\lambda}{\varphi_i}\braket{\varphi_j}{\lambda}}{\text{Präparation, }=:\rho_{i,j}} \\
+            &= \sum_{(i,j)\in I^2}A_{i,j}\cdot\rho_{i,j} = \sum_{i\in I} (A\cdot\rho)_{i,i} = \text{Spur}(A\cdot\rho).
+        \end{align*}
+        Damit ist die Dichtematrix gegeben durch $\rho_A = \sum_{\lambda\in\sigma(A)}P_\lambda\cdot\ket{\lambda}\bra{\lambda}$. 
+
+\end{document}
