@@ -60,7 +60,7 @@
             \langle A\rangle_\ket{\lambda} &= \int_{\sigma(A)}\lambda\;E(d\lambda) = \sum_{\lambda\in\sigma(A)} P_\lambda\cdot\langle\lambda|A|\lambda\rangle  \\
             &=\sum_{\lambda\in\sigma(A)}\sum_{(i,j)\in I^2} P_\lambda\cdot\braket{\lambda}{\varphi_i}\langle\varphi_i|A|\varphi_j\rangle\braket{\varphi_j}{\lambda} \\
             &= \sum_{(i,j)\in I^2}\ubra{\langle\varphi_i|A|\varphi_j\rangle}{\text{Messung von }A,\;=:A_{i,j}}\cdot \ubra{\sum_{\lambda\in\sigma(A)} P_\lambda\cdot\braket{\lambda}{\varphi_i}\braket{\varphi_j}{\lambda}}{\text{Präparation, }=:\rho_{i,j}} \\
-            &= \sum_{(i,j)\in I^2}A_{i,j}\cdot\rho_{i,j} = \sum_{i\in I} (A\cdot\rho)_{i,i} = \text{Spur}(A\cdot\rho).
+            &= \sum_{(i,j)\in I^2}A_{i,j}\cdot\rho_{j,i} = \sum_{i\in I} (A\cdot\rho)_{i,i} = \text{Spur}(A\cdot\rho).
         \end{align*}
         Damit ist die Dichtematrix gegeben durch $\rho_A = \sum_{\lambda\in\sigma(A)}P_\lambda\cdot\ket{\lambda}\bra{\lambda}$. 
 
