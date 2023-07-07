@@ -7,7 +7,7 @@
     \end{Aufgabe}
     \subsubsection*{Lösungen}
         Liegen uns Lösungen $\fdef{\psi_n}{n\in I}$ der Schrödingergleichung vor, so können wir diese als \emph{Orthonormalbasis} für den Hilbertraum verwenden. Es gilt demnach
-        \[\lint{\phi_n(x)\cdot\overline{\phi_m(x)}}{x}{} = \begin{cases}
+        \[\lint{\varphi_n(x)\cdot\overline{\varphi_m(x)}}{x}{} = \begin{cases}
             1 & n=m\\
             0 & n\neq m
         \end{cases}\quad [\text{siehe Skalarprodukt }\mbbL^2(\R^3)].\]
@@ -16,7 +16,7 @@
             \nr{} Diese Aussage beruht auf dem folgenden Satz: \textit{Ist $T$ ein selbstadjungierter Operator mit $\sigma_c(T)=\emptyset$, dann ist $\sigma_P(T)$ höchstens abzählbar und es existiert eine ONB von $\mcH$ aus Eigenfunktionen von $T$.} Zeige diesen Satz aus der Operatortheorie. 
         \end{Aufgabe}
         \noindent Setzt man eine solche Lösung in die Schrödingergleichung ein, so erhält man
-        \[\cmath\hbar\cdot\sum_{i\in I}E_i(t)\cdot\phi_i(r(t)) = \sum_{i\in I}c_i(t)\cdot\hat H\phi_i(r(t)) = \sum_{i\in I}c_i(t)\cdot E_i\phi_i(r(t)),\]
+        \[H\nbra{\sum_{i\in I}c_i\cdot\phi}(r(t)) = \sum_{i\in I}c_i(t)\cdot H(\phi_i)(r(t)) = \sum_{i\in I}c_i(t)\cdot E_i(t)\cdot\phi_i(r(t)),\]
         und mit $\phi$ Orthonormalbasis 
         \[\cmath\hbar\cdot c_i'(t) = E_i c_i(t) \Longleftrightarrow c_i(t) = c_i(0)\cdot\exp(-\cmath E_i t/\hbar),\]
         wobei die $c_i(0)$ aus den Anfangsbedingungen folgen:

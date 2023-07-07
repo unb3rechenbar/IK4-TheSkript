@@ -1,0 +1,38 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \subsection{Harmonischer Oszillator (II)}
+    \marginnote{\textbf{\textit{VL 21}}\\07.07.2023, 11:45\\cu@Cro's! \tru}
+        Wir wollen nun ohne Basiswahl den harmonischen Oszillator mit Hamiltonoperator 
+        \[H = \fdef{\frac{P^2(x)}{2m} + \frac{1}{2}\cdot m\cdot\omega^2\cdot X^2(x)}{x\in\mcH}\]
+        durch die Eigenwertgleichung $H(\psi) = \lambda\cdot\psi$ für $\psi\in\mcH$ beschreiben. Wir transformieren unter den Funktionen $\Phi:=\big(x / x_0\big)_{x\in\mcH}$ und $\Psi:=\big(p/p_0\big)_{p\in\mcH}$ mit $x_0:=\sqrt{\hbar/(m\cdot\omega)}$ und $p_0:=\hbar/x_0 = \sqrt{m\cdot\omega\cdot\hbar}$ und erhalten dann 
+        \[
+            \tilde H = \fdef{\frac{(\Psi(P)^2)(x)}{2m} + \frac{m\omega^2}{2}\cdot(\Phi(X)^2)(x)}{x\in\mcH}. 
+        \]
+        \begin{Aufgabe}
+            \nr{} Zeige, daß $\tilde H$ beschrieben werden kann durch $\tilde H = \hbar\cdot\omega\cdot (\Phi(X)^2 + \Psi(P)^2)$. Wofür steht die Energie $\hbar\cdot\omega$?
+        \end{Aufgabe}
+        Um weiter die Umformung von $\tilde H$ voranzutreiben, definieren wir zur Hilfe die \emph{Erzeugungs- und Vernichtungsoperatoren} $a$ und $a^*$ durch
+        \[
+            a &:= \frac{1}{\sqrt{2}}\cdot\big(\Phi(X) + i\cdot\Psi(P)\big).
+        \]
+        Nun benötigen wir noch einige Eigenschaften, deren Nachweis wir hier auslagern wollen. 
+        \begin{Aufgabe}
+            \nr{} Berechne die Verkettung $a\circ a^*$ und $a^*\circ a$. Zeige damit dann $a^*\circ a + a\circ a^* = \Phi(X)^2 + \Psi(P)^2$. 
+        \end{Aufgabe}
+        Mit den beiden Aufgaben können wir dann den Hamiltonoperator $\tilde H$ schreiben als
+        \[
+            \tilde H = \frac{1}{2}\cdot \hbar\cdot\omega\cdot\big(a^*\circ a + a\circ a^*\big) = \hbar\cdot\omega\cdot\nbra{a^*\circ a + \frac{1}{2}}.
+        \]
+        Die letzte Gleichheit folgern wir durch den Kommutator $[a,a^*] = 1$. Damit können wir $a\circ a^* - a^*\circ a = 1$ umformen zu $a\circ a^* = a^*\circ a + 1$ und verwenden. 
+        \begin{Aufgabe}
+            \nr{} Nehme die Definitionen von $a$ und $a^*$ herbei und berechne durch einsetzen die Kommutatorrelation $[a,a^*] = 1$. Verwende hierzu die Ortsoperatoreigenschaften $[\Phi(X),\Phi(X)] = 0$, $[\Psi(P),\Psi(P)] = 0$ und $[\Psi(P),\Phi(X)] = -[\Phi(X),\Psi(P)]$. 
+        \end{Aufgabe}
+        Die Eigenwertsuche von $\tilde H$ verlagert sich nun zu einer Eigenwertsuche des Operators $N := a^*\circ a \in L_S(\mcH)$. Die wesentliche Selbstadjungiertheit überträgt sich dabei von $a$ auf $N$ durch die Beziehung $N^* = (a^*\circ a)^* = a^*\circ(a^*)^* = a^*\circ a = N$. 
+        \begin{Aufgabe}
+            \nr{} Zeige für den Kommutator von $N$ mit $a$ die Beziehung $[N,a] = -a$. und für $[N,a^*] = a^*$ analog. Zeige dazu $[a,a] = 0$ und $[a^*,a] = -1$. 
+
+            \nr{} Zeige $\sigma_P(N)\subseteq\R_{>0}$. Betrachte dabei für $N(\psi) = \lambda\cdot\psi$ das Skalarprodukt $\scpr{\psi}{N(\psi)}$ für $\psi\in\Def(N)$ und nutze die Definition $N = a^*\circ a$. 
+        \end{Aufgabe} 
+
+\end{document}
