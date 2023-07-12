@@ -1,0 +1,61 @@
+\documentclass{subfile}
+
+\begin{document}
+    \subsection{Stationäre Störungstheorie}
+        \marginnote{\textit{\textbf{VL 23}}\\12.07.2023, 08:15}
+        In diesem Subkapitel betrachten wir die \emph{Rayleigh-Schrödinger} Störungstheorie in nicht-entarteter und entarteter Form. 
+        \subsubsection*{Nicht entartete Störungstheorie}
+            Wir nehmen an, wir können den Hamiltonoperator zerlegen in deine Form $H = H_0 + H_s \in L_S(\mcH)$, wobei $H_0$ ein exakt lösbares Eigenwertproblem beschreibt und $H_s$ eine Störung (in Form eines Operators) darstellt. Angenommen $E_0(n)$ sei die Eigenwertfolge zu $H_0$. Dann kann man nun unter der Annahme, daß $H_s$ eine \emph{kleine} Störung ist, eine Näherung durch variable Skalierung der Störung einführen. Dabei erzeugt man eine Störungsfunktion $\Phi_\lambda := H_0 + \lambda\cdot H_s$ für ein $\lambda\in[0,1]$. Mit dieser Funktion ist für $\lambda\to 1$ eine gute Näherung der gestörten Eigenwerte möglich. 
+            
+            \begin{Aufgabe}
+                \nr{} Stelle den Zusammenhang zwischen der Störungsfunktion $\Phi_\lambda$ und der Ableitung einer (endlichdimensionalen) Funktion $df(x)(h) \approx f(x) + f(x + h)$ her. Ist hier ein sinnvoller Vergleich möglich?
+            \end{Aufgabe}
+
+            Ist $E_n$ die (noch unbekannte) Eigenwertfolge von $H$, so lassen könnte man versuchen, Eigenzustand und Eigenwert in Form einer Potenzreihe darzustellen als
+            \begin{align*}
+                \ket{n} &= \ket{n_0} + \lambda\cdot\ket{n_1} + \lambda^2\cdot\ket{n_2} + \dots \\
+                E_n &= E_{0,n} + \lambda\cdot E_{1,n} + \lambda^2\cdot E_{2,n} + \dots
+            \end{align*}
+            Die Konvergenz dieser Potenzreihen ist jedoch im Allgemeinen in der Physik nicht garantiert oder bewiesen. Nach Voraussetzung an $H_0$ sind zunächst die Eigenvektoren $\ket{n_0}$ orthogonal. Diese Forderung könnten wir ebenso für die entwickelten und gesuchten Eigenvektoren $\ket{n}$ erheben. Dies stellt sich jedoch nicht als geschickteste Wahl heraus, weshalb wir die Orthogonalitätsbedingung nach außen erweitern und fordern $\braket{n_0}{n} = 1$. Daraus kann man nun die Beziehung
+            \[
+                1 \stackrel{!}{=} \braket{n_0}{n} = \braket{n_0}{\lim\sum_{i=0}^\infty \lambda^i\cdot\ket{n_i}} = \braket{n_0}{n_0} + \braket{n_0}{\lim\sum_{i=1}^\infty \lambda^i\cdot\ket{n_i}}
+            \]
+            folgern, wodurch mit $\braket{n_0}{n} = 1$ das verschwinden des zweiten Summanden gefordert wird. Daraus können wir wiederum folgern, daß alle Korrekturvektoren $\ket{n_i}$ für $i\in\N$ orthogonal zum eindeutig gelösten Grundvektor $\ket{n_0}$ sein müssen. Setzen wir nun den Restterm in $\Phi_\lambda$ ein, so erhalten wir 
+            \[
+                \Phi_\lambda\bbbra{\lim\sum_{i=1}^\infty \lambda^i\cdot\ket{n_i}} = \bbbra{\lim\sum_{i=1}^\infty\lambda^i\cdotE_{i,n}}\cdot\bbbra{\lim\sum_{i=1}^\infty \lambda^i\cdot\ket{n_i}}.
+            \]
+            Per Koeffizientenvergleich können wir nun unter Einbindung des ungestörten Problems ein nicht abbrechendes Gleichungssystem aufstellen. Wir sammeln dabei die Koeffizienten der $\lambdas$:
+            \begin{align*}
+                H_0\ket{n_0} &= E_{0,n}\ket{n_0} \\
+                H_0\underline{\ket{n_1}} + H_s\ket{n_0} &= E_{0,n}\ket{n_1} + \underline{E_{1,n}}\ket{n_0},
+            \end{align*}
+            wobei die unterstrichenen Terme die Unbekannten sind. Wir wenden nun auf die Seiten der Gleichung die duale Abbildung zu $\ket{n_0}$ an und erhalten dadurch
+            \begin{align*}
+                \braket{n_0}{H_0(\ket{n_1})} + \braket{n_0}{H_s(\ket{n_0})} &= \braket{n_0}{E_{0,n}\cdot \ket{n_1}} + \braket{n_0}{E_{1,n}\cdot\ket{n_0}}.
+            \end{align*}
+            Da $H_0$ selbstadjungiert, können wir $\braket{n_0}{H_0(\ket{n_1})} = \braket{H_0(\ket{n_0})}{n_1} = \braket{E_{0,n}\ket{n_0}}{n_1} = E_{0,n}\cdot\braket{n_0}{n_1}$ schreiben. nach Voraussetzung ist $\braket{n_0}{n_1} = 0$, weshalb der erste Summand verschwindet. Mit $\braket{n_0}{n_0} = 1$ und $\braket{n_0}{n_1} = 0$ können wir die Gleichung nun umformen zu
+            \[
+                E_{1,n} = \braket{n_0}{H_s(\ket{n_0})}.
+            \]
+            Damit haben wir die erste Korrektur der Eigenwerte gefunden. 
+            \begin{Aufgabe}
+                \nr{} Entwickle den Eigenvektor $\ket{n_1}$ in einer Basis $\underline v$ des betrachteten Hilbertraumes $\mcH$. 
+
+                \nr{} Wende analog die duale Abbildung zu einem verschiedenen Eigenvektor $\ket{m_0}$ mit $m\neq n$ auf dieselbe Gleichung an. Welche Skalarprodukte verschwinden? Stelle die Gleichung nach $\braket{m_0}{n_1}$ um. 
+            \end{Aufgabe}
+            \noindent Mit den Aufgaben finden wir nun das Ergebnis
+            \[
+                \ket{n_1} = \sum_{i\in\Def{\underline v}}\underline v_i\cdot \frac{\braket{m_0}{H_s(\ket{n_0})}}{E_{0,n} - E_{0,m}}.
+            \]
+            Diesen Koeffizientenvergleich können wir nun beliebig weiterführen. 
+            \begin{Aufgabe}
+                \nr{} Was sagt diese Rechnung über die Entartung von $E_{0,n}$ aus?
+
+                \nr{} Fahre den Koeffizientenvergleich für die zweite Ordung fort. 
+
+                \nr{} Zeige den Rekursionszusammenhang $E_{k,n} = \braket{n_0}{H_s(\ket{n_{k-1}})}$. 
+
+                \nr{} Recherchiere zum \href{https://de.wikipedia.org/wiki/Stark-Effekt}{\emph{Stark-Effekt}}.
+            \end{Aufgabe}
+            
+\end{document}
