@@ -1,0 +1,40 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 24}}\\14.07.2023, 11:45}
+
+    \subsubsection*{Beispiel: Wasserstoff im elektrischen Feld}
+        Die folgende Situation ist auch als \emph{Stark-Effekt} bekannt. Wir betrachten ein Wasserstoffatom im elektrischen Feld. Der Hamiltonoperator $H_0$ im idealen Fall ist gegeben durch 
+        \begin{align*}
+            H_0 &= \fdef{\frac{P^2(x)}{2\cdot m} + \frac{e^2}{4\cdot\pi\cdot\dabs{x}{}}}{x\in\mcH}, \\
+            H_1 &= \fdef{-e\cdot E\cdot Q_3}{x\in\mcH},\quad E\in\R.
+        \end{align*}
+        Dabei ist $n\mapsto Q$ wie gewohnt das Ortsoperatortupel. Das Ziel ist nun, die Auswirkung von $H_1$ möglichst gering zu gestalten. 
+        \begin{Aufgabe}
+            \nr{} Schätze hierzu das elektrische Feld im Atom selbst ab. Nutze dazu den Quotienten $E_R/(e\cdot r_B)$ mit $r_B$ als \emph{Bohrschem Atomradius} und $E_R$ als \emph{Rydberg-Energie}.
+        \end{Aufgabe}
+        \noindent Daraus können wir folgern, das künstlich erzeugte Magnetfelder sehr viel kleiner als das atomare Magnetfeld sind. Wir können also $H_1$ im Rahmen der sinnvollen Näherung als Störung betrachten. Die Skalarproduktauswertung bringt dann 
+        \begin{align*}
+            \braopket{n,l,m}{H_1}{\tilde n,\tilde l, \tilde m} :=& -e\cdot E\cdot \braket{n,l,m}{Q_3}{\tilde n,\tilde l, \tilde m}, 
+        \end{align*}
+        und unter Verwendung des Kommutators mit $L_3$ durch $[L_3,Q_3] = [[P_1\circ Q_2 - P_2\circ Q_1],Q_3] = 0$ folgt dann 
+        \[
+            0 = \braopket{n,l,m}{[L_3,Q_3]}{\tilde n,\tilde l, \tilde m} = \hbar\cdot (m-\tilde m)\cdot \braopket{n,l,m}{Q_3}{\tilde n,\tilde l, \tilde m}.
+        \]
+        Daraus erhalten wir für gleiche Magnetquantenzahlen $m$ und $\tilde m$ die Bedingung $\braopket{n,l,m}{Q_3}{\tilde n,\tilde l, \tilde m} = 0$. Daraus können wir zwei Auswahlregeln der Form $m = \tilde m$ und $\tilde l = l \pm 1$ formulieren, damit die Skalarproduktauswertung Null ergibt. 
+        \begin{Aufgabe}
+            \nr{} Betrachte den Zustand $\ket{1,0,0}$ für $n = 1$, $l = 0$ und $m = 0$. Wie kann man nun durch die Auswahlregeln das Ergebnis $\braopket{1,0,0}{H_1}{1,0,0} = 0$ erklären?
+        \end{Aufgabe}
+        Betrachte nun die zweite Störungsordnung. Der zugehörige Term ist
+        \[
+            E_{1,0,0}(2) = e^2\cdot E^2\cdot \lim\sum_{\tilde n = 1}^\infty\frac{\abs{\braopket{\tilde n,1,0}{Q_3}{1,0,0}}^2}{E_{1,0,0}(0) - E_{\tilde n,1,0}(0)},
+        \]
+        wobei wir $E_{\tilde n,1,0}(0) = E_{1,0,0}(0)/\tilde n^2$ verwenden können. Durch Ausklammern erhält man dann 
+        \[
+            \frac{e^2\cdot E^2\cdot a_B^2}{E_{1,0,0}(0)}\cdot\lim\sum_{\tilde n = 1}^\infty\frac{\abs{\braopket{\tilde n,1,0}{Q_3}{1,0,0}}^2}{1 - 1/\tilde n^2}.
+        \]
+        Für den Reihengrenzwert findet man den Wert $9 / 8$, sodaß sich das Ergebnis vereifacht zu $E_{1,0,0}(2) = -4\pi\epsilon_0\cdot E^2\cdot a_B^3\cdot 9/4$. 
+        \begin{Aufgabe}
+            \nr{} Recherchiere weiter zur Berechnung der zweiten Störungsordnung im Rahmen des Stark-Effekts.
+        \end{Aufgabe}
+\end{document}
