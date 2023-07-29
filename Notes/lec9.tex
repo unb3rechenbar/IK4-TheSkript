@@ -129,13 +129,14 @@
             Ist $V:\R\to\R$ ein Einstufenpotential mit kritischer Stelle $x_0\in\R$, dann wird gleichmäßige Stetigkeit an $\psi$ und Stetigkeit an $\psi'$ als Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ zum Eigenwert $\lambda\in\R$ an der Stelle $x_0$ gefordert. Ferner ist $\psi$ eine Verklebung von Linearkombinationen der Fundamentallösungen $\exp(\tau_{\lambda,V,+}\cdot x)$ und $\exp(\tau_{\lambda,V,-}\cdot x)$. 
         \end{mdef}
 
-
-        \begin{Aufgabe}
-            \nr{} In der Vorlesung wurde eine Fallunterscheidung über die (Un-)Stetigkeit von $\psi$ bei $x_0$ durchgeführt, indem die (zweite) \enquote{Ableitung} berechnet wurde. Es wurde gefolgert \enquote{$\psi$ ist stetig}. Recherchiere nach einer Begründung für diese Aussage. Beachte die \emph{schwache Ableitung}. 
-        \end{Aufgabe}
-
     \subsubsection*{Zusammenfassen}
-        Falls $\abs{V(x)}<0$ für alle Argumente $x$, dann folgt die Stetigkeit der Lösung $u = \psi$ auf dem ganzen Lösungsintervall. Ist $V$ eine Verklebung von $\delta$ Integralen, so folgt die Stetigkeit von $\dv{x}\psi(t,x)$ jedoch nicht. 
+        Mithilfe des Fundamentalsystems $\{\exp(\tau_{\lambda,V,+}\cdot x),\exp(\tau_{\lambda,V,-}\cdot x)\}$ können wir die Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ für ein gegebenes $\lambda\in\R$ und ein gegebenes Potential $V:\R\to\R$ mit einer Stufe in $x_0$ und den Bedingungen $V_{<x_0}<\lambda$ und $V_{>x_0}>\lambda$ konstruieren. Wir haben dabei die Form 
+        \[
+            \psi(t,x) = C_0\cdot\begin{cases}
+                \exp(\tau_{\lambda,V,+}\cdot x) + \rho\cdot\exp(\tau_{\lambda,V,-}\cdot x) & x < 0 \\
+                \tau\cdot\exp(\tau_{\lambda,V,+}\cdot x) & x\geq 0
+            \end{cases}
+        \]
 
     \subsection{Potentialbarrieren}
         Beachte hierzu als Beispiel das Potential 
