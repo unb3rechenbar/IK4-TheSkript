@@ -3,10 +3,12 @@
 \begin{document}
     \marginnote{\textbf{\textit{VL 9}}\\11.05.2023, 10:00}
 
-    Die Idee der Betrachtung eines \emph{eindimensionalen Problems} ist zur Übung der Lösung bereits kennengelernter Schrödingergleichungen. Diese Problemstellung eignet sich hierbei besonders aufgrund des relativ geringen Rechenaufwandes und liefert gleichzeitig die Grundlagen allgemeiner quantenmechanischer Probleme. Daß die Problemstellung also nicht vollkommen aus der Luft gegriffen ist, kann man auch an sogenannten \emph{Karbon Nanoröhren} oder \emph{Halbleiter Nanodrähten} erkennen; Hier gelten die Lösungen real in guter Näherung. weiter motiviert die eindimensionale Problemstellung komplexere, separierbare Probleme. Setzt man also die eindimensionale Wellenfunktion $\psi(t,x)\in\mcL^2(\R\times\R^3)$ in die zeitabhängige Schrödingergleichung ein, so erhält man
-    \[\cmath\hbar\cdot \dv{t}\psi(t,x) = (H\circ\psi)(t,x) := -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + (V\cdot\psi)(t,x),\]
-    mit eine DGL mit rechter Seite $F:=\bbra{-\cmath/\hbar\cdot H(x)}_{x\in\mcL^2(\R\times\R^3)}$. Für den zeitunabhängigen Fall ergibt sich mit Abkürzung des Hamilton Operators $H$ die Gleichung
-    \[H(\psi(t,x)) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + (V\cdot\psi)(t,x) \quad = \lambda\cdot\psi(t,x).\]
+    Die Idee der Betrachtung eines \emph{eindimensionalen Problems} ist zur Übung der Lösung bereits kennengelernter Schrödingergleichungen. Diese Problemstellung eignet sich hierbei besonders aufgrund des relativ geringen Rechenaufwandes und liefert gleichzeitig die Grundlagen allgemeiner quantenmechanischer Probleme. Daß die Problemstellung also nicht vollkommen aus der Luft gegriffen ist, kann man auch an sogenannten \emph{Karbon Nanoröhren} oder \emph{Halbleiter Nanodrähten} erkennen; Hier gelten die Lösungen real in guter Näherung. weiter motiviert die eindimensionale Problemstellung komplexere, separierbare Probleme. Setzt man also die eindimensionale Wellenfunktion $t\mapsto\psi_t\in\mcH^2(\R)$ für $t\in\R$ in die zeitabhängige Schrödingergleichung ein, so erhält man
+    \[\cmath\hbar\cdot \dv{t}\psi_t(x) = H(\psi_t)(x) := -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi_t(x) + V(Q)(\psi)(x),\]
+    mit eine DGL mit rechter Seite $F:=\bbra{-\cmath/\hbar\cdot H(x)}_{x\in H^2(\R)}$. Für den zeitunabhängigen Fall ergibt sich mit Abkürzung des Hamilton Operators $H$ die Gleichung
+    \[
+        H(\psi_t)(x) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi_t(x) + V(Q)(\psi_t)(x) \quad = \lambda\cdot\psi_t(x).
+    \]
 
     \begin{Aufgabe}
         \nr{} Welche Form des Problems suggeriert hier $\lambda$?  
@@ -26,61 +28,107 @@
     \begin{Aufgabe}
         \nr{} Definiere die Mengen $\textit{konstant}_{V\to W}$ und $\textit{stückweisekonstant}_{V\to W}$ zunächst für beliebige endlichdimensionale Vektorräume $V,W$ und speziell für unsere Lösungskandidaten aus $\mcL^2(\R\times\R^3)$. 
     \end{Aufgabe}
-    \subsubsection*{Randbedingungen an Unstetigkeitsstellen}
+    \subsection{Arbeitspunkt 1: Fundamentalsystem und Bedingungsgleichung}
         Ist $V = 0_{\R\times\R^3\to\R}$, so fällt der zweite Summand des Hamilton Operators weg und es ergibt sich die Form
-        \[-\frac{\hbar^2}{2m}\cdot\bbbra{\dv{x}}^2\psi_t(x) = \lambda\cdot\psi_t(x),\]
-        für eine zeitlich konstante Funktion $t\mapsto \psi_t\in C^2(\R)$. Hier fallen mehrere Lösungskandidaten ein, wir werden jedoch die Form $\psi_t(x) = C_0\cdot{\exp}(\cmath\cdot k\cdot x)$ für $C_0,k\in\R$ wählen.
-        \begin{Aufgabe}
-            \nr{} Finde weitere Kandidaten als Lösung der gegebenen Differentialgleichung zweiter Ordnung. Rechne dabei explizit mit dem Lösungsbegriff nach, daß sie Lösungen sind. 
-        \end{Aufgabe}
+        \[
+            -\frac{\hbar^2}{2m}\cdot\bbbra{\dv{x}}^2\psi_t(x) = \lambda\cdot\psi_t(x),
+        \]
+        für eine zeitlich konstante Funktion $t\mapsto \psi_t\in H^2(\R)$. 
         Wir können an dieser Stelle die Konstanten der Gleichung zusammenfassen: Durch rüberdividieren des Terms $-\hbar^2/2m$ und Wurzelzug ergibt sich die Form
-        \[\bbbra{\dv{x}}^2\psi_t(x) = k_\lambda^2\cdot \psi_t(x),\qquad k_\lambda:=\bbbra{\frac{\cmath}{\hbar}\cdot\sqrt{2m\lambda}}_{\lambda\in\R},\]
-        wobei wir in $\lambda\mapsto k_\lambda\in\C$ die Vorfaktoren zusammengefasst haben. 
+        \[
+            \bbbra{\dv{x}}^2\psi_t(x) = k_{\lambda,0}^2\cdot \psi_t(x),\qquad k_{\lambda,0}:=\frac{\cmath}{\hbar}\cdot\sqrt{2m(\lambda - 0)},
+        \]
+        wobei wir die Definition des Ortsoperators als $V(Q)(\psi)(x) := \psi(x)\cdot V(x)$ verwendet und in $\lambda\mapsto k_{\lambda,0}:\R\to\C$ die Vorfaktoren zusammengefasst haben. Dabei ist die Null im Index ein Indiz für das im Problem verwendete Potential $V = 0:\R\to\R$. Wir vereinbaren hier die Schreibweise einer konstanten Zahl $z\in\R$ im Index als Identifikation mit einem konstanten Wert $k_{\lambda,z}\in\C$ als Auswertung der eigentlichen Funktion $k_{\lambda,\fdef{z}{x\in\R}}(0) =: k_{\lambda,z}$. 
+
+        Zur Konstruktion der Lösung benötigen wir nun Kenntnisse aus der Analysis 3. Wir konstruieren die rechte Seite als autonome lineare Funktion $F:=\bbra{k_{\lambda,0}^2\cdot x}_{(t,x)\in\R^2}$. Damit können wir durch Ordnungsreduktion die Hilfslösung $u:=\bbra{(\psi_t(x),\psi_t'(x))}_{x\in\R}$ konstruieren und das DGL $u'(x) = (u(x)_2,F(x,u(x)_1))$ in die Matrixdarstellung 
+        \[
+            u'(x) = \begin{pmatrix}
+                0 & 1 \\
+                k_{\lambda,0}^2 & 0
+            \end{pmatrix}\cdot u(x)
+        \]
+        bringen. Berechnen wir das charakteristische Polynom $\chi_A(X) = X^2 - k_{\lambda,0}^2$ der Matrix, so finden sich die Eigenwerte $\tau\in\{\pm k_{\lambda,0}\}$ und damit durch $\exp(\tau\cdot x)$ das zugehörige Fundamentalsystem. Damit hat die Lösung der DGL zu $F$ in Linearkombination mit $c_1,c_2\in\C$ die Form
+        \[
+            \psi(x) = c_1\cdot \exp(\tau_1\cdot x) + c_2\cdot\exp(\tau_2\cdot x).
+        \]
+        Für spätere Zwecke definieren wir an dieser Stelle $\tau_{\lambda,V,+}:=+k_{\lambda,V}$ und $\tau_{\lambda,V,-}:=-k_{\lambda,V}$, wobei wir die Indizes $+$ und $-$ als Indikator für die Wahl des Vorzeichens verwenden. 
 
         \begin{Aufgabe}
-            \nr{} Rechne die Definition von $k$ einmal nach, indem du die zeitunabhängige Schrödingergleichung in skizzierter Weise umstellst. 
+            \nr{} Rechne die Definition von $k$ einmal nach, indem du die zeitunabhängige Schrödingergleichung in skizzierter Weise umstellst. Mache dir dabei besonders klar, woher das $\cmath$ stammt und was passiert, wenn $\lambda < 0$ gilt. Zeichne dazu einmal den Verlauf der Lösung $\exp(\tau_{\lambda,V,+}\cdot x)$ für $\lambda > 0$ und $\lambda < 0$.
 
-            \nr{} Betrachte einmal die Lösung $u:=(\sin(k\cdot x))_{x\in\R}$. Verifiziere, daß sie die DGL löst. Wir wollen fordern, daß in einem Potentialtopf zwischen $0\in\R$ und $a\in\R$ die Randbedingungen $u(0) = u(a) = 0$ gelten. Innerhalb des Intervalls soll wie bisher angenommen $V = 0_{\R\times\R\to\R}$ gelten. Für den ersten Fall $x=0$ wissen wir durch die Beschaffenheit des Sinus sofort $u(0) = 0$. Dies wollen wir nun für $x=a$ fordern: unter welcher Bedingung an $\lambda\mapsto k_\lambda$ gilt $u(a) = 0$? 
+            % \nr{} Betrachte einmal die Lösung $u:=(\sin(k\cdot x))_{x\in\R}$. Verifiziere, daß sie die DGL löst. Wir wollen fordern, daß in einem Potentialtopf zwischen $0\in\R$ und $a\in\R$ die Randbedingungen $u(0) = u(a) = 0$ gelten. Innerhalb des Intervalls soll wie bisher angenommen $V = 0_{\R\times\R\to\R}$ gelten. Für den ersten Fall $x=0$ wissen wir durch die Beschaffenheit des Sinus sofort $u(0) = 0$. Dies wollen wir nun für $x=a$ fordern: unter welcher Bedingung an $\lambda\mapsto k_\lambda$ gilt $u(a) = 0$? 
 
-            \nr{} Nutze das Ergebnis der Aufgabe und stelle nun die Bedingungsgleichung $k_\lambda = L$ nach $\lambda_L$ um, sprich bilde die \emph{Inverse} von $k_\lambda$. Wann ist dies möglich? Wir nennen den Wert $\lambda_L$ den \emph{zu $L$ gehörige Energieeigenwert der Lösung $u$}. Was fällt dir an dieser Stelle physikalisch auf? 
+            \nr{} Nutze das Ergebnis der Herleitung und stelle nun die Bedingungsgleichung $k_\lambda = L$ nach $\lambda_L$ um, sprich bilde die \emph{Inverse} von $k_\lambda$. Wann ist dies möglich? Wir nennen den Wert $\lambda_L$ den \emph{zu $L$ gehörige Energieeigenwert der Lösung $u$}. Was fällt dir an dieser Stelle physikalisch auf? 
         \end{Aufgabe}
         Für allgemeinere $V\in\textit{konstant}_{\R^2\to\R}$ müssen wir einen Schritt zurücktreten und die um $V$ erweiterte Form der Schrödingergleichung notieren: 
-        \[H(\psi)(t,x) = -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi(t,x) + (V\circ \psi)(t,x)\]
-        haben wir für die neue $k_{\lambda,V}$ Funktion die Form 
-        \[k_{\lambda,V}:=\bbbra{\frac{\cmath}{\hbar}\cdot\sqrt{2m\cdot(\lambda - V(t,x))}}_{(t,x)\in\Def(V)},\]
-        wobei wir uns an das Umstellungsschema von oben halten. Da $V$ nach Voraussetzung konstant in seinen Argumenten ist, können wir uns den Wert in einem Testpunkt $\tau\in\Def(V)$ mit $V_0:=V(\tau)$ wählen und sichern. Damit ist $k_{\lambda,V}$ ebenfalls eine auf $\Def(V)$ konstante Funktion deren Wert wir ebenfalls in $k_{\lambda,V_0}:=k_{\lambda,V}(\tau)$ sichern. Damit erhalten wir die Form
-        \[\bbbra{\dv{x}}^2\psi_t(x) = k_{\lambda,V_0}\cdot\psi_t(x),\]
-        welche mit dem neuen $k_{\lambda,V_0}$ durch unsere Exponentiallösung ebenfalls gelöst wird. 
+        \begin{align*}
+            H(\psi_t)(x) &= -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi_t(x) + V(Q)(\psi_t)(x). \\
+            &= -\frac{\hbar^2}{2m}\cdot\nbra{\dv{x}}^2\psi_t(x) + V(x)\cdot\psi_t(x) = \lambda\cdot\psi_t(x).
+        \end{align*}
+        Damit haben wir in dem neuen Setting $k_{\lambda,V}$ als Funktion der Form 
+        \[
+            k_{\lambda,V}:=\bbbra{\frac{\cmath}{\hbar}\cdot\sqrt{2m\cdot(\lambda - V(x))}}_{x\in\R},
+        \]
+        wobei wir uns an das Umstellungsschema von oben halten. Nach unserer eingeführten Schreibweise für konstante Funktionen können wir hier schnell schreiben $k_{\lambda,V(0)}$ und durch Definition $V_0:=\Eintrag(\Bild(V)) = V(0)$ für die Schrödingerdifferentialgleichung zum Eigenwert $\lambda$
+        \[
+            \Bbra{\dv{x}}^2\psi_t(x) = k_{\lambda,V_0}^2\cdot\psi_t(x).
+        \]
         \begin{Aufgabe}
-            \nr{} Rechne nach, daß die Exponentiallösung $\psi_t(x) = C_0\cdot{\exp}(\cmath\cdot k_{\lambda,V_0}\cdot x)$ die Differentialgleichung löst. Finde eine Bedingungsgleichung für $C_0$. 
+            \nr{} Rechne nach, daß die Exponentiallösung $\psi_t(x) = C_0\cdot{\exp}(\tau_{\lambda,V_0,+}\cdot x)$ die Differentialgleichung löst. Finde eine Bedingungsgleichung für $C_0$. 
         \end{Aufgabe}
         
-    \subsubsection*{Normierbarkeit}
+    \subsection{Arbeitspunkt 2: Normierbarkeit}
         Da unser Wurzelbegriff auf dem reellen Zahlenstrahl nicht für alle Potential-Energie Paare greift, müssen wir hier jedoch eine Fallunterscheidung einführen. Ist $V_0\geq \lambda$, so wird die Differenz $\lambda - V_0$ im negativen reellen Zahlenbereich liegen. Hier nutzen wir Fall (i). Ist $V_0 < \lambda$, so wird das Ergebnis durch den üblichen Wurzelbegriff ohne weitere Betrachtungen abgedeckt; Wir entscheiden uns für Fall (ii). 
         \begin{enumerate}[label=(\roman*)]
-            \item In diesem Fall bildet $k_{\lambda,V_0}$ mit erweitertem komplexen Wurzelbegriff auf eine komplexe Zahl $z\in\C$ aus \emph{reinem} Imaginärteil ab, sodaß sich in der Exponentialfunktion mit dem bereits vorhandenen $\cmath$ eine insgessamt reelle Zahl ergibt: Wir erhalten also eine \emph{reelle} Exponentialkurve der Form $\psi_t(x) = C_0\cdot\exp(\Imag(z)\cdot x)$.
-            \item Es ist dann $k(t,x)$ eine Zahl in $\R$, sodaß für die Normierung über eine kompakte Menge $M_{L,2}:=\nset{x\in\R^3:\dabs{x}{2} \leq L/2}$ im Quadratintegral 
-            \[1 \stackrel{!}{=} \abs{C_0}\cdot\lint{\abs{\exp(\cmath\cdot\scpr{k}{x})}}{x}{M_{L,s}} = \abs{C_0}^2\cdot L,\]
-            also $C_0 = 1/L$. Für $L\to\infty$ folgt also $C_0\to 0$, der Erwartungswert bleibt jedoch erhalten. 
-            \item Dann ist $k(t,x)$ \emph{im eindimensionalen} eine skalierte komplexe Zahl $\pm\mch\cdot\cmath$ für ein $\mch\in\R_{>0}$. Wir erhalten ein gedämpftes $\psi$ mit $\psi(t,x) = C_0\cdot\exp(\mp\mch\cdot x)$, sodaß die Normierung $C_0\approx\sqrt{\mch/(\sinh(\mch\cdot L))}$ folgt. Für $L\to 0$ folgt also $C_0\to 0$, der Erwartungswert ist allerdings nicht mehr überall erhalten: $\langle x\rangle\approx \mp L/2$. Es ist $\psi$ also nur auf endlichen Intervallen normierbar.
+            \item In diesem Fall bildet $k_{\lambda,V_0}$ mit erweitertem komplexen Wurzelbegriff auf eine insgesamt reelle Zahl $z\in\R$ ab, sodaß sich in der Exponentialfunktion mit $\tau_{\lambda,V_0,\pm}$ eine insgessamt reelle Zahl ergibt: Wir erhalten also \emph{reelle} Fundamentallösungen der Form $\psi_t(x) = C_\pm\cdot\exp(\tau_{\lambda,V_0,\pm}\cdot x)$.
+            \item Es ist dann $k_{\lambda,V_0}$ eine Zahl in $\R$, sodaß für die Normierung über eine beschränkte Teilmenge $V\subset\R$ im Quadratintegral unter der Identifikation $\tau_1 := \tau_{\lambda,V_0,+}$ und $\tau_2 := \tau_{\lambda,V_0,-}$ in ($\star$) die Form
+            \begin{align*}
+                1 &\stackrel{!}{=} \int_V\abs{\psi(x)}\;\uplambda(dx) \stackrel{(\star)}{=} \int_V\abs{c_1\cdot\exp(\tau_1\cdot x) + c_2\cdot\exp(\tau_2\cdot x)}\;\uplambda(dx)\\
+                &\leq \abs{c_1}^2\cdot\lint{\abs{\exp(\tau_1\cdot x)}}{x}{V} + \abs{c_2}^2\cdot\lint{\abs{\exp(\tau_2\cdot x)}}{x}{V} \\
+                &= \bbra{\abs{c_1}^2 + \abs{c_2}^2}\cdot \uplambda(V),
+            \end{align*}
+            resultiert, also $(c_1^2 + c_2^2) = 1/\uplambda(V)$. Für $\uplambda(V)\to\infty$ folgt also $(c_1^2 + c_2^2)\to 0$, der Erwartungswert bleibt jedoch nach Konstruktion bei $1$ erhalten. 
         \end{enumerate}
-        \begin{Aufgabe}
-            \nr{} Rechne nach, daß im Fall (i) der Erwartungswert erhalten bleibt. 
-        \end{Aufgabe}
-        % \begin{figure}[H]
-        %     \centering
-        %     \begin{tikzpicture}
-        %         \begin{axis}
-        %             \addplot[domain=0:pi]{sin(1/2 * x - 1/2 * pi)};
-        %             \addplot[domain=pi:2*pi]{sin(2*x)};
-        %         \end{axis}
-        %     \end{tikzpicture}
-        % \end{figure}
-        An einer Potentialstufe ist $\psi$ also stetig differenzierbar. Dies wollen wir nun nachrechnen.
-        
-    \subsubsection*{Annahmen}
-        Angenommen wir haben ein $V\in\mcL^2(\R\times\R)$ mit einer endlichen Unstetigkeit in $x_0$. Nach Form der zeitunabhängigen Schrödingergleichung erhalten wir
-        \[\nbra{\dv{x}}^2\psi(t,x) = -\frac{2m}{\hbar}\cdot\nbra{E-V}(t,x)\cdot\psi(t,x).\]
+
+    \subsection{Arbeitspunkt 3: Stetigkeitsbedingungen an kritischen Stellen}
+        Um konkrete Aussagen über die Verknüpfung der Lösungen an kritischen Stellen $x_0\in\R$ zu machen, an welchen sich der Funktionswert von $k_{\lambda,V}$ durch eine Wertänderung in $V$ für $x<x_0$ bzw $x>x_0$ selbst ändert und somit die Argumente der Fundamentallösungen $\exp(\tau_{\lambda,V,\pm}\cdot x)$ sich ändern, müssen wir eine Stetigkeitsbetrachtung an $\psi$ bezüglich $x_0$ durchführen. Wir fordern für eine Folge $a:\N\to\R$, $\lim a = x_0$ die definierende Bedingung
+        \[
+            \lim \psi(a) = \psi(\lim a) = \psi(x_0). 
+        \] 
+        Ferner sogar, um gleich ein Stammfunktionsargument liefern zu können, benötigen wir die \emph{gleichmäßige Stetigkeit} von $\psi$, also die Existenz eines $\delta\in\R_{>0}$ für jedes $\epsilon\in\R_{>0}$, sodaß für alle $x,y\in\R$ mit $\abs{x-y}<\delta$ die Abschätzung $\abs{\psi(x)-\psi(y)}<\epsilon$ folgt. 
+        Nun betrachten wir die Ableitung von $\psi$ an der Stelle $x_0$. Hierzu verwenden wir die ursprünglich $\psi$ bestimmende Differentialgleichung $H(\psi) = \lambda\cdot\psi$ für ein gegebenes $\lambda\in\sigma_P(H)$. Wir finden in einer Umgebung $r\in\R_{>0}$ die Beziehung
+        \[
+            \int_{B_r(x_0)}\psi'' = -\frac{\hbar^2}{2m}\cdot \bbbra{
+                \lambda\cdot\int_{B_r(x_0)}\psi - \int_{B_r(x_0)}V\cdot\psi
+            }
+        \] 
+        Mit der gleichmäßigen Stetigkeit von $\psi$ können wir die Existenz einer Stammfunktion $\Psi$ speziell auf $B_r(x_0)$ voraussetzen, sodaß wir in der linken Auswertung $\int_{B_r(x_0)}\psi(x)\; dx = \Psi(r) - \Psi(-r)$ vorfinden. Als nächstes spalten wir das rechte Integral auf zu 
+        \[
+            \int_{B_r(x_0)}V\cdot\psi = \int_{(-r,x_0)}V\cdot\psi + \int_{(x_0,r)}V\cdot\psi.
+        \]
+        Da wir $V\cdot\psi$ als konstante Multiplikation mit $V_{<x_0}$ betrachten können, können wir umformulieren zu 
+        \[
+            \int_{(-r,x_0)}V\cdot\psi = V_{<x_0}\cdot\int_{(-r,x_0)}\psi = V_{<x_0}\cdot(\Psi(x_0) - \Psi(-r))
+        \]
+        und analog $\int_{(x_0,r)}V\cdot\psi = V_{>x_0}\cdot(\Psi(r) - \Psi(x_0))$. Zuletzt erkennen wir noch nach Hauptsatz $\int_{B_r(x_0)}\psi'' = \Psi'(r) - \Psi'(-r)$ und erhalten die Form
+        \begin{align*}
+            \psi'(x_0 + r) - \psi'(x_0-r) &= -\frac{\hbar^2}{2m}\cdot \lambda\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0 - r)} \\
+            &\qquad - \frac{\hbar^2}{2m}\cdot\Bbra{
+                V_{<x_0}\cdot\bbra{\Psi(x_0) - \Psi(x_0 - r)} + V_{>x_0}\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0)}
+            }.
+        \end{align*}
+        Wir können nun die Stetigkeit der Stammfunktion $\Psi$ in einem Grenzwertprozess $\lim_{r\to 0}$ ausnutzen, indem wir zunächst $\lim_{r\to 0}\Psi'(x_0 + r) - \Psi'(x_0 - r) = 0$ erkennen. Weiter gilt $\lim_{r\to 0}\Psi(x_0) - \Psi(x_0 - r) = 0$ und $\lim_{r\to 0}\Psi(x_0 - r) - \Psi(x_0) = 0$. Setzen wir dies oben ein, folgt 
+        \[
+            \lim_{r\to 0}\psi'(x_0 + r)-\psi'(x_0 + r) = -\frac{\hbar^2}{2m}\cdot\Bbra{
+                \lambda\cdot 0 + V_{>x_0}\cdot 0 - V_{<x_0}\cdot 0
+            } = 0.
+        \]
+        Damit ist die Ableitung von $\psi$ an der Stelle $x_0$ stetig.
+
+        \begin{mdef}{Stetigkeitsbedingungen}
+            Ist $V:\R\to\R$ ein Einstufenpotential mit kritischer Stelle $x_0\in\R$, dann wird gleichmäßige Stetigkeit an $\psi$ und Stetigkeit an $\psi'$ als Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ zum Eigenwert $\lambda\in\R$ an der Stelle $x_0$ gefordert. Ferner ist $\psi$ eine Verklebung von Linearkombinationen der Fundamentallösungen $\exp(\tau_{\lambda,V,+}\cdot x)$ und $\exp(\tau_{\lambda,V,-}\cdot x)$. 
+        \end{mdef}
+
 
         \begin{Aufgabe}
             \nr{} In der Vorlesung wurde eine Fallunterscheidung über die (Un-)Stetigkeit von $\psi$ bei $x_0$ durchgeführt, indem die (zweite) \enquote{Ableitung} berechnet wurde. Es wurde gefolgert \enquote{$\psi$ ist stetig}. Recherchiere nach einer Begründung für diese Aussage. Beachte die \emph{schwache Ableitung}. 
@@ -94,17 +142,19 @@
         \[V:=\fdef{\begin{cases}
             0 & x<0 \\
             V_0 & x\geq 0
-        \end{cases}}{(t,x)\in\R^2},\quad V_0\in\R.\]
-        Dann gibt es die Fälle (i) $E(t,x) > V_0$ und (ii) $E(t,x) < V_0$. In klassischer Betrachtung fällt zunächst auf, daß der Bereich $x\geq 0$ \emph{nicht} erreichbar sein. 
-        \begin{Aufgabe}
-            \nr{} Vermute zunächst, ob diese Behauptung auch für die Quantenmechanik gilt.
-        \end{Aufgabe}
-        Für den Impuls ergibt sich in (i) $p = \hbar\cdot k = \sqrt{2m\cdot E}$ und in (ii) $p = \hbar\cdot k = \sqrt{2m\cdot (E-V_0)}$. Wieder führt uns unsere Betrachtung in eine Fallunterscheidung (i) $E\geq V$, (ii) $0 \leq E(t,x) < V(t,x)$:
+        \end{cases}}{(t,x)\in\R^2},\quad V_0\in\R\setminus\{0\}.\]
+        Dann gibt es nach unserer obigen Diskussion die beiden Fälle (i) $\lambda > V_0$ und (ii) $\lambda < V_0$ für eine Lösung der Schrödingereigenwertgleichung $H(\psi) = \lambda\cdot\psi$. In klassischer Betrachtung fällt zunächst auf, daß der Bereich $x\geq 0$ \emph{nicht} erreichbar sein. 
+        % \begin{Aufgabe}
+        %     \nr{} Vermute zunächst, ob diese Behauptung auch für die Quantenmechanik gilt.
+        % \end{Aufgabe}
+        Wir können unsere Baukastenfunktion $k_{\lambda,V}$ verwenden und nach Definition unseres $V$ auf die beiden Strahlen $\R_{<0}$ und $\R_{\geq 0}$ zerlegen. Damit erhalten wir durch die Fälle oben zwei Betrachtungen:
         \begin{enumerate}[label=(\roman*)]
-            \item Für $\overline k(t,x):=1/\hbar\cdot\sqrt{2m\cdot (E(t,x)-V_0)}\in\R$ ergibt sich die Lösung $u(t,x) = C_0\cdot \exp(\pm\cmath\cdot\overline k(t,x)\cdot x)$. 
-            \item Für $\kappa(t,x):=1/(\cmath\cdot\hbar)\cdot\sqrt{2m\cdot \abs{E(t,x) - V_0}}\in\R$, ist $\overline k(t,x):=\cmath\cdot\kappa$ mit $u(t,x) = \exp(\cmath\cdot\overline k(t,x)\cdot x)$ eine Lösung. Es handelt sich nun um eine exponentiell gedämpfte Wellenfunktion im klassisch verbotenen Gebiet.  
+            \item Wir haben den Fall $\lambda > V_0$. Damit ergibt sich für $k_{\lambda,V_0}$ die Form $k_{\lambda,V_0}(x) = \cmath\cdot\sqrt{2m\cdot (\lambda(x) - V_0(Q)(x))}$. 
+            \item Wir haben nun den Fall $\lambda < V_0$. Damit ergibt sich durch $\sqrt{2m\cdot(\lambda(x) - V_0(Q)(x))} = $die Form $k_{\lambda,V_0}(x) = \cmath\cdot\sqrt{2m\cdot\cmath\cdot (\abs{\lambda(x) - V_0(Q)(x)})}$.
+            % \item Für $\kappa(t,x):=1/(\cmath\cdot\hbar)\cdot\sqrt{2m\cdot \abs{E(t,x) - V_0}}\in\R$, ist $\overline k(t,x):=\cmath\cdot\kappa$ mit $u(t,x) = \exp(\cmath\cdot\overline k(t,x)\cdot x)$ eine Lösung. Es handelt sich nun um eine exponentiell gedämpfte Wellenfunktion im klassisch verbotenen Gebiet.
+            \item Für einen Energieeigenwert $\lambda < 0$ findet sich keine normierbare Lösung. 
         \end{enumerate}
-        Für $E(t,x) < 0$ ergibt sich dabei keine normierbare Lösung. Damit erhalten wir die Verklebung
+        Damit erhalten wir die Verklebung
         \[\psi(t,x):=\fdef{C_0\cdot\begin{cases}
             \exp(\cmath\cdot k(t,x)\cdot x) + \rho\cdot \exp(-\cmath\cdot k(t,x)\cdot x) & x < 0 \\
             \tau\cdot\exp(\cmath\cdot\overline k(t,x)\cdot x) & x\geq 0

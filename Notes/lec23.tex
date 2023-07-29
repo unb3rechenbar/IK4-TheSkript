@@ -22,9 +22,9 @@
             \]
             folgern, wodurch mit $\braket{n_0}{n} = 1$ das verschwinden des zweiten Summanden gefordert wird. Daraus können wir wiederum folgern, daß alle Korrekturvektoren $\ket{n_i}$ für $i\in\N$ orthogonal zum eindeutig gelösten Grundvektor $\ket{n_0}$ sein müssen. Setzen wir nun den Restterm in $\Phi_\lambda$ ein, so erhalten wir 
             \[
-                \Phi_\lambda\bbbra{\lim\sum_{i=1}^\infty \lambda^i\cdot\ket{n_i}} = \bbbra{\lim\sum_{i=1}^\infty\lambda^i\cdotE_{i,n}}\cdot\bbbra{\lim\sum_{i=1}^\infty \lambda^i\cdot\ket{n_i}}.
+                \Phi_\lambda\bbbra{\lim\sum_{i=1}^\infty \lambda^i\cdot\ket{n_i}} = \bbbra{\lim\sum_{i=1}^\infty\lambda^i\cdot E_{i,n}}\cdot\bbbra{\lim\sum_{i=1}^\infty \lambda^i\cdot\ket{n_i}}.
             \]
-            Per Koeffizientenvergleich können wir nun unter Einbindung des ungestörten Problems ein nicht abbrechendes Gleichungssystem aufstellen. Wir sammeln dabei die Koeffizienten der $\lambdas$:
+            Per Koeffizientenvergleich können wir nun unter Einbindung des ungestörten Problems ein nicht abbrechendes Gleichungssystem aufstellen. Wir sammeln dabei die Koeffizienten der $\lambda$:
             \begin{align*}
                 H_0\ket{n_0} &= E_{0,n}\ket{n_0} \\
                 H_0\underline{\ket{n_1}} + H_s\ket{n_0} &= E_{0,n}\ket{n_1} + \underline{E_{1,n}}\ket{n_0},
@@ -41,12 +41,13 @@
             \begin{Aufgabe}
                 \nr{} Entwickle den Eigenvektor $\ket{n_1}$ in einer Basis $\underline v$ des betrachteten Hilbertraumes $\mcH$. 
 
-                \nr{} Wende analog die duale Abbildung zu einem verschiedenen Eigenvektor $\ket{m_0}$ mit $m\neq n$ auf dieselbe Gleichung an. Welche Skalarprodukte verschwinden? Stelle die Gleichung nach $\braket{m_0}{n_1}$ um. 
+                \nr{} Wende analog die duale Abbildung zu einem verschiedenen Eigenvektor $\ket{m_0}$ mit $\ket{m}\neq\ket{n}$ auf dieselbe Gleichung an. Welche Skalarprodukte verschwinden? Stelle die Gleichung nach $\braket{m_0}{n_1}$ um. 
             \end{Aufgabe}
             \noindent Mit den Aufgaben finden wir nun das Ergebnis
             \[
-                \ket{n_1} = \sum_{i\in\Def{\underline v}}\underline v_i\cdot \frac{\braket{m_0}{H_s(\ket{n_0})}}{E_{0,n} - E_{0,m}}.
+                \ket{n_1} = \sum_{i\in\mcB}\ket{m}\cdot \frac{\braket{m_0}{H_s(\ket{n_0})}}{E_{0,n} - E_{0,m}}
             \]
+            für eine Vektorraumbasismenge $\mcB$. 
             Diesen Koeffizientenvergleich können wir nun beliebig weiterführen. 
             \begin{Aufgabe}
                 \nr{} Was sagt diese Rechnung über die Entartung von $E_{0,n}$ aus?

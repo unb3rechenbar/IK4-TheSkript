@@ -80,14 +80,20 @@
         \noindent Prinzipiell ist es möglich, den \emph{Ort} zum \emph{Zeitpunkt} eines Teilchens zu kennen; anders ist es bei quantenmechanischen Wellen. Wir bemerken:
         \begin{itemize}[label=$\to$]
             \item $\psi$ bezeichnet man auch als \emph{Wahrscheinlichkeitsamplitude}. 
+            \item 
             \item Die Aufenthaltswahrscheinlichkeit des durch $r$ beschriebenen Teilchens ist gegeben als Integral 
-            \[P(t,V) := \lint{\abs{\psi(t,x)}^2}{x}{V} =: \mu(V)\]
-            mit Wahrscheinlichkeitsmaß $P(t,\cdot)=:\mu$ auf $(\R^3,\sigma(\R^3))$. Ist der Aufenthalt in einem Volumen $V\subseteq\R^3$ bekannt, so sei 
-            \[P(t,V) := \begin{cases}
-                \lint{\abs{\psi(t,x)}^2}{x}{V} & V\in\sigma(\R^3) \\
-                \infty \sonst
-            \end{cases}\]
-            eine Umdefinition des Maßes. 
+            \[P(\psi,V) := \lint{\abs{\psi(x)}^2}{x}{V} =: \mu(V)\]
+            mit Wahrscheinlichkeitsmaß $P(\psi,\cdot)=:\mu$ auf $(\R^3,\sigma(\R^3))$. 
+            \item Bei einer ebenen Welle $\psi_\textit{eben}$ stellen wir sofort $P(\psi_\textit{eben},\R) = \infty$ fest. Dies zeigt uns, daß $\psi_\textit{eben}$ nur auf einem beschränkten Teilvolumen $V\subseteq\R$ normierbar ist:
+            \[
+                P(\psi_{eben},V) = \abs{C}^2\cdot\int 1\;\uplambda(dx) = \abs{C}^2\cdot\uplambda(V) \iff C = \frac{1}{\sqrt{\uplambda(V)}}. 
+            \]
+            % \item Ist der Aufenthalt in einem Volumen $V\subseteq\R^3$ bekannt, so sei 
+            % \[P(t,V) := \begin{cases}
+            %     \lint{\abs{\psi(t,x)}^2}{x}{V} & V\in\sigma(\R^3) \\
+            %     \infty \sonst
+            % \end{cases}\]
+            % eine Umdefinition des Maßes. 
             \item Aus der Wahrscheinlichkeitsmaß-Eigenschaft $\mu(\R^3) = 1$ folgt
             \[P(t,\R^3) = \lint{\abs{\psi(t,x)}^2}{x}{V} = 1.\]
             \item In einem Volumen $W\subseteq V\subseteq\R^3$ gilt $\mu|_V(W) = \lambda(V)\cdot\abs{C}^2$ und für $W=V$ folgt $\abs{C}^2 = 1/\lambda(V)$.

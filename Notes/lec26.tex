@@ -1,0 +1,54 @@
+\documentclass{subfiles}
+
+\begin{document}
+    \marginnote{\textbf{\textit{VL 26}}\\20.07.2023, 10:00\\last one's on Regina}
+    Wir nehmen in diesem Kapitel einen zweidimensionalen Hilbertraum $\mcH$ an. 
+
+    \subsection{Spin einhalb Eigenzustände}
+
+
+    \subsection{Die zweidimensionalen Spinoperatoren}
+        Durch die Zweidimensionalität können wir die linearen Spinoperatoren $n\mapsto S_n\in L_S(\mcH)$ durch ihre Darstellungsmatrizen darstellen. Hierbei erhalten wir die sogenannten \emph{Pauli Matrizen} der Form 
+        \[
+            \sigma_1 := \begin{pmatrix}
+                0 & 1 \\
+                1 & 0
+            \end{pmatrix}, \quad
+            \sigma_2 := \begin{pmatrix}
+                0 & -i \\
+                i & 0
+            \end{pmatrix}, \quad
+            \sigma_3 := \begin{pmatrix}
+                1 & 0 \\
+                0 & -1
+            \end{pmatrix}.
+        \]
+        Die Spinoperatoren stehen dann in Verbindung durch Multiplikation mit $\hbar/2$. Diese können wir kombinieren durch $S_\pm := S_2\pm\cmath\cdot S_3$ und den Forderungen $S_+\ket{\downarrow} = \hbar\cdot\ket{\uparrow}$ und $S_-\ket{\uparrow} = \hbar\cdot\ket{\downarrow}$ mit den Darstellungsmatrizen
+        \[
+            \sigma_+ := \begin{pmatrix}
+                0 & \hbar \\
+                0 & 0
+            \end{pmatrix}, \quad 
+            \sigma_- := \begin{pmatrix}
+                0 & 0 \\
+                \hbar & 0
+            \end{pmatrix}.
+        \]
+        Interessante Eigenschaften der $\sigma$ Matrizen sind (i) $\text{Spur}(\sigma_i) = 0$, (ii) $\sigma_i^2 = I_2$ und (iii) $[\sigma_i,\sigma_{i+1}]_- = 2\cdot\sigma_{i+2}$ bzw. (iv) $[\sigma_i,\sigma_{i+1}]_+ = 0$ zyklisch. 
+
+    \subsection{Die Blochkugel} 
+        Als Blochkugeldarstellung versteht man eine Kugelkoordinatendarstellung eines zweidimensionalen Zustandes $\psi = \mu\cdot\underline v_1 + \nu\cdot\underline v_2$ durch eine Transformation $\mu \mapsto \cos(\Theta_\mu/2)\in\R$ bzw. $\nu \mapsto \sin(\Theta_\nu/2)\cdot \exp(\cmath\cdot\varphi_\nu)\in\C$, wobei $\Theta$ und $\varphi$ gleichungserfüllende Abbildungen nach $[0,\pi]$ bzw. $[0,2\pi)$ sind. Die daraus konstruierte Funktion $B$ weist einem Zustand $\psi\in\mcH$ einen Punkt auf der Kugeloberfläche mit Radius $1$ zu.  
+        
+        geometrische Darstellung der Drehimpulsalgebra $\mathfrak{su}(2)$, welche die Drehimpulsalgebra der Spinoperatoren ist. Die Blochkugel ist eine Kugel mit Radius $1$ und Mittelpunkt im Ursprung des $\R^3$. Die Kugeloberfläche ist mit einem Koordinatensystem versehen, welches die drei Achsen des $\R^3$ darstellt. Die Achsen sind dabei mit den drei Pauli-Matrizen $\sigma_x, \sigma_y, \sigma_z$ beschriftet. Die Pauli-Matrizen sind dabei definiert als
+
+    \subsection{Zeitentwicklung mit konstanten Magnetfeld}
+        Wir nehmen den Hamiltonoperator in der Form von $H = -g\cdot\mu_B\cdot \scpr{B}{S}$, also in Spezialfall $B = (0,0,B_z)$ dann $H = -g\cdot\mu_B\cdot B_z\cdot S_3$ an. In Matrixdarstellung gilt dann 
+        \[
+            \text{dm}(H) = -g\cdot\mu_B\cdot B_z\cdot \frac{\hbar}{2}\cdot\begin{pmatrix}
+                1 & 0 \\
+                0 & -1
+            \end{pmatrix}.
+        \]
+        
+        
+\end{document}
