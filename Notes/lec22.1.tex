@@ -1,0 +1,28 @@
+\documentclass{subfiles}
+
+\begin{document}
+        \marginnote{\textbf{\textit{VL 22}}\\12.07.2023, 11:45}
+        Mit der Aufgabe erkennen wir dann die Operatorauswertungsfolgen
+        \begin{align*}
+            \fdef{a(\ket{n})}{n\in\N} &= \fdef{\begin{cases}
+                0 & n=0 \\
+                1/\sqrt{n} \cdot \ket{n-1} & n\in\N
+            \end{cases}}{n\in\N_0}, \\
+            \fdef{a^*(\ket{n})}{n\in\N} &= \fdef{\begin{cases}
+                1/\sqrt{n+1} \cdot \ket{n+1} & n\in\N \\
+                0 & n=0
+            \end{cases}}{n\in\N_0}.
+        \end{align*}
+        Der Vorteil der Wahl von $N$ als Ausdruck in $H = \hbar\omega\cdot(N + 1/2)$ ist nun der optisch identische Ausdruck der zugehörigen Eigenwertfolge $E(n) = \hbar\omega\cdot (n+1)$ für $n\in\N_0$.
+        
+        \begin{mdef}{Erzeugungs-, Vernichtungs- und Besetzungszahloperator}
+            Unter den Transformationen $\Phi:=(Q(x)/x_0)_{x\in\mcH}$ und $\Psi:=(P(x)/p_0)_{x\in\mcH}$ mit $x_0 := \sqrt{\hbar/(m\cdot\omega)}$ und $p_0 := \hbar/x_0$ können wir den Hamiltonoperator des harmonischen Oszillators $H^\textit{harm}$ mithilfe des Vernichtungsoperators
+            \[
+                a:=\frac{1}{\sqrt{2}}\cdot\bbbra{\frac{Q}{x_0} + \frac{\cmath\cdot P}{p_0}}
+            \]
+            und dem adjungierten Erzeugungsoperator $a^*$ in kompakter Form $H^\textit{harm} = \hbar\cdot\omega\cdot\bbra{a^*\circ a + 1/2}$ notieren. 
+
+            Der s.a. Besetzungszahloperator $N:=a^*\circ a$ verkürzt mit der Eigenwertfolge $E_n = \hbar\cdot\omega\cdot(n+1)$ den Ausdruck weiter. 
+        \end{mdef}
+
+\end{document}

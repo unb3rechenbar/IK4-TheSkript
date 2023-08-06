@@ -19,7 +19,9 @@
         Das Ergebnis der Fourier-Summation angewendet auf die Gaußfunktion ergibt 
         \[\abs{\psi(t,r(t))}^2 = \frac{1}{\sqrt{2\cdot\pi}\cdot w(t)}^{\frac{3}{2}}\cdot\exp(-\frac{(r(t)-v\cdot t)^2}{2\cdot w(t)^2})\]
         mit der Definition $v:=\hbar\cdot k/m = \Dvat{t}{\omega(k_0 + t\cdot h)}{0} = d\omega(k_0)(h)$ und $w(t) := \sqrt{w(0)^2 + ((\hbar\cdot t)/(2\cdot w(0)\cdot m))}$ mit dem Startwert $w(0) = 1/(2\cdot\sigma)$. 
-
+        \begin{mcor}{Fourier-Zerlegung in Gaußfunktionen}
+            Eine quadratintegrierbare Wellenfunktion $\psi\in\mcL^2(\R)$ lässt sich durch Fouriertransformation zerlegen in eine Summe von Gaußfunktionen.
+        \end{mcor}
         \begin{Aufgabe}
             \nr{} Man spricht bei Fourier-Summationen vom \emph{Raumwechsel}. Was ist damit gemeint? Welche Räume haben wir hier verwendet?
 
@@ -60,15 +62,19 @@
 
     \subsection{Die Heisenbergsche Unschärferelation (I)}
         Zunächst bemerken wir die Eigenschaft der \emph{Normerhaltung} gemäß des \href{https://de.wikipedia.org/wiki/Satz_von_Parseval}{\emph{Satzes von Parseval}} der Fourier-Summation. Es gilt 
-        \[\lint{\abs{\psi(t,r)}^2}{r}{} = \lint{\frac{\abs{\tilde\psi(k)}^2}{(2\cdot\pi)^3}}{k}{} = \lint{\frac{\abs{\tilde\psi(p)}^2}{(2\cdot\pi\cdot\hbar)^3}}{p}{}\]
+        \[
+            \lint{\abs{\psi(t,r)}^2}{r}{} = \lint{\frac{\abs{\tilde\psi(k)}^2}{(2\cdot\pi)^3}}{k}{} = \lint{\frac{\abs{\tilde\psi(p)}^2}{(2\cdot\pi\cdot\hbar)^3}}{p}{}
+        \]
         und für die Mittelung
         \[\langle p\rangle = \lint{\frac{p\cdot\abs{\tilde\psi(p)}^2}{(2\cdot\pi\cdot\hbar)^3}}{p}{} := \lint{\frac{p\cdot\exp(-\frac{(p-p_0)^2}{4\cdot\hbar^2\cdot\sigma^2})}{(2\cdot\pi\cdot\hbar)^3}}{p}{} \stackrel{\refnr{1}}{=} p_0 = \hbar\cdot k_0.\]
         Die mittlere Schwankung, also physikalisch die Genauigkeit des Impulses im Impulsraum, ergibt sich zu
         \[\Delta p^2 = \langle (p-\langle p\rangle^2)^2\rangle = \hbar^2\cdot\sigma^2,\]
         wobei unter Verwendung von $\Delta r^2 = w(t)^2$ folgt
         \[\Delta r^2 = w(t)^2\geq \nbra{\frac{1}{2\cdot\sigma}}^2 = \frac{1}{4\cdot\sigma^2},\]
-        sodaß mit beiden Gleichungen unter Produktbildung und Wurzelzug eine Ausdrucksweise der Unschärferelation, konkret jene von Heisenberg, folgt:
-        \[\Delta r \cdot\Delta p \geq \frac{\hbar}{2}.\]
+        sodaß mit beiden Gleichungen unter Produktbildung und Wurzelzug eine Ausdrucksweise der Heisenbergschen Unschärferelation folgt.
+        \begin{mcor}{Unschärferelation nach Heisenberg}
+            Für zwei s.a. Operatoren $T,S\in L_S(\R)$ und einen Zustand $\psi\in\mcH$ gilt die \emph{Heisenbergsche Unschärferelation} $\var_\psi(T)\cdot\var_\psi(S)\geq \frac{1}{2}\abs{\langle[T,S]\rangle_\psi}$.
+        \end{mcor}
         \begin{Aufgabe}
             \nr{} Lässt sich die Wellenfunktion direkt experimentell bestimmen? Recherchiere die \href{https://de.wikipedia.org/wiki/Quantentomographie}{\emph{Quanten-Zustands-Tomographie}}.
         \end{Aufgabe}
@@ -77,7 +83,7 @@
             Aus der Unschärferelation folgen folgende physikalische Konsequenzen:
             \begin{itemize}[label=$\to$]
                 \item Unmittelbar ist ablesbar, daß bei genauerer Ortsbestimmung die Impulsgenauigkeit abnimmt. 
-                \item Für $\Delta p\to 0$ (Fall ebene Welle) ist $\Delta r \to \infty$. 
+                \item Für $\var_\psi(P)\to 0$, wie beispielsweise im Falle der ebenen Welle, ist $\var_\psi(Q)\to \infty$. 
                 \item Der Phasenraum ist infolge der Unschärferelation quantisiert in Einheiten von $\hbar$.
             \end{itemize}
 

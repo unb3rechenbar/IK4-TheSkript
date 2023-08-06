@@ -2,8 +2,8 @@
 
 \begin{document}
     \marginnote{\textit{\textbf{VL 12}}, 22.05.2023, 11:45}
-    Das Verhalten von $t\mapsto \abs{\tau(t,x)}^2$ ist durch 
-    \begin{figure}
+    Das Verhalten von $t\mapsto \abs{\tau(t,x)}^2$ ist durch die folgende Grafik gezeigt.
+    \begin{figure}[H]
         \centering
         \begin{tikzpicture}
             \draw[->] (-3, 0) -- (4.2, 0) node[right] {$x$};
@@ -14,11 +14,30 @@
     \end{figure}
 
     \subsection{Der harmonische Oszillator I}
-    Der harmonische Oszillator ist ein Mechanik gut bekanntes schwingendes System, antreffbar beispielsweise in Form einer schwingenden Masse. Ihn zeichnet dabei durch die \emph{harmonisch} angedeutete lineare Rückstellkraft $F = -k\cdot x$ aus, welche Resultat des Kraftpotentials $V = 1/2\cdot k\cdot x^2$ ist. Ein quantenmechanisches Pendant wären zwei gekoppelte, schwingende Moleküle, welche in der Festkörperphysik noch auf sogenannte \emph{Gitterschwindungen} bezüglich der Anzahl schwingender Moleküle verallgemeinert werden. Wir werden uns nun dem quantenmechanischen harmonischen Oszillator mithilfe der \emph{analytischen Methode} nach Sommerfeld nähern. Zu einem späteren Zeitpunkt werden wir uns ebenfalls mit dem \emph{algebraischen Ansatz} nach Dirac beschäftigen. Ausgangspunkt ist wieder die Eigenwertgleichung $H(\psi) = \lambda\cdot\psi$ mit dem Hamiltonoperator $H := p^2/(2m) + k/2\cdot x^2$ mit $k\in\R$ als Kopplungskonstante. Daraus ergibt sich nach Definition wieder
-    \[\Bbra{\dv{x}}^2\psi(t,x) + \frac{2m}{\hbar^2}\cdot\Bbra{\lambda - \frac{k}{2}\cdot x^2}\psi(t,x) = 0.\]
-    Wir werden nun zur Lösung der Gleichung einen Exponentialansatz $\psi:=(\exp(p(x)))_{x\in\R}$, wobei wir stillschweigend $t\in\R$ konstant wählen. Um die physikalischen Dimensionen abzulegen, wählen wir die Transformationen 
-    \[u(x):=\sqrt{\frac{k}{\hbar}\cdot x}\quad\eta(E):=\frac{2\cdot E}{\hbar\cdot k/m},\; k=\omega\cdot m.\]
-    Setzt man die Inversen von $u,\eta$ ein, so erhält man
+    Der harmonische Oszillator ist ein Mechanik gut bekanntes schwingendes System, antreffbar beispielsweise in Form einer schwingenden Masse. Ihn zeichnet dabei durch das Vorverb \emph{harmonisch} angedeutete lineare Rückstellkraft $F = -k\cdot x$ aus, welche Resultat des Kraftpotentials $V = 1/2\cdot k\cdot x^2$ ist. Ein quantenmechanisches Pendant wären zwei gekoppelte, schwingende Moleküle, welche in der Festkörperphysik noch auf sogenannte \emph{Gitterschwindungen} bezüglich der Anzahl schwingender Moleküle verallgemeinert werden. Wir werden uns nun dem quantenmechanischen harmonischen Oszillator mithilfe der \emph{analytischen Methode} nach Sommerfeld nähern. Zu einem späteren Zeitpunkt werden wir uns ebenfalls mit dem \emph{algebraischen Ansatz} nach Dirac beschäftigen. Ausgangspunkt ist wieder die Eigenwertgleichung $H(\psi) = \lambda\cdot\psi$ mit dem Hamiltonoperator $H := P^2/(2m) + V(Q)$ mit $V:(k\cdot x^2/2)$ und $k\in\R$ als Kopplungskonstante. Daraus ergibt sich für einen Eigenwert $\lambda\in\sigma_P(H)$ wieder
+    \[
+        \Bbra{\dv{x}}^2\psi(x) = -\frac{2m}{\hbar^2}\cdot\Bbra{\lambda - \frac{k}{2}\cdot x^2}\cdot\psi(x).
+    \]
+    Im nächsten Schritt wollen wir die Lösung $\psi(x)$ transformieren zu einer einheitenlosen Funktion $u(x)$. Hierzu wählen wir die Transformation $\Phi:=\bigl(\sqrt{\omega\cdot m/\hbar}\cdot x\bigr)$, sodaß $\psi(x) = (u\circ \Phi)(x)$ gilt. Damit können wir die Differentialgleichung umformen zu
+    \[
+        \Bbra{\dv{x}}^2(u\circ\Phi)(x) = -\frac{2m}{\hbar^2}\cdot\Bbra{\lambda - \frac{k}{2}\cdot x^2}\cdot\psi(x)
+    \]
+    Mithilfe der Kettenregel folgern wir $d(u\circ\Phi)(x)(1) = du(\Phi(x))(1)\cdot d\Phi(x)(1)$, sodaß mit den Definitionen und zweifacher Ausführung gilt
+    \[
+        \Bbra{\dv{x}}^2(u\circ\Phi)(x) = \frac{\omega\cdot m}{\hbar}\cdot\Bbra{\dv{x}}^2(u\circ\Phi)(x).
+    \]
+    Damit können wir weiter ausformulieren:
+    \[
+        -\frac{\hbar^2}{2m}\cdot\frac{\omega\cdot m}{\hbar}\cdot\Bbra{\dv{x}}^2(u\circ\Phi)(x) = \lambda\cdot (u\circ\Phi)(x) - \cdot x^2\cdot(u\circ\Phi)(x).
+    \]
+    Mit der Definition $\eta := 2\cdot\lambda / (\hbar\cdot\omega)$ können wir die Energie $\lambda = \eta\cdot\hbar\cdot\omega/2$ ausdrücken und erhalten 
+    \[
+        -\frac{\hbar\cdot\omega}{2}\cdot\Bbra{\dv{x}}^2(u\circ\Phi)(x) = \frac{\hbar\cdot\omega}{2}\cdot\cdot\eta\cdot(u\circ\Phi)(x) - \frac{k}{2}\cdot x^2\cdot (u\circ\Phi)(x).
+    \]
+    \vspace{1cm}
+    \[
+        \Bbra{\dv{x}}^2(u\circ\Phi)(x) = (\eta - (u\circ\Phi)(x)^2)
+    \]
     \[\Bbra{\dv{x}}(\psi\circ u^{-1})(x) + (\eta^{-1}(x) - u^{-1}(x)^2)\cdot(\psi\circ u^{-1})(x) = 0.\]
     Für genügend große Ergebnisse $u(x)\gg 1$ folgt $\bbra{\dv{x}}(\psi\circ u^{-1})(x)\approx u^{-1}(x)^2\cdot(\psi\circ u^{-1})(x)$ und als Lösung $(\psi\circ u^{-1})(x) \propto \exp(\pm u^{-1}(x)^2/2)$. Mittels Aufspaltung
     \[(\psi\circ u^{-1})(x) = \exp(-u^{-1}(x)^2/2)\cdot(\nu\circ u)(x)\]

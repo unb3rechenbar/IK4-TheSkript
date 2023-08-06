@@ -12,7 +12,6 @@
 
         \subsubsection*{Photoeffekt}
 
-
         \subsubsection*{Compton Effekt}
             [$\to$ IK4 Exp. II] 
 
@@ -58,8 +57,28 @@
             \item Wie hängen $p$ und $k$ zusammen? 
             \item Was ist die physikalische Bedeutung von $\psi\in C^1(\R\times\R^3,\R)$?
         \end{itemize}
-        Es stellt sich heraus, daß wir die erste Frage bereits mit der \emph{de Broglie Relation} [$\to$ IK4 Exp II] beantworten können: $p(k) = \hbar\cdot k$, wobei $\hbar:=h/(2\pi)$ mit $h = 6.6\cdot 10^{-34}\si{\joule\second}$. Für die Energie finden wir aus der Schwarzkörperstrahlung den Zusammenhang $E(\omega) = \hbar\cdot\omega$ (Einstein/Planck) mit $\omega = 2\pi\cdot\nu$. In die Funktion $\psi$ eingesetzt folgt
-        \[\psi(t,r(t)) = C\cdot\exp(\frac{\cmath\cdot (\scpr{p,r(t)}-E(p)\cdot t)}{\hbar}).\]
+
+        \subsubsection*{Die Impuls-Wellenvektor Beziehung}
+        Es stellt sich heraus, daß wir die erste Frage bereits mit der \emph{de Broglie Relation} [$\to$ IK4 Exp II] beantworten können: $p(k) = \hbar\cdot k$, wobei $\hbar:=h/(2\pi)$ mit $h = 6.6\cdot 10^{-34}\si{\joule\second}$. Für die Energie finden wir durch die Energie eines Photons den Zusammenhang $E(\omega) = h\cdot\nu = \hbar\cdot\omega$ mit $\omega = 2\pi\cdot\nu$. Dann ist $E$ mit $\nu$ als Funktion von $p$ durch die Relation $\nu = c_0 / \lambda$ und letztlich $\lambda$ als Funktion von $p$ durch die de Broglie Relation $\lambda(p) = h/p$ insgesamt die Energie - Impuls Beziehung 
+        \[
+            (E\circ\nu\circ\lambda)(p) = h\cdot \frac{c_0}{h / p} = c_0\cdot p =: E(p).
+        \]
+        Wir wollen in der angenommenen Wellenfunktion
+        \[
+            \psi_t(x) = C\cdot\exp(\cmath\cdot (\scpr{k}{x}-\omega\cdot t))
+        \]
+        Die Größen $k$ und $\omega$ durch $p$ ausdrücken. Die Transformation für $k$ ist dabei gegeben durch $k(p) = p/\hbar$, die Transformation für $\omega$ müssen wir noch durch die oben definierten Funktionen $\omega(\nu)$, $\nu(\lambda)$ und $\lambda(p) = h / p$ ausdrücken. Wir erhalten die Verkettung $(\omega\circ\nu\circ\lambda)(p) = 2\pi\cdot p\cdot c_0/h$. Nun verwenden wir die Definition von $\hbar$ und $E(p)$, sodaß wir schreiben können $(\omega\circ\nu\circ\lambda)(p) = E(p) / \hbar =: \omega(p)$. Diese beiden Ausdrücke können wir nun in die Wellenfunktion einsetzen, sodaß wir erhalten
+        \[
+            \psi_t(x) = C\cdot\exp(\cmath\cdot (\scpr{p/\hbar}{x}-(E(p)/\hbar)\cdot t)) = C\cdot\exp(\cmath\cdot \frac{\scpr{p}{x} - E(p)\cdot t}{\hbar}).
+        \]
+        Vorbereitend für eine Fouriertransformation halten wir dieses Ergebnis fest. 
+        \begin{mcor}{Die ebene Wellenfunktion mit Impulsargument}
+            Durch die Transformationen $\Phi:(p/\hbar)_{p\in\R}$ und $\Psi:(E(p)/\hbar)_{p\in\R}$ mit der Energiebeziehung $E:(c_0\cdot p)_{p\in\R}$ erhalten wir die ebene Wellenfunktion mit Impulsargumenten 
+            \[
+                \psi_t(x) = C\cdot \exp(\cmath\cdot(\scpr{\Phi(p)}{x} - \Psi(p)\cdot t)).
+            \]
+        \end{mcor}
+        \subsubsection*{Dispersion der ebenen Welle}
         Für die Dispersion der Welle gilt 
         \[E(\omega) = \hbar\cdot\omega = \begin{cases}
             \frac{\hbar^2\cdot k^2}{2\cdot m} & m>0 \\
@@ -68,46 +87,52 @@
             \frac{\scpr{p}{p}}{2\cdot m} & m>0 \\
             c_0\cdot\dabs{p}{2} \sonst
         \end{cases}\]
-        Für die physikalische Interpretation müssen wir uns der Wahrscheinlichkeitsinterpretation widmen: 
-        \begin{table}[H]
-            \centering
-            \begin{tabular}{p{5cm}|p{5cm}}
-                Teilchen & Welle \\
-                \hline
-                Aufenthaltswahrscheinlichkeit des Teilchens (pro Volumen) am Ort $r(t)$ zur Zeit $t\in\R$ & Intensität der Welle $\abs{\psi(t,r(t))}^2$ \\
-            \end{tabular}
-        \end{table}
-        \noindent Prinzipiell ist es möglich, den \emph{Ort} zum \emph{Zeitpunkt} eines Teilchens zu kennen; anders ist es bei quantenmechanischen Wellen. Wir bemerken:
-        \begin{itemize}[label=$\to$]
-            \item $\psi$ bezeichnet man auch als \emph{Wahrscheinlichkeitsamplitude}. 
-            \item 
-            \item Die Aufenthaltswahrscheinlichkeit des durch $r$ beschriebenen Teilchens ist gegeben als Integral 
-            \[P(\psi,V) := \lint{\abs{\psi(x)}^2}{x}{V} =: \mu(V)\]
-            mit Wahrscheinlichkeitsmaß $P(\psi,\cdot)=:\mu$ auf $(\R^3,\sigma(\R^3))$. 
-            \item Bei einer ebenen Welle $\psi_\textit{eben}$ stellen wir sofort $P(\psi_\textit{eben},\R) = \infty$ fest. Dies zeigt uns, daß $\psi_\textit{eben}$ nur auf einem beschränkten Teilvolumen $V\subseteq\R$ normierbar ist:
+        % Für die physikalische Interpretation müssen wir uns der Wahrscheinlichkeitsinterpretation widmen: 
+        % \begin{table}[H]
+        %     \centering
+        %     \begin{tabular}{p{5cm}|p{5cm}}
+        %         Teilchen & Welle \\
+        %         \hline
+        %         Aufenthaltswahrscheinlichkeit des Teilchens (pro Volumen) am Ort $r(t)$ zur Zeit $t\in\R$ & Intensität der Welle $\abs{\psi(t,r(t))}^2$ \\
+        %     \end{tabular}
+        % \end{table}
+        \subsubsection*{Genauigkeit der Messung}
+        \noindent Prinzipiell ist es in der klassischen Physik möglich, den \emph{Ort} zum \emph{Zeitpunkt} eines Teilchens zu kennen; anders ist es bei quantenmechanischen Wellen. 
+        \begin{mdef}{Aufenthaltswahrscheinlichkeit}
+            Für eine quadratintegrierbare Wellenfunktion $\psi\in\mcL^2(\R)$ ist die Aufenthaltswahrscheinlichkeit definiert über das Wahrscheinlichkeitsmaß $P(\osi,\cdot)$ auf $(\R^3,\sigma(\R^3))$ als 
             \[
-                P(\psi_{eben},V) = \abs{C}^2\cdot\int 1\;\uplambda(dx) = \abs{C}^2\cdot\uplambda(V) \iff C = \frac{1}{\sqrt{\uplambda(V)}}. 
+                P(\psi,V) := \abs{C}\cdot\int_V\abs{\psi(x)}^2\;\uplambda(dx),\qquad V\in\sigma(\R^3),
             \]
-            % \item Ist der Aufenthalt in einem Volumen $V\subseteq\R^3$ bekannt, so sei 
-            % \[P(t,V) := \begin{cases}
-            %     \lint{\abs{\psi(t,x)}^2}{x}{V} & V\in\sigma(\R^3) \\
-            %     \infty \sonst
-            % \end{cases}\]
-            % eine Umdefinition des Maßes. 
-            \item Aus der Wahrscheinlichkeitsmaß-Eigenschaft $\mu(\R^3) = 1$ folgt
-            \[P(t,\R^3) = \lint{\abs{\psi(t,x)}^2}{x}{V} = 1.\]
-            \item In einem Volumen $W\subseteq V\subseteq\R^3$ gilt $\mu|_V(W) = \lambda(V)\cdot\abs{C}^2$ und für $W=V$ folgt $\abs{C}^2 = 1/\lambda(V)$.
-        \end{itemize}
-        Ebene Wellen beschreiben also Teilchen mit wohldefiniertem Impuls $p = \hbar\cdot k$, aber vollständig unbestimmtem Ort.
+            wobei $C$ die Normierungskonstante $C = 1/P(\psi,\R)$ ist.
+        \end{mdef}
+        Bei einer ebenen Welle $\psi_\textit{eben}$ stellen wir sofort $P(\psi_\textit{eben},\R) = \infty$ fest. Dies zeigt uns, daß $\psi_\textit{eben}$ nur auf einem beschränkten Teilvolumen $V\subseteq\R$ normierbar ist:
+        \[
+            P(\psi_{eben},V) = \abs{C}^2\cdot\int 1\;\uplambda(dx) = \abs{C}^2\cdot\uplambda(V) \iff C = \frac{1}{\sqrt{\uplambda(V)}}. 
+        \] 
+        Hier kommen verschiedene Möglichkeiten der Normierung zum Einsatz. Prinzipiell versucht man, das betrachtete \emph{Gesamtvolumen} einzuschränken. Diesen Prozess nennt man \emph{Boxnormierung}.
+        \begin{mdef}{Boxnormierung}
+            Für ein echtes beschränktes Teilvolumen $V\in\sigma(\R^d)$ des $\R^d$ fordert man $P(\psi,V) = 1$ und berechnet für alle $W\subseteq V$ mit $W\in\sigma(\R^d)$ die boxnormierte Aufenthaltswahrscheinlichkeit $P_V(\psi,W) := \abs{C}^2\cdot P(\psi,W)$, wobei $C$ die aus $1/P(\psi,V)$ resultierende \emph{Normierungskonstante} ist.
+        \end{mdef} 
+        
         \begin{Aufgabe}
             \nr{} Überlege dir den Spezialfall eines Punktes $\nset{x}\subseteq\R^3$ als Testvolumen. Wie sieht die Aufenthaltswahrscheinlichkeit aus?
         \end{Aufgabe}
 
-    \subsection*{Wellenpakete}
-        Als nächstes beschäftigen wir uns mit der Frage, wie wir Teilchen mit genau definiertem Aufenthaltsort beschreiben. Wir wenden uns hierbei an das Prinzip der \emph{Superposition}, konkreter der \emph{Fourier-Summation}, bei der wir eine Funktion $f\in \mcL^2(\R^3)$ zerlegen in Funktionen des Typus der ebenen Welle:
-        \[\psi(t,r(t)) = \frac{1}{(2\cdot\pi)^3}\mint{\fdef{\exp(\cmath\cdot(\scpr{x}{r(t)} - \frac{\hbar\cdot x^2}{2\cdot m}\cdot t))}{x\in\R^3}}{\tilde\psi}{V}\quad V\subseteq\R^3,\]
-        wobei $(\R^3,\sigma(\R^3),\tilde\psi)$ ein Maßraum ist. Wir haben dabei den Zusammenhang 
-        \[E = \hbar\cdot\omega(k) = \frac{\hbar\cdot k^2}{2\cdot m}.\]
+    \subsection{Wellenpakete}
+        Als nächstes beschäftigen wir uns mit der Frage, wie wir Teilchen mit genau definiertem Aufenthaltsort beschreiben. Wir wenden uns hierbei an das Prinzip der \emph{Superposition}, konkreter der \emph{Fourier-Summation}, bei der wir eine Funktion $\psi\in \mcL^2(\R^3)$ zerlegen in Funktionen des Typus der ebenen Welle:
+        \[
+            \psi_t(x) = \frac{1}{(2\cdot\pi)^3}\cdot\int_\R(\mcF\psi_t)(k)\cdot\exp(\cmath\cdot(\scpr{k}{x} - \frac{\hbar\cdot k^2}{2\cdot m}\cdot x))\;\uplambda(dk).
+        \]
+        Mit unseren Zusammenhängen oben erhalten wir für die Energie den Ausdruck $E(k) = p(k)^2/(2\cdot m) = (k\cdot\hbar)^2/(2\cdot m)$, sodaß wir in die ebene Wellengleichung einsetzen können und erhalten
+        \[
+            \psi_t^\textit{eben}(x) = \exp(\cmath\cdot\bbra{\scpr{k}{x} - E(k)/\hbar\cdot t}) = \exp(\cmath\cdot\bbra{\scpr{k}{x} - \frac{k^2\cdot\hbar}{2\cdot m}\cdot x}).
+        \]
+        \begin{mdef}{Wellenpaket unter Fourier}
+            Eine Funktion $\psi\in L^2(\R)$ können wir durch ebene Wellenfunktionen $\psi^\textit{eben}_t(x)$ zerlegen, wobei die Vorfaktorenfunktion $C:k\mapsto (\mcF\psi_t)(k)$ im Wellenvektorraum gegeben ist. Damit gilt dann
+            \[
+                \psi_t(x) = \frac{1}{(2\cdot\pi)^3}\cdot\int_\R(\mcF\psi_t)(k)\cdot\psi^{eben}_t(x)\;\uplambda(dk).
+            \]
+        \end{mdef}
 
         \begin{Aufgabe}
             \nr{} Warum wird bei der Fourier-Summation keine Wurzel im Vorfaktor gezogen? Recherchiere verschiedene Konventionen. [\textit{Tipp:} Bedenke $\hbar = h/(2\cdot \pi)$ und die Definition des Impulses über $k$.]

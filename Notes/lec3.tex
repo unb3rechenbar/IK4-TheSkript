@@ -2,25 +2,35 @@
 
 \begin{document}
     \subsection{Die Schrödingergleichung für freie Teilchen}
-    Als Ziel der Untersuchungen ist eine Wellengleichung für die Wahrscheinlichkeitsamplitude $\Psi$ zu finden. Wir lassen hierbei den mathematischen Beweis fallen und versuchen, die Gleichung zu \enquote{erraten}.Mit unserem Ausdruck der Fouriertransformation $\mcF$ und dem Diffeomorphismus $p(t) := \hbar\cdot k(t)$ auf $\hat\psi:=\mcF\psi$ erhalten wir
-    \[\psi(t,r(t)) = \lint{\frac{1}{(2\pi\hbar)^3}\cdot\tilde\psi(p)\cdot f(t,r(t))}{p}{} = (\mcF \hat\psi)(t,r(t)).\]
+    Als Ziel der Untersuchungen ist eine Wellengleichung für die Wahrscheinlichkeitsamplitude $\Psi$ zu finden. Wir lassen hierbei den mathematischen Beweis fallen und versuchen, die Gleichung zu \enquote{erraten}. Mit unserem Ausdruck der Fouriertransformation $\mcF$ und dem Diffeomorphismus $p(t) := \hbar\cdot k(t)$ auf $\hat\psi:=\mcF\psi$ erhalten wir
+    \[
+        \psi_t(x) = \lint{\frac{1}{(2\pi\hbar)^3}\cdot\tilde\psi_t(p)\cdot f(x,p)}{p}{}.
+    \]
     Die Funktion $f$ war dabei eine Abkürzung einer exp Verkettung, welche wir in zwei Kinderfunktionen aufteilen können:
-    \[f:=\fdef{\exp(\cmath\cdot(\scpr{p}{r(t)} - p^2\cdot t/2m)/\hbar)}{(t,r)\in\R\times\R^d} = f_1(t,r(t))\cdot f_2(t,r(t)).\]
+    \[f(x,p) = \exp(\cmath\cdot(p\cdot x - p^2\cdot t/2m)/\hbar) = f_1(x,p)\cdot f_2(x,p).\]
     Für die Ableitung gilt dann
-    \[\Dvat{s}{\psi(s,r(s))}{t} = \Dvat{s}{\mcF\hat\psi(s,r(s))}{t} = \frac{1}{(2\pi\hbar)^3}\lint{\nbra{\frac{-\cmath}{2m\hbar}}\cdot p^2\cdot f(t,r(t))}{p}{}.\]
+    \[
+        \Dvat{s}{\psi(s,p)}{x} = \Dvat{s}{\mcF\hat\psi(s,p)}{x} = \frac{1}{(2\pi\hbar)^3}\lint{\nbra{\frac{-\cmath}{2m\hbar}}\cdot p^2\cdot f(x,p)}{p}{}.
+    \]
     \begin{Aufgabe}
         \nr{} Rechne nach, daß es sich bei $p$ um einen Diffeomorphismus zwischen $(\R,\tau_\R)$ und $(\R^3,\tau_{\R^3})$ handelt und der Transformationssatz greifen kann. Welche Annahme musst du dabei machen?
 
         \nr{} Wie lautet die Ableitungen $df_1(t,r)(0,h)$ und $df_2(t,r)(0,h)$? Notiere den Ausdruck in verschiedenen Ableitungsdarstellungen. Ersetze $p^2\cdot f_1(t,r(t))$ durch den entsprechenden Ableitungsausdruck. 
     \end{Aufgabe}
     \noindent Mit der Aufgabe folgt dann 
-    \[\Dvat{s}{\psi(s,r(s))}{t} = \frac{\cmath\cdot\hbar}{2\cdot m} d(\mcF\tilde\psi)(t,r(t))(\mch)(\mch)\]
+    \[\Dvat{s}{\psi(s,p)}{x} = \frac{\cmath\cdot\hbar}{2\cdot m}\cdot d(\mcF\tilde\psi)(x,p)(1)(1)\]
     mit der Definition 
-    \[\mbbD_{(\mch,\mch)}(\mcF\hat\psi)(t,r(t)) = \lint{\frac{1}{(2\pi\hbar)^3}\cdot\hat\psi(p)\cdot f(t,r(t))}{p}{}.\]
+    \[\mbbD_{(1,1)}(\mcF\hat\psi)(x,p) = \lint{\frac{1}{(2\pi\hbar)^3}\cdot\hat\psi(p)\cdot f(x,p)}{p}{}.\]
     \begin{whiteframedr}
         Wir erhalten also die \emph{zeitabhängige Schrödingergleichung für freie Teilchen} der Form
         \[\Dvat{s}{\psi(s,r(s))}{t} = \frac{\cmath\cdot\hbar}{2\cdot m}\cdot\mbbD_{(\mch,\mch)}(\mcF\hat\psi)(t,r(t)) = \frac{\cmath\cdot\hbar}{2\cdot m}\cdot\mbbD_{(\mch,\mch)}\psi(t,r(t)).\]
     \end{whiteframedr}
+    \begin{mcor}{Die zeitabhängige Schrödingergleichung}
+        Für einen Zustand $\psi\in H^2(\R)$ gilt die zeitabhängige Schrödingergleichung
+        \[
+            \cmath\cdot\hbar \psi'(t) = -H(\psi).
+        \]
+    \end{mcor}
 
     \begin{Aufgabe}
         \nr{} Berechne die Ableitung $df(t,r(t))(0,h)$. Berechne weiter $d\psi(t,r(t))(1,0)$ und verifiziere dadurch den oberen Funktionsausdruck.

@@ -1,21 +1,35 @@
 \documentclass{subfiles}
 
 \begin{document}
+    \subsection{Beispiel: Der Potentialblock}
     \marginnote{\textbf{\textit{VL 11}}\\15.05.2023, 11:45}
-    Als nächstes Beispiel wollen wir uns ein Potential von der Form einer Indikatorfunktion auf $[a,b]\subseteq\R$. Dann sei $V:=(\mbbEins_{[a,b]}(x)\cdot V_0)_{x\in\R}$. Für unsere Zusammengeklebte Lösung ergibt sich nun ein weiterer Fall: $x\in\R_{>b}$. Dieser war bisher nicht existent, führt jedoch zu dem berühmten Ereignis des \emph{Quanten-Tunneling}. Unsere Verklebung von $u_{f,a}$ ist demnach 
+    Als nächstes Beispiel wollen wir uns ein Potential von der Form einer Indikatorfunktion auf $[a,b]\subseteq\R$. Dann sei $V:=(\mbbEins_{[a,b]}(x)\cdot V_0)_{x\in\R}$. Für unsere Zusammengeklebte Lösung ergibt sich nun ein weiterer Fall: $x\in(a,b)$. Dieser war bisher nicht existent, führt jedoch zu dem berühmten Ereignis des \emph{Quanten-Tunnelings}. Unsere Verklebungsschablone müssen wir also zunächst erweitern. Wir führen die allgemeine abschnittweise Definierte Linearkombination der Lösungen mit weiteren Koeffizienten herbei:
     \[
-        u_{f,a} = \begin{cases}
-            f_+(t,x) - \rho\cdot f_-(t,x) & x\in\R_{<a}\\
-            C\cdot f_{\kappa,-}(t,x) + D\cdot f_{\kappa,+}(t,x) & x\in[a,b]\\
-            \tau\cdot f_+(t,x - a) & x\in\R_{>b}
+        \psi(x) = \begin{cases}
+            c_{1,1}\cdot\exp(k_{\lambda,V_{<a}} \cdot x) + c_{1,2}\cdot\exp(-k_{\lambda,V_{<a}} \cdot x) & x\in\R_{<a} \\
+            c_{2,1}\cdot\exp(k_{\lambda,V_{(a,b)}} \cdot x) + c_{2,2}\cdot\exp(-k_{\lambda,V_{(a,b)}} \cdot x) & x\in(a,b) \\
+            c_{3,1}\cdot\exp(k_{\lambda,V_{>b}} \cdot x) + c_{3,2}\cdot\exp(-k_{\lambda,V_{>b}} \cdot x) & x\in\R_{>b}
         \end{cases}.
     \]
-    Beachte, daß $f$ eine Funktionserinnerung an die bekannte $\exp$ Lösung ist, wobei $k(t,x) =p/\hbar\cdot(\sqrt{2m\cdot (E-V(t,x))})$ und $\kappa(t,x) = 1/\hbar\cdot\sqrt{2m\cdot (V(t,x) - E)}$. 
+    An dieser Stelle müssen wir erneut ein physikalisches Plausibilitätsargument liefern. Dieses Mal betrifft es jedoch nur die äußeren Gebiete, das innere wird in ihren Unbekannten erhalten, da hier durch mögliche erneute Reflexion an $b$ für eine aus negativer reeller Richtung kommende Welle zwei gegenläufige Wellen in $(a,b)$ denkbar sind. Dies führt uns auf die Form 
+    \[
+        \psi(x) = \begin{cases}
+            \exp(k_{\lambda,V_{<a}}\cdot x) + \rho_{\lambda,V_{<a}}\cdot\exp(-k_{\lambda,V_{<a}}\cdot x) & x\in\R_{<a} \\
+            c_{2,1}\cdot\exp(k_{\lambda,V_{(a,b)}}\cdot x) + c_{2,2}\cdot\exp(-k_{\lambda,V_{(a,b)}}\cdot x) & x\in(a,b) \\
+            \tau_{\lambda,V_{>b}}\cdot\exp(k_{\lambda,V_{>b}}\cdot (x - a)) & x\in\R_{>b}
+        \end{cases}.
+    \]
+    % Beachte, daß $f$ eine Funktionserinnerung an die bekannte $\exp$ Lösung ist, wobei $k(t,x) =p/\hbar\cdot(\sqrt{2m\cdot (E-V(t,x))})$ und $\kappa(t,x) = 1/\hbar\cdot\sqrt{2m\cdot (V(t,x) - E)}$. 
+    Da wir nun zwei kritische Stellen $a,b\in\R$ haben, müssen wir die Stetigkeitsbedingungen an beiden Stellen erfüllen.
     \begin{Aufgabe}
-        \nr{} Setze die konkreten Funktionen für $f$ ein. Halte dich dabei an die am Anfang des Kapitels gefundene Lösung. Warum steht im dritten Funktionsteil $x-a$?
+        \nr{} Warum steht im dritten Funktionsteil $x-a$?
+
+        \nr{} Stelle die Stetigkeitsbedingungen auf und erhalte vier Bedingungsgleichungen. Dividiere nun die zu $\psi'(a)$ bzw. $\psi'(b)$ gehörige Gleichung durch $k_{\lambda,V_{<a}}$ und addiere die zu $\psi(a)$ gehörige Gleichung zu dem Ergebnis von $\psi'(a)$ bzw. subtrahiere die zu $\psi(b)$ gehörige Gleichung von dem Ergebnis von $\psi'(b)$.
     \end{Aufgabe}
-    Wir beachten nun speziell die Stetigkeitsbedingungen am Rand von $[a,b]$. Diese sind
-    \begin{table}
+    Dies führt uns auf ein lineares Gleichungssystem der Form 
+    \vspace{1cm}
+
+    \begin{table}[H]
         \centering
         \begin{tabular}{c|c|c}
             Ort & $u_{f,a}$ & $\dv{x}u_{f,a}(t,x)$ \\
@@ -38,6 +52,30 @@
     \[\sin(\chi) := \frac{1}{2}\cdot(\exp(\chi)-\exp(-\chi)) \approx \frac{\exp(\chi)}{2},\]
     sodaß für die Abschätzung $1+\mck\cdot\sinh(\chi)^2\approx 1+\mck\cdot(1/2\cdot\exp(\chi))^2\approx \mck\cdot(1/2\cdot\exp(\chi))^2$ der Ausdruck $\abs{\tau(t,x)}^2$ durch Inversbildung ausgeschrieben werden kann als
     \[\abs{\tau(t,x)}^2\approx \frac{b\cdot E\cdot(V(t,x) - E)}{V(t,x)^2}\cdot\exp(-2\cdot\kappa(t,x)\cdot a) \approx \exp(-2\cdot\sqrt{\frac{2m\cdot a\cdot(V(t,x) - E)}{\hbar}}).\]
+
+    \subsection{Beispiel: Der Potentialpeak}
+        Wir definieren nun ein abstraktes Potential, welches lediglich an einer Stelle ungleich Null ist. Dieses Potential ist gegeben durch $V:=(V_0\cdot\mbbEins_{\{x_0\}}(x))_{x\in\R}$. Wir arbeiten unsere Arbeitspunkte ab: zunächst klären wir $\lambda < V_0$ bzw. $\lambda > 0$. Wir wählen nun unsere Lösungsschablone unter einem physikalischen Plausibilitätsargument: Eine von links ($x<x_0$) einfallende Welle $\psi$ wird an der Stelle $x_0$ reflektiert oder transmittiert, im Bereich $x>x_0$ findet sich eine einzige transmittierte Welle. Damit wählen wir für die Verklebung der Fundamentallösungen die Form
+        \[
+            \psi(x) = \begin{cases}
+                \exp(k_{\lambda,V_{<x_0}}\cdot x) + \rho_{\lambda,V_{<x_0}}\cdot\exp(-k_{\lambda,V_{<x_0}}\cdot x) & x\in\R_{<x_0} \\
+                \tau_{\lambda,V_{>x_0}}\cdot\exp(k_{\lambda,V_{>x_0}}\cdot x) & x\in\R_{>x_0}
+            \end{cases}.
+        \]
+        Für $\lambda > 0$ ist im Bereich $x\in\R\setminus\{x_0\}$ der Wert für $k_{\lambda,V}(x)$ rein komplex, also die Lösung eine ebene Welle. Im Punkt $x_0$ ist für $\lambda < V_0$ ein reeller Wert und damit exponentieller Abfall bzw. für $\lambda > V_0$ ein reiner Imaginärteil und damit eine Schwingung zu erwarten. 
+        Aus der Stetigkeitsbedingung an $\psi$ an der Stelle $x_0$ erhalten wir die Gleichung $1 + \rho_{\lambda,V_{<x_0}} = \tau_{\lambda,V_{>x_0}}$ und aus der definierten Unstetigkeitsbedingung an $\psi'$ den Grenzwertprozess
+        \[
+            \lim_{x\nearrow x_0} \psi'(x) - \lim_{x\searrow x_0} \psi'(x) = V_0\cdot\psi(x_0).
+        \]
+        Hier werten wir die Definition von $\psi$ im Interval $\R_{<x_0}$ an der Stelle $x_0$ und die Definition von $\psi$ im Interval $\R_{>x_0}$ an der Stelle $x_0$ aus. Dies führt uns auf die Gleichung
+        \[
+            k_{\lambda,V_{<x_0}}\cdot\exp(k_{\lambda,V_{<x_0}}\cdot x_0)\cdot\bbra{1 + \rho_{\lambda,V_{<x_0}}} = \tau_{\lambda,V_{>x_0}}\cdot k_{\lambda,V_{>x_0}}\cdot\exp(k_{\lambda,V_{>x_0}}\cdot x_0) + V_0\cdot\psi(x_0),
+        \] 
+        \vspace{1cm}
+        Daraus folgt
+        \[
+            k_{\lambda,V_{<x_0}}\cdot (1 + \rho_{\lambda,V_{<x_0}}) = \tau_{\lambda,V_{>x_0}}\cdot k_{\lambda,V_{>x_0}} + V_0.
+        \]
+
 
     \subsubsection*{Anwendungsbeispiele}
         In der Festkörperphysik trifft man auf dieses Phänomen an vielen Stellen, wie beispielsweise dem \emph{Tunnelstrom} oder im Bereich der Supraleiter unter dem Namen \href{https://de.wikipedia.org/wiki/Josephson-Effekt}{\emph{Josephson Effekt}}. Ein weiteres Beispiel ist die \emph{kalte Emission}, oder auch bekannt als \href{https://de.wikipedia.org/wiki/Feldemission}{\emph{Feldemission}}.

@@ -52,7 +52,9 @@
             \psi(x) = c_1\cdot \exp(\tau_1\cdot x) + c_2\cdot\exp(\tau_2\cdot x).
         \]
         Für spätere Zwecke definieren wir an dieser Stelle $\tau_{\lambda,V,+}:=+k_{\lambda,V}$ und $\tau_{\lambda,V,-}:=-k_{\lambda,V}$, wobei wir die Indizes $+$ und $-$ als Indikator für die Wahl des Vorzeichens verwenden. 
-
+        \begin{mcor}{Fundamentalsystem des Hamilton DGPs}
+            Für die Hamilton Differentialgleichung zu einem Eigenwert $\lambda\in\sigma_P(H)$ ist das Fundamentalsystem von der Form $\{\exp(\tau_{\lambda,V,+}(x)\cdot x),\exp(\tau_{\lambda,V,-}(x)\cdot x)\}$, wobei $\tau_{\lambda,V,\pm} := \pm k_{\lambda,V}$ die Eigenwerte der Matrix $A$ zum linearen autonomen DGP reduzierter Ordnung mit $u'(t) = A\cdot u(t)$ sind. 
+        \end{mcor}
         \begin{Aufgabe}
             \nr{} Rechne die Definition von $k$ einmal nach, indem du die zeitunabhängige Schrödingergleichung in skizzierter Weise umstellst. Mache dir dabei besonders klar, woher das $\cmath$ stammt und was passiert, wenn $\lambda < 0$ gilt. Zeichne dazu einmal den Verlauf der Lösung $\exp(\tau_{\lambda,V,+}\cdot x)$ für $\lambda > 0$ und $\lambda < 0$.
 
@@ -89,6 +91,9 @@
             \end{align*}
             resultiert, also $(c_1^2 + c_2^2) = 1/\uplambda(V)$. Für $\uplambda(V)\to\infty$ folgt also $(c_1^2 + c_2^2)\to 0$, der Erwartungswert bleibt jedoch nach Konstruktion bei $1$ erhalten. 
         \end{enumerate}
+        \begin{mcor}{Normierbarkeit der Fundamentallösungen}
+            Ist der Energieigenwert $\lambda\in\sigma_P(H)$ größer als das Potential $V$ an der Stelle $x\in\R$, so ist die Differenz $\lambda - V(x)>0$ und $k_{\lambda,V}(x)$ rein komplex. Ist $\lambda$ kleiner als $V(x)$, so wird die Differenz komplex und $k_{\lambda,V}(x)$ insgesamt rein reell.
+        \end{mcor}
 
     \subsection{Arbeitspunkt 3: Stetigkeitsbedingungen an kritischen Stellen}
         Um konkrete Aussagen über die Verknüpfung der Lösungen an kritischen Stellen $x_0\in\R$ zu machen, an welchen sich der Funktionswert von $k_{\lambda,V}$ durch eine Wertänderung in $V$ für $x<x_0$ bzw $x>x_0$ selbst ändert und somit die Argumente der Fundamentallösungen $\exp(\tau_{\lambda,V,\pm}\cdot x)$ sich ändern, müssen wir eine Stetigkeitsbetrachtung an $\psi$ bezüglich $x_0$ durchführen. Wir fordern für eine Folge $a:\N\to\R$, $\lim a = x_0$ die definierende Bedingung
@@ -98,7 +103,7 @@
         Ferner sogar, um gleich ein Stammfunktionsargument liefern zu können, benötigen wir die \emph{gleichmäßige Stetigkeit} von $\psi$, also die Existenz eines $\delta\in\R_{>0}$ für jedes $\epsilon\in\R_{>0}$, sodaß für alle $x,y\in\R$ mit $\abs{x-y}<\delta$ die Abschätzung $\abs{\psi(x)-\psi(y)}<\epsilon$ folgt. 
         Nun betrachten wir die Ableitung von $\psi$ an der Stelle $x_0$. Hierzu verwenden wir die ursprünglich $\psi$ bestimmende Differentialgleichung $H(\psi) = \lambda\cdot\psi$ für ein gegebenes $\lambda\in\sigma_P(H)$. Wir finden in einer Umgebung $r\in\R_{>0}$ die Beziehung
         \[
-            \int_{B_r(x_0)}\psi'' = -\frac{\hbar^2}{2m}\cdot \bbbra{
+            \int_{B_r(x_0)}\psi'' = -\frac{2m}{\hbar^2}\cdot \bbbra{
                 \lambda\cdot\int_{B_r(x_0)}\psi - \int_{B_r(x_0)}V\cdot\psi
             }
         \] 
@@ -110,35 +115,44 @@
         \[
             \int_{(-r,x_0)}V\cdot\psi = V_{<x_0}\cdot\int_{(-r,x_0)}\psi = V_{<x_0}\cdot(\Psi(x_0) - \Psi(-r))
         \]
-        und analog $\int_{(x_0,r)}V\cdot\psi = V_{>x_0}\cdot(\Psi(r) - \Psi(x_0))$. Zuletzt erkennen wir noch nach Hauptsatz $\int_{B_r(x_0)}\psi'' = \Psi'(r) - \Psi'(-r)$ und erhalten die Form
+        und analog $\int_{(x_0,r)}V\cdot\psi = V_{\geq x_0}\cdot(\Psi(r) - \Psi(x_0))$. Zuletzt erkennen wir noch nach Hauptsatz $\int_{B_r(x_0)}\psi'' = \Psi'(r) - \Psi'(-r)$ und erhalten die Form
         \begin{align*}
-            \psi'(x_0 + r) - \psi'(x_0-r) &= -\frac{\hbar^2}{2m}\cdot \lambda\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0 - r)} \\
-            &\qquad - \frac{\hbar^2}{2m}\cdot\Bbra{
-                V_{<x_0}\cdot\bbra{\Psi(x_0) - \Psi(x_0 - r)} + V_{>x_0}\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0)}
+            \psi'(x_0 + r) - \psi'(x_0-r) &= -\frac{2m}{\hbar^2}\cdot \lambda\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0 - r)} \\
+            &\qquad - \frac{2m}{\hbar^2}\cdot\Bbra{
+                V_{<x_0}\cdot\bbra{\Psi(x_0) - \Psi(x_0 - r)} + V_{\geq x_0}\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0)}
             }.
         \end{align*}
         Wir können nun die Stetigkeit der Stammfunktion $\Psi$ in einem Grenzwertprozess $\lim_{r\to 0}$ ausnutzen, indem wir zunächst $\lim_{r\to 0}\Psi'(x_0 + r) - \Psi'(x_0 - r) = 0$ erkennen. Weiter gilt $\lim_{r\to 0}\Psi(x_0) - \Psi(x_0 - r) = 0$ und $\lim_{r\to 0}\Psi(x_0 - r) - \Psi(x_0) = 0$. Setzen wir dies oben ein, folgt 
         \[
-            \lim_{r\to 0}\psi'(x_0 + r)-\psi'(x_0 + r) = -\frac{\hbar^2}{2m}\cdot\Bbra{
-                \lambda\cdot 0 + V_{>x_0}\cdot 0 - V_{<x_0}\cdot 0
+            \lim_{r\to 0}\psi'(x_0 + r)-\psi'(x_0 - r) = -\frac{2m}{\hbar^2}\cdot\Bbra{
+                \lambda\cdot 0 + V_{\geq x_0}\cdot 0 - V_{<x_0}\cdot 0
             } = 0.
         \]
         Damit ist die Ableitung von $\psi$ an der Stelle $x_0$ stetig.
 
-        \begin{mdef}{Stetigkeitsbedingungen}
-            Ist $V:\R\to\R$ ein Einstufenpotential mit kritischer Stelle $x_0\in\R$, dann wird gleichmäßige Stetigkeit an $\psi$ und Stetigkeit an $\psi'$ als Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ zum Eigenwert $\lambda\in\R$ an der Stelle $x_0$ gefordert. Ferner ist $\psi$ eine Verklebung von Linearkombinationen der Fundamentallösungen $\exp(\tau_{\lambda,V,+}\cdot x)$ und $\exp(\tau_{\lambda,V,-}\cdot x)$. 
+        \begin{mdef}{Stetigkeitsbedingungen an Stufen}
+            Ist $V:\R\to\R$ ein Einstufenpotential mit kritischer Stelle $x_0\in\R$, dann wird gleichmäßige Stetigkeit an $\psi$ und Stetigkeit an $\psi'$ als Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ zum Eigenwert $\lambda\in\R$ an der Stelle $x_0$ gefordert. Ferner ist $\psi$ eine Verklebung von Linearkombinationen der Fundamentallösungen $\exp(\tau_{\lambda,V,+}(x)\cdot x)$ und $\exp(\tau_{\lambda,V,-}(x)\cdot x)$. 
+        \end{mdef}
+        Für spezielle Potentiale, bei denen zwei \emph{gegenläufige} Stufen an einem Punkt zusammenlaufen, also der Abstand der beiden kritischen Stellen $x_1$ und $x_2$ verschwindet, münden in einer \emph{Sprungstelle} $x_0 = x_1 = x_2$. Damit ist das Potential von der Form $V = (V_0\cdot\mbbEins_{\{x_0\}}(x))_{x\in\R}$ Hier ist die Stetigkeitsbedingung an $\psi'$ erneut zu diskutieren, da sich die Integralaufspaltung nun anders vollzieht. Wir benutzen $\int_{B_r(x_0)} V_0\cdot\mbbEins_{\{x_0\}}(x)\cdot\psi(x)\;dx = V_0\cdot\psi(x_0)$. Damit erhalten wir in der Schrödingergleichung die Form
+        \[
+            \lim_{r\to 0}\psi'(x_0 + r)-\psi'(x_0 - r) = -\frac{2m}{\hbar^2}\cdot\Bbra{
+                \lambda\cdot 0 + V_0\cdot\psi(x_0)
+            } = -\frac{2m}{\hbar^2}\cdot V_0\cdot\psi(x_0).
+        \]
+        \begin{mdef}{Unstetigkeitsbedingung an Peaks}
+            Hat $V:\R\to\R$ einen Peak in $x_0$ mit dem Wert $V_0$ und ist sonst gleich Null, so wird gleichmäßige Stetigkeit an $\psi$ und eine definierte Unstetigkeit an $\psi'$ mit $\lim_{x\nearrow x_0}\psi'(x) - \lim_{x\searrow x_0}\psi'(x) = -\frac{2m}{\hbar^2}\cdot V_0\cdot\psi(x_0)$.
         \end{mdef}
 
     \subsubsection*{Zusammenfassen}
-        Mithilfe des Fundamentalsystems $\{\exp(\tau_{\lambda,V,+}\cdot x),\exp(\tau_{\lambda,V,-}\cdot x)\}$ können wir die Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ für ein gegebenes $\lambda\in\R$ und ein gegebenes Potential $V:\R\to\R$ mit einer Stufe in $x_0$ und den Bedingungen $V_{<x_0}<\lambda$ und $V_{>x_0}>\lambda$ konstruieren. Wir haben dabei die Form 
+        Mithilfe des Fundamentalsystems $\{\exp(\tau_{\lambda,V,+}\cdot x),\exp(\tau_{\lambda,V,-}\cdot x)\}$ können wir die Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ für ein gegebenes $\lambda\in\R$ und ein gegebenes Potential $V:\R\to\R$ mit einer Stufe in $x_0$ und den Bedingungen $V_{<x_0}<\lambda$ und $V_{\geq x_0}>\lambda$ konstruieren. Dabei erhielten wir die Verklebung
         \[
             \psi(t,x) = C_0\cdot\begin{cases}
-                \exp(\tau_{\lambda,V,+}\cdot x) + \rho\cdot\exp(\tau_{\lambda,V,-}\cdot x) & x < 0 \\
-                \tau\cdot\exp(\tau_{\lambda,V,+}\cdot x) & x\geq 0
-            \end{cases}
+                c_{1,1}\cdot\exp(\tau_{\lambda,V,+}\cdot x) + c_{1,2}\cdot\exp(\tau_{\lambda,V,-}\cdot x) & x < 0 \\
+                c_{2,1}\cdot\exp(\tau_{\lambda,V,+}\cdot x) + c_{2,2}\cdot\exp(\tau_{\lambda,V,-}\cdot x) & x\geq 0
+            \end{cases}.
         \]
 
-    \subsection{Potentialbarrieren}
+    \subsection{Beispiel: Potentialbarriere}
         Beachte hierzu als Beispiel das Potential 
         \[V:=\fdef{\begin{cases}
             0 & x<0 \\
@@ -150,33 +164,78 @@
         % \end{Aufgabe}
         Wir können unsere Baukastenfunktion $k_{\lambda,V}$ verwenden und nach Definition unseres $V$ auf die beiden Strahlen $\R_{<0}$ und $\R_{\geq 0}$ zerlegen. Damit erhalten wir durch die Fälle oben zwei Betrachtungen:
         \begin{enumerate}[label=(\roman*)]
-            \item Wir haben den Fall $\lambda > V_0$. Damit ergibt sich für $k_{\lambda,V_0}$ die Form $k_{\lambda,V_0}(x) = \cmath\cdot\sqrt{2m\cdot (\lambda(x) - V_0(Q)(x))}$. 
-            \item Wir haben nun den Fall $\lambda < V_0$. Damit ergibt sich durch $\sqrt{2m\cdot(\lambda(x) - V_0(Q)(x))} = $die Form $k_{\lambda,V_0}(x) = \cmath\cdot\sqrt{2m\cdot\cmath\cdot (\abs{\lambda(x) - V_0(Q)(x)})}$.
-            % \item Für $\kappa(t,x):=1/(\cmath\cdot\hbar)\cdot\sqrt{2m\cdot \abs{E(t,x) - V_0}}\in\R$, ist $\overline k(t,x):=\cmath\cdot\kappa$ mit $u(t,x) = \exp(\cmath\cdot\overline k(t,x)\cdot x)$ eine Lösung. Es handelt sich nun um eine exponentiell gedämpfte Wellenfunktion im klassisch verbotenen Gebiet.
-            \item Für einen Energieeigenwert $\lambda < 0$ findet sich keine normierbare Lösung. 
+            \item Wir haben den Fall $\lambda > V(x)$ für $x\in\R_{<0}$. Damit ergibt sich für $k_{\lambda,0}$ die Form $k_{\lambda,0}(x) = \cmath\cdot\sqrt{2m\cdot\lambda}$. 
+            \item Wir haben nun den Fall $\lambda < V(x)$ für $x\in\R_{\geq 0}$. Damit ergibt sich durch die \emph{rein imaginäre} Wurzel die Form $k_{\lambda,V_0}(x) = \sqrt{2m\cdot(\abs{\lambda - V_0})}\in\R$.
+            % \item Für $\kappa(t,x):=1/(\cmath\cdot\hbar)\cdot\sqrt{2m\cdot \abs{E(t,x) - V_0}}\in\R$, ist $\overline k(t,x):=\cmath\cdot\kappa$ mit $u(t,x) = \exp(\cmath\cdot\overline k(t,x)\cdot x)$ eine Lösung. Es handelt sich nun um eine exponentiell gedämpfte Wellenfunktion im klassisch verbotenen Gebiet. 
         \end{enumerate}
-        Damit erhalten wir die Verklebung
-        \[\psi(t,x):=\fdef{C_0\cdot\begin{cases}
-            \exp(\cmath\cdot k(t,x)\cdot x) + \rho\cdot \exp(-\cmath\cdot k(t,x)\cdot x) & x < 0 \\
-            \tau\cdot\exp(\cmath\cdot\overline k(t,x)\cdot x) & x\geq 0
-        \end{cases}}{(t,x)\in\R^2}\]
-        mit \emph{Transmissionskoeffizient} $\kappa\in\R$ und \emph{Reflexionskoeffizient} $\rho\in\R$. Beachten wir nun die kritische Stelle $x=0$, dann ergeben sich durch die Stetigkeitsbedingung an $\psi,\psi'$ die Bedingungen
-        \[1+\rho = \tau\qquad \cmath\cdot (k-\overline k\cdot\rho) = \cmath\cdot\overline k\cdot\tau.\]
-        Durch Auflösen ergibt sich 
-        \[\rh_{k,\overline k} = \frac{k - \overline k}{k + \overline k}\in\C\qquad \tau_{k,\overline k} = \frac{2\cdot k}{k+\overline k}\in\C.\]
-        Die Funktionsverklebung $\psi$ stellt mit diesen Koeffizienten also eine Lösung der Schrödingergleichung. 
+        Zur Deutlichkeit des reellen bzw. imaginären Charakters der Exponentialargumente definieren wir $\kappa_{\lambda,V_0}:=\sqrt{2m\cdot(\abs{\lambda - V_0})} = \cmath\cdot k_{\lambda,V_0}$ für den reellen Teil. Damit erhalten wir durch den Verklebungsansatz die Form 
+        \[
+            \psi(t,x) := \begin{cases}
+                c_{1,1} \cdot\exp(k_{\lambda,0}\cdot x) + c_{1,2}\cdot\exp(-k_{\lambda,0}\cdot x) & x \in \R_{<0} \\
+                c_{2,1} \cdot\exp(\kappa_{\lambda,V_0}) + c_{2,2}\cdot\exp(-\kappa_{\lambda,V_0}) & x \in \R_{\geq 0}
+            \end{cases}.
+        \]
+        Wir führen an dieser Stelle nun ein \emph{physikalisches Plausibilitätsargument} an. Eine von rechts einfallende Welle, ohne die Bedeutung des \enquote{einfallens} an dieser Stelle zu diskutieren, sollte an der entscheidenden kritischen Stelle $x_0$ entweder \emph{reflektiert} oder \emph{transmittiert} werden. Dies lässt sich in den Lösungen wiederspiegeln, indem wir die Koeffizienten $c_{1,1} := 1$ und $c_{2,2}:=0$ setzen. Damit sieht die physikalisch plausible Form der mathematischen Lösung wie folgt aus:
+        \[
+            \psi(t,x) = \begin{cases}
+                \exp(k_{\lambda,0}\cdot x) + \rho_{\lambda,0}\cdot\exp(-k_{\lambda,0}\cdot x) & x \in \R_{<0} \\
+                \tau_{\lambda,V_0}\cdot\exp(\kappa_{\lambda,V_0}) & x \in \R_{\geq 0}
+            \end{cases}.
+        \]
+        Wir haben hierbei einen weiteren Schritt vollzogen und die Koeffizienten $c_{1,2}$ und $c_{2,1}$ umbenannt: Nach der skizzierten Situation liegen die Namen \emph{Reflexionskoeffizient} $\rho_{\lambda,0}\in\C$ und \emph{Transmissionskoeffizient} $\tau_{\lambda,V_0}\in\C$ nahe. 
 
+        \begin{mdef}{Physikalische Lösung des Einstufenpotentials}
+            Sei $V:\R\to\R$ ein Einstufenpotential mit kritischer Stelle $x_0\in\R$ und $V_{<x_0}<V_{\geq x_0}$. Dann ist die physikalische Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ zum Eigenwert $\lambda\in\R$ gegeben durch die Verklebung
+            \[
+                \psi(t,x) = \begin{cases}
+                    \exp(k_{\lambda,V_{<x_0}}\cdot x) + \rho_{\lambda,V_{<x_0}}\cdot\exp(-k_{\lambda,V_0}\cdot x) & x \in \R_{<0} \\
+                    \tau_{\lambda,V_{\geq x_0}}\cdot\exp(k_{\lambda,V_{\geq x_0}}\cdot x) & x \in \R_{\geq 0}
+                \end{cases}.
+            \]
+            Dabei sind die Koeffizienten $\rho_{\lambda,V_{< x_0}}$ und $\tau_{\lambda,V_{\geq x_0}}$ die Reflexions- und Transmissionskoeffizienten.
+        \end{mdef}
+        Mit unseren in Arbeitsschritt 3 aufgestellten Stetigkeitsbedingungen an $\psi$ und $\psi'$ können wir nun die Koeffizienten $\rho_{\lambda,V_{< x_0}}$ und $\tau_{\lambda,V_{\geq x_0}}$ miteinander in Verbindung bringen. Wir fordern zunächst die Stetigkeit von $\psi$ an der kritischen Stelle $x_0$. Damit erhalten wir die Bedingung
+        \[
+            \exp(k_{\lambda,0}\cdot x_0) + \rho_{\lambda,0}\cdot\exp(-k_{\lambda,0}\cdot x_0) = \tau_{\lambda,V_0}\cdot\exp(\kappa_{\lambda,V_0}\cdot x_0).
+        \]
+        Als zweite Bedingungsgleichung bringen wir die Stetigkeit der Ableitung von $\psi'$ ins Spiel. Wir erhalten durch Differenzierung der einzelnen Fundamentallösung auf ihren Lösungsintervallen die Gleichung
+        \[
+            k_{\lambda,0}\cdot\exp(k_{\lambda,0}\cdot x_0) - \rho_{\lambda,0}\cdot k_{\lambda,0}\cdot\exp(-k_{\lambda,0}\cdot x_0) = \kappa_{\lambda,V_0}\cdot\tau_{\lambda,V_0}\cdot\exp(\kappa_{\lambda,V_0}\cdot x_0).
+        \] 
+        Nun zielen wir auf einen Nulltrick ab: Wir transliterieren die beiden Gleichungen mit $\Phi:=(x-x_0)_{x\in\R}$ auf den Nullpunkt und können dadurch alle Exponentialfunktionen als $1$ auswerten. Damit erhalten wir die beiden Gleichungen
+        \[
+            1+\rho_{\lambda,0} = \tau_{\lambda,V_0},\qquad k_{\lambda,0} - \rho_{\lambda,0}\cdot k_{\lambda,0} = \kappa_{\lambda,V_0}\cdot\tau_{\lambda,V_0}.
+        \]
+        Setzen wir nun die erste Gleichung für $\tau_{\lambda,V_0}$ ein, so erhalten wir durch Termumformung unter der Annahme $k_{\lambda,0} + k_{\lambda,V_0}\neq 0$ einen Ausdruck für $\rho_{\lambda,0}$, bzw. durch Rückeinsetzen für $\rho_{\lambda,0}$ und unter Erweiterung der $1$ mit der Summe $k_{\lambda,0} + k_{\lambda,V_0}$ aus Gleichung eins einen Ausdruck für $\tau_{\lambda,V_0}$:
+        \[
+            \rho_{\lambda,0} = \frac{k_{\lambda,0} - \kappa_{\lambda,V_0}}{k_{\lambda,0} + \kappa_{\lambda,V_0}},\qquad \tau_{\lambda,V_0} = \frac{2\cdot k_{\lambda,0}}{k_{\lambda,0} + k_{\lambda,V_0}}.
+        \]
         \begin{Aufgabe}
-            \nr{} Überlege dir, an welcher Stelle die Eindimensionalität von $x$ gebraucht wurde. Lässt sich die Lösung auf $x\in\R^d$ erweitern?
+            \nr{} Schreibe die aufgestellte Lösung für das Problem mit allen Definitionen einmal sauber aus und markiere die reellen und imaginären Exponentialargumente.
+            
+            \nr{} Führe die Umformungen der aus den Stetigkeiten resultierenden Bedingungsgleichungen aus. 
 
-            \nr{} Schreibe in einer Tabelle auf, wie $k,\overline k$ in welchem Fall definiert ist. 
+            % \nr{} Überlege dir, an welcher Stelle die Eindimensionalität von $x$ gebraucht wurde. Lässt sich die Lösung auf $x\in\R^d$ erweitern?
 
-            \nr{} Setze das Ergebnis $\psi$ in den Wahrscheinlichkeitsstrom $j:=\cmath\hbar/(2m)\cdot(\psi^*\cdot\psi'-\psi\cdot(\psi')^*)$ ein. Wofür steht der Ausdruck $\hbar\cdot k/m$?
+            % \nr{} Schreibe in einer Tabelle auf, wie $k,\overline k$ in welchem Fall definiert ist. 
+
+            % \nr{} Setze das Ergebnis $\psi$ in den Wahrscheinlichkeitsstrom $j:=\cmath\hbar/(2m)\cdot(\psi^*\cdot\psi'-\psi\cdot(\psi')^*)$ ein. Wofür steht der Ausdruck $\hbar\cdot k/m$?
         \end{Aufgabe}
-        Mit der Aufgabe erhalten wir den Wahrscheinlichkeitsstrom
-        \[j(t,x) = \abs{C_0}^2\cdot \frac{p(t,x)}{m}\cdot\begin{cases}
-            1-\abs{\rho}_\C^2 & x \leq 0 \\
-            \abs{\tau\cdot \sqrt{\overline k/k}}_\C^2 & x > 0
-        \end{cases}.\]
+        \noindent Als letzten Schritt definieren wir noch die Koeffizienten für Reflexion und Transmission als Betragsquadrate der zugehörigen Koeffizienten $\rho_{\lambda,0}$ und $\tau_{\lambda,V_0}$:
+        \[
+            R := \abs{\rho_{\lambda,0}}^2, \qquad T := \abs{\tau_{\lambda,V_0}}^2.
+        \]
+        \subsubsection*{Wahrscheinlichkeitsstrom}
+            Die \emph{Kontinuitätsgleichung} $\rho'(t)(x) = -(j(t))'(x)$ für die Dichte $t\mapsto (x\mapsto \rho(t)(x))$ und eine Stromdichte $t\mapsto (x\mapsto j(t)(x))$ erlaubt die Definition einer \emph{Wahrscheinlichkeitsstromdichte} 
+            \[
+                j(t)(x) := \frac{\hbar}{2\cdot m\cdot\cmath}\cdot\bbra{
+                    \psi^*_t(x)\cdot\psi_t'(x) - \psi_t(x)\cdot\psi_t'(x)
+                }.
+            \]
+            Mit der Aufgabe erhalten wir den Wahrscheinlichkeitsstrom
+            \[j(t,x) = \abs{C_0}^2\cdot \frac{p(t,x)}{m}\cdot\begin{cases}
+                1-\abs{\rho}_\C^2 & x \leq 0 \\
+                \abs{\tau\cdot \sqrt{\overline k/k}}_\C^2 & x > 0
+            \end{cases}.\]
         
 \end{document}

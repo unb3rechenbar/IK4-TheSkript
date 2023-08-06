@@ -49,6 +49,13 @@
             \]
             für eine Vektorraumbasismenge $\mcB$. 
             Diesen Koeffizientenvergleich können wir nun beliebig weiterführen. 
+            \begin{mcor}{Nichtentartete Störung erster Ordnung}
+                Für eine Störfunktion $\Phi_\lambda := H_0 + \lambda\cdot H_s$ lässt sich durch Reihenansatz des gestörten Zustandes $\ket{N}:=\lim\sum_{n=0}^\infty\lambda_i\cdot\ket{n_i}$ zum gestörten Eigenwert $\Lamda:=\lim\sum_{n=0}^\infty\lambda_i\cdot E_{i,n}$ die Eigenwertgleichung $\Phi_\lambda\ket{N} = \Lambda\cdot\ket{N}$ aufstellen und für die erste Ordnung Korrekturterme von $\ket{N},\Lambda$ mit den Bestimmungsgleichungen berechnen:
+                \[
+                    \ket{n_1} = \sum_{m\in\N\setminus\{n\}}\ket{m_0}\cdot\frac{\braket{m_0}{H_s(\ket{n_0})}}{E_{0,n} - E_{0,m}},\quad E_{1,n} = \braket{n_0}{H_s(\ket{n_0})}.
+                \]
+                Die Energie für höhere Terme ist ferner durch die Rekursion $E_{k,n} = \braket{n_0}{H_s(\ket{n_{k-1}})}$ gegeben, die Korrekturterme zu $\ket{N}$ höherer Ordnung sind im Allgemeinen komplizierter zu bestimmen. 
+            \end{mcor}
             \begin{Aufgabe}
                 \nr{} Was sagt diese Rechnung über die Entartung von $E_{0,n}$ aus?
 
@@ -58,5 +65,7 @@
 
                 \nr{} Recherchiere zum \href{https://de.wikipedia.org/wiki/Stark-Effekt}{\emph{Stark-Effekt}}.
             \end{Aufgabe}
+
+            
             
 \end{document}

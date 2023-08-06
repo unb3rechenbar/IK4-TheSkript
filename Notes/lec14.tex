@@ -1,8 +1,70 @@
 \documentclass{subfiles}
 
-\begin{document}
-    Jetzt sind zwei Wochen Ferien. 
-    \marginnote{\textbf{\textit{VL 14}}\\@home}
+\begin{document} 
+    \subsection*{Bloch Theorem} 
+        \marginnote{\textbf{\textit{VL 14}}\\(01.06.2023)\\@home}
+
+    \subsection{Bewegung im Zentralkraftfeld}
+        
+
+    \subsection{Quantenmechanische Beschreibung des Wasserstoffatoms}
+        Wir gehen von dem Coulomb Potential $V$ aus. Wir sind auf der Suche nach den gebundenen Zuständen.
+        \begin{mdef}{Gebundener Zustand}
+            Einen Eigenzustand $\psi\in\mcL^2(\R)$ des Hamiltonoperators $H$ nennen wir \emph{gebunden}, falls der Eigenwert $\lambda$ kleiner als das Potential $V$ des Hamiltonoperators ist. 
+        \end{mdef}
+        Unser Potential hat also die Form $V := \bbra{-Z\cdot e^2/(4\pi\epsilon_0\cdot x)}_{x\in\R}$. Anschaulich wären wir bei $Z=1$ beim Wasserstoffatom, für $Z = 2$ bei $\text{He}^+$. Ist $Z = 1$, so nehmen ferner an, der Kern mit der Masse $m_p$ sei durch $m_p\gg m_e$ in Ruhe. Unsere Wellenfunktion $\psi_{l,m}$ können wir nun aufgrund der Symmetrieigenschaft des Zentralpotentials in die Kugelkoordinaten mittels $f_K$ überführen und durch die Kugelflächenfunktion $Y_{l,m}$ und Radialfunktion $R_{n,l}$ darstellen:
+        \[
+            \psi_{l,m}(x) = \bbra{R_{l,m}\circ (f_K)_1^*}(x) \cdot \Bbra{Y_{l,m}\circ\bbra{(f_K)_2^*,(f_K)_3^*}}(x).
+        \]
+        In den Kugelkoordinaten Hamiltonoperator $H_K$ eingesetzt folgt für den Radialteil $R_{n,l}(x) = u_{n,l}(x) / (f_K)_1^*(x)$ die Differentialgleichung
+        \[
+            -\frac{\hbar^2}{2m}\cdot\Bbra{\dv{x}}^2\cdot u_{n,l}(x) - \frac{Z\cdot e^2}{4\pi\epsilon_0\cdot x}\cdot u_{n,l}(x) + \frac{\hbar^2\cdot l\cdot(l+1)}{2m\cdot x^2}\cdot u_{n,l}(x) = E_{n,l}\cdot u_{n,l}(x).
+        \]
+        Ohne diese Gleichung hier konkret zu lösen, wollen wir die Phänomenologie einmal diskutieren. Wir führen zunächst die Abkürzungen des Bohrradius $a_B := 4\pi\epsilon_0\cdot\hbar^2/(m\cdot e^2)$ und der Rydbergkonstante $R_y := \hbar^2/(2\cdot m\cdot a_B)$ ein. Mithilfe der dimensionslosen Länge $\rho = Z\cdot (f_K)_1^*(x)/a_B$ und der dimensionslosen Energie $\eta = \sqrt{-E_{n,l}/R_y}/ Z$ können wir unter Multiplikation mit $1 / (Z^2\cdot R_y)$ die Differentialgleichung umformen zu
+        \[
+            \Bbra{\dv{\rho}}^2 u(\rho) + \frac{2}{\rho}\cdot u(\rho) - \frac{l\cdot(l+1)}{\rho^2}\cdot u(\rho) = \eta\cdot u(\rho).
+        \]
+        Wir betrachten nun zwei Grenzwertprozesse für die Größe $\eta$:
+        \begin{itemize}
+            \item Wird $\rho \to \infty$, so resultiert asymptotisches Verhalten gegen Null durch Wegfall der Brüche und $u''(\rho) = \eta^2\cdot u(\rho)$, sodaß wir $u(\rho)$ durch die Exponentialfunktion $u(\rho) = \exp(-\eta\cdot\rho)$ approximieren können.
+            \item Für $\rho\to 0$ erhalten wir eine grobe Approximation durch $u''(\rho) \approx l\cdot (l+1)/\rho^2\cdot u(\rho)$ und schätzen ab durch $u(\rho) \approx \rho^{l + 1}$. 
+        \end{itemize}
+        Diese Abschätzungsfaktoren spalten wir von der gesuchten Funktion $u(\rho)$ ab und erhalten 
+        \[
+            u(\rho) = \rho^{l+1}\cdot\exp(-\eta\cdot\rho)\cdot p(\rho).
+        \] 
+        Setzen wir dies in die Differentialgleichung ein, so folgt
+        \[
+            p''(\rho) + 2\cdot p'(\rho)\cdot\Bbra{\frac{l+1}{\rho} - \eta} + \frac{2}{\rho}\cdot \bbra{1 - \eta\cdot (l + 1)} = 0.
+        \]
+        Diese verbleibende Differentialgleichung wollen wir per Potenzreihenansatz der Form $p(\rho) = \sum_{n = 0}^\infty\alpha_n\cdot\rho^n$ lösen; Wir erhalten nach einer Rechnung die Rekursionsformel
+        \[
+            \alpha_{n + 1} = \frac{\eta\cdot (l + n + 1) - 1}{(n + 1)\cdot (n + 2\cdot l + 2)}\cdot\alpha_n.
+        \]
+        Hier finden sich nun zwei Fälle: Den Fall der Konvergenz oder der Divergenz. Tritt letzterer auf, so approximieren wir $p(\eta)\approx \exp(2\cdot \eta\cdot\rho)$ uner erhalten für $u$ die Form $u(\rho) \approx \exp(\eta\cdot\rho)$, was für $\eta\to\infty$ nicht mehr normierbar ist. Damit greift ein physikalisches Argumentationskonzept und wir gehen von Konvergenz aus. Für $\eta$ erhalten wir mit $n_0$ als letzen Reihenterm ungleich Null den Ausdruck
+        \[
+            \eta = \frac{1}{n_0 + l + 1}=: \frac{1}{m}
+        \]
+        und für die erlaubten Energien schließlich durch $E = -Z^2\cdot R_y\cdot n^2$ das Ergebnis $E_n = -Z^2\cdot R_y / n^2$. Die möglichen $l$ sind damit $l\in[n - 1]$ durch $l = n - n_0$. 
+        \begin{mcor}{Das Wasserstoffatom}
+            Die Spektrallinien des Wasserstoffatoms finden wir für einen Übergang $n\to m$ durch $-R_y\cdot \bbra{1/n^2 - 1/m^2}$. Die Hauptquantenzahlen beschränken die Drehimpulsquantenzahlen auf die Menge $\{1,\dots,n-1\}$, wodurch $m_l\in\{-l + n:n\in\N_0\}\cap[-l,l] =: D_l\cap [-l,l]$ gefolgert werden kann. Der Entartungsgrad eines Eigenwertes zu $n$ ist damit unter Vernachlässigung des Spins gegeben durch die Folge
+            \[
+                g:=\fdef{\sum_{l \in [n-1]}(2\cdot l + 1)}{n\in\N} = \fdef{n^2}{n\in\N},
+            \]
+            wobei $\card(D_l\cap[-l,l]) = 2\cdot l + 1$ gilt. Durch den Spin erhöht sich der Entartungsgrad zu $g_n = 2n^2$. 
+        \end{mcor}
+        Für die ersten drei Zustände erhält man mithilfe der Kugelflächendarstellung \href{https://de.wikipedia.org/wiki/Wasserstoffatom}{diese Funktionen}. 
+
+    \subsection*{Optional: Ausführung des Wasserstoffatoms in Kugelkoordinaten}
+        Wir wollen uns in diesem optionalen Unterkapitel einmal den unschönen Teil der Rechnung anschauen, der sich aus der Umrechnung in Kugelkoordinaten ergibt. Hierzu gehen wir von der zeitunabhängigen Schrödingereigenwertgleichung $H(\Psi) = \lambda\cdot\Psi$ für ein Coulombpotential $V := \bbra{-Z\cdot e^2/(4\pi\epsilon_0\cdot r)}_{r\in\R}$ aus (durch den Platzhalternamen $r$ suggerieren wir bereits ein Teilziel der Reise). Wir wollen nun die Gleichung in Kugelkoordinaten umformen. Hierzu definieren wir die Kugelkoordinatenabbildung $f_K:\R^3\to\R^3$ durch 
+        \[
+            f_K(x) := \nbra{\sqrt{x_1^2 + x_2^2 + x_3^2},\arccos\nbra{\frac{x_3}{\sqrt{x_1^2 + x_2^2 + x_3^2}}},\arctan\nbra{\frac{x_2}{x_1}}}.
+        \]
+        Als nächstes betrachen wir eine Lösung $\psi\in H^2(\R)$ des Problems: Sie ist von der allgemeinen Form $\R\to\R$, jedoch ist unser Problem ein physikalisch dreidimensionales; Wir greifen also auf die Operatortupeldefinition $n\mapsto H_n$ für $n\in\{1,2,3\}$ zurück und schreiben $\Psi$ als Zusammenfassung $(\psi_1,\psi_2,\psi_3)$ auf. Mit der geklärten Dimensionalität verketten wir nun Punktweise mit der Kugelkoordinatenabbildung $f_K$, sodaß 
+
+
+        
+        
     \subsection*{Bloch Theorem}
         Das Bloch Theorem entspringt der Physik kondensierter Materie und besagt, daß bei angenommenem \emph{periodischen Potential} $V\in\textit{periodisch}_{\R\to\R}$ die Lösungen der Schrödingergleichung die Form einer \emph{ebenen Welle} haben, welche in eine weitere periodische Funktion $p\in\textit{periodisch}_{\R\to\R}$ eingehüllt ist. Ist $a$ die Periode von $V$, dann müssen wir an die Lösung der Schrödingergleichung die Forderung
         \[\dabs{\psi(x)}{}^2 = \dabs{\psi(x + a)}{}^2\]
