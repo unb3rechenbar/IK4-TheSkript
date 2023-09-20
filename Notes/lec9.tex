@@ -107,17 +107,17 @@
                 \lambda\cdot\int_{B_r(x_0)}\psi - \int_{B_r(x_0)}V\cdot\psi
             }
         \] 
-        Mit der gleichmäßigen Stetigkeit von $\psi$ können wir die Existenz einer Stammfunktion $\Psi$ speziell auf $B_r(x_0)$ voraussetzen, sodaß wir in der linken Auswertung $\int_{B_r(x_0)}\psi(x)\; dx = \Psi(r) - \Psi(-r)$ vorfinden. Als nächstes spalten wir das rechte Integral auf zu 
+        Mit der gleichmäßigen Stetigkeit von $\psi$ können wir die Existenz einer Stammfunktion $\Psi$ speziell auf $B_r(x_0)$ voraussetzen, sodaß wir in der linken Auswertung $\int_{B_r(x_0)}\psi(x)\; dx = \Psi(x_0 + r) - \Psi(x_0 - r)$ vorfinden. Als nächstes spalten wir das rechte Integral auf zu 
         \[
-            \int_{B_r(x_0)}V\cdot\psi = \int_{(-r,x_0)}V\cdot\psi + \int_{(x_0,r)}V\cdot\psi.
+            \int_{B_r(x_0)}V\cdot\psi = \int_{(x_0-r,x_0)}V\cdot\psi + \int_{(x_0,x_0 + r)}V\cdot\psi.
         \]
         Da wir $V\cdot\psi$ als konstante Multiplikation mit $V_{<x_0}$ betrachten können, können wir umformulieren zu 
         \[
-            \int_{(-r,x_0)}V\cdot\psi = V_{<x_0}\cdot\int_{(-r,x_0)}\psi = V_{<x_0}\cdot(\Psi(x_0) - \Psi(-r))
+            \int_{(x_0-r,x_0)}V\cdot\psi = V_{<x_0}\cdot\int_{(x_0-r,x_0)}\psi = V_{<x_0}\cdot(\Psi(x_0) - \Psi(x_0 - r))
         \]
-        und analog $\int_{(x_0,r)}V\cdot\psi = V_{\geq x_0}\cdot(\Psi(r) - \Psi(x_0))$. Zuletzt erkennen wir noch nach Hauptsatz $\int_{B_r(x_0)}\psi'' = \Psi'(r) - \Psi'(-r)$ und erhalten die Form
+        und analog $\int_{(x_0,x_0 + r)}V\cdot\psi = V_{\geq x_0}\cdot(\Psi(x_0 + r) - \Psi(x_0))$. Zuletzt erkennen wir noch nach Hauptsatz $\int_{B_r(x_0)}\psi'' = \Psi'(x_0 + r) - \Psi'(x_0 - r)$ und erhalten durch Ausklammern die Form
         \begin{align*}
-            \psi'(x_0 + r) - \psi'(x_0-r) &= -\frac{2m}{\hbar^2}\cdot \lambda\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0 - r)} \\
+            \psi'(x_0 + r) - \psi'(x_0-r) &= -\frac{2m}{\hbar^2}\cdot\lambda\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0 - r)} \\
             &\qquad - \frac{2m}{\hbar^2}\cdot\Bbra{
                 V_{<x_0}\cdot\bbra{\Psi(x_0) - \Psi(x_0 - r)} + V_{\geq x_0}\cdot\bbra{\Psi(x_0 + r) - \Psi(x_0)}
             }.
@@ -143,6 +143,10 @@
             Hat $V:\R\to\R$ einen Peak in $x_0$ mit dem Wert $V_0$ und ist sonst gleich Null, so wird gleichmäßige Stetigkeit an $\psi$ und eine definierte Unstetigkeit an $\psi'$ mit $\lim_{x\nearrow x_0}\psi'(x) - \lim_{x\searrow x_0}\psi'(x) = -\frac{2m}{\hbar^2}\cdot V_0\cdot\psi(x_0)$.
         \end{mdef}
 
+    \subsection{Aufbauprinzip: Verklebung}
+        
+        
+    
     \subsubsection*{Zusammenfassen}
         Mithilfe des Fundamentalsystems $\{\exp(\tau_{\lambda,V,+}\cdot x),\exp(\tau_{\lambda,V,-}\cdot x)\}$ können wir die Lösung der Schrödingergleichung $H(\psi) = \lambda\cdot\psi$ für ein gegebenes $\lambda\in\R$ und ein gegebenes Potential $V:\R\to\R$ mit einer Stufe in $x_0$ und den Bedingungen $V_{<x_0}<\lambda$ und $V_{\geq x_0}>\lambda$ konstruieren. Dabei erhielten wir die Verklebung
         \[

@@ -58,7 +58,7 @@
     \subsection*{Optional: Ausführung des Wasserstoffatoms in Kugelkoordinaten}
         Wir wollen uns in diesem optionalen Unterkapitel einmal den unschönen Teil der Rechnung anschauen, der sich aus der Umrechnung in Kugelkoordinaten ergibt. Hierzu gehen wir von der zeitunabhängigen Schrödingereigenwertgleichung $H(\Psi) = \lambda\cdot\Psi$ für ein Coulombpotential $V := \bbra{-Z\cdot e^2/(4\pi\epsilon_0\cdot r)}_{r\in\R}$ aus (durch den Platzhalternamen $r$ suggerieren wir bereits ein Teilziel der Reise). Wir wollen nun die Gleichung in Kugelkoordinaten umformen. Hierzu definieren wir die Kugelkoordinatenabbildung $f_K:\R^3\to\R^3$ durch 
         \[
-            f_K(x) := \nbra{\sqrt{x_1^2 + x_2^2 + x_3^2},\arccos\nbra{\frac{x_3}{\sqrt{x_1^2 + x_2^2 + x_3^2}}},\arctan\nbra{\frac{x_2}{x_1}}}.
+            f_K(x) := \nbra{\dabs{x}{2},\arccos\nbra{\frac{x_3}{\dabs{x}{2}}},\arctan\nbra{\frac{x_2}{x_1}}}.
         \]
         Als nächstes betrachen wir eine Lösung $\psi\in H^2(\R)$ des Problems: Sie ist von der allgemeinen Form $\R\to\R$, jedoch ist unser Problem ein physikalisch dreidimensionales; Wir greifen also auf die Operatortupeldefinition $n\mapsto H_n$ für $n\in\{1,2,3\}$ zurück und schreiben $\Psi$ als Zusammenfassung $(\psi_1,\psi_2,\psi_3)$ auf. Mit der geklärten Dimensionalität verketten wir nun Punktweise mit der Kugelkoordinatenabbildung $f_K$, sodaß 
 
